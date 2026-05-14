@@ -1,0 +1,119 @@
+---
+title: "How to Set Up a Cold Email System That Doesn't Land in Spam"
+date: "2026-04-27"
+category: "Deliverability"
+excerpt: "A senior operator's guide to cold email deliverability: domain auth, inbox placement testing, copy that doesn't trip filters, list hygiene, and safe sending volumes."
+author: "MD. Al Amin"
+coverImage: ""
+---
+
+Most cold email programs don't fail because of bad copy. They fail because nobody is reading the copy in the first place. The emails sit quietly in the Promotions tab, the Junk folder, or worse, get filtered before they ever reach a mailbox.
+
+If you're paying for tools, lists, and SDR time, deliverability is the silent tax on every dollar you spend. A 22% inbox rate doesn't mean your campaign performed at 22% capacity. It means roughly four out of five prospects never even saw your offer.
+
+Here's the system we use at Pro Lead Maker to keep inbox placement above 90% across hundreds of campaigns in the US, UK, and EU.
+
+## Start With Domains You're Willing to Burn
+
+Never send cold email from your primary domain. If `yourcompany.com` gets flagged, your transactional email, your sales replies, and your billing notices all suffer. That's a business continuity issue, not a deliverability one.
+
+Buy 3-5 lookalike domains:
+
+- `yourcompany.io`, `getyourcompany.com`, `try-yourcompany.com`
+- Register through Cloudflare or Namecheap, not GoDaddy (cleaner reputation)
+- Set them up at least **14 days before sending** to age the domain
+- Create 2 mailboxes per domain max — so 6-10 mailboxes total
+
+This is your sending infrastructure. Treat it like production hardware.
+
+## Sender Authentication Is Non-Negotiable
+
+If SPF, DKIM, and DMARC aren't properly set, you're not doing cold email — you're spamming. Google and Microsoft tightened enforcement in 2024, and 2025 made it brutal. Bulk senders without DMARC alignment get throttled hard.
+
+### The three records you must publish
+
+1. **SPF** — Authorize your sending IPs. Keep it under 10 DNS lookups or it breaks silently.
+2. **DKIM** — Cryptographically sign each message. Use 2048-bit keys, not 1024.
+3. **DMARC** — Tell receivers what to do if SPF or DKIM fail. Start at `p=none` to monitor, then move to `p=quarantine` once aligned.
+
+> If you can't read your own DMARC reports inside a week of launching, you're flying blind. Use Postmark's free DMARC monitoring or Valimail to parse them into something human-readable.
+
+Add a BIMI record once DMARC hits `p=quarantine` — it boosts brand trust in Gmail's inbox.
+
+## Warm Up Every Mailbox Before You Send
+
+A brand-new mailbox sending 50 cold emails on day one will get cooked. Period.
+
+Use Mailwarm, Warmup Inbox, or Instantly's built-in warmup to ramp gradually:
+
+- **Days 1-7:** 5-10 warmup emails per day
+- **Days 8-14:** 15-25 per day
+- **Days 15-21:** 30-40 per day
+- **Day 22+:** Begin cold sending at **20-30 emails/day per mailbox**, max
+
+Never exceed 40 sends per mailbox per day on Google Workspace. Microsoft 365 tolerates slightly more, but the safe ceiling is 50. If you need to send 1,000 emails a day, you need 25-30 mailboxes, not bigger send caps.
+
+## Test Inbox Placement Before Every Campaign
+
+You can't fix what you don't measure. Two tools we run before every launch:
+
+- **Glockapps** — Seed test across Gmail, Outlook, Yahoo, ProtonMail. Tells you exactly what percentage hit Inbox vs. Promotions vs. Spam.
+- **Mail-Tester** — Free, quick, gives a 0-10 score on a single email. Anything under 8 means you have authentication or content issues.
+
+Run a Glockapps test on the first email of your sequence, then again after any copy or domain change. If you're consistently below 85% inbox placement, stop sending and fix the root cause.
+
+## Strip the Spam Triggers Out of Your Copy
+
+Modern filters don't really care about the word "free." They care about patterns: HTML weight, link density, image-to-text ratio, and engagement signals.
+
+### What we always cut
+
+- **Tracking pixels** — They tank deliverability. Turn them off.
+- **Multiple links** — One link per email, max. Two if you must.
+- **Unsubscribe footers with images** — Use plain-text unsub language
+- **Heavy HTML signatures** — Replace with 4 lines of plain text and your name
+- **Attachments** — Never attach anything in cold email. Link to a doc instead.
+
+Write like a human typing on a phone. Short sentences. Lowercase subject lines. No marketing voice. The closer your email looks to a 1:1 human message, the better filters treat it.
+
+## Keep Your List Surgically Clean
+
+Bouncing more than 3% will trash your domain reputation in days. Hard bounces tell mailbox providers you're sending to scraped or stale data.
+
+Our list hygiene stack:
+
+1. **MillionVerifier** or **NeverBounce** — Run every list through one of these before import. Remove "invalid" and "unknown" addresses entirely.
+2. **Catch-all suppression** — For catch-all domains, only send if the contact is enriched and verified through a second source.
+3. **Suppression list** — Maintain a master suppression file across all campaigns. Replies, unsubs, and complaints should never get emailed again, even from a different domain.
+
+Aim for bounce rates under **2%** and complaint rates under **0.1%**. Above those numbers, you're in dangerous territory.
+
+## Monitor Daily, Not Monthly
+
+Deliverability is not a "set it and forget it" function. Reputation drifts.
+
+Daily checks we run for every client:
+
+- **Google Postmaster Tools** — Watch domain reputation, spam rate, and IP reputation
+- **MXToolbox blacklist check** — Scan all sending domains weekly
+- **Reply rate per mailbox** — A sudden drop usually means inbox placement collapsed before the data shows up elsewhere
+- **Open rates** — Useful only as a relative indicator since iOS Mail Privacy distorts absolute numbers
+
+When a mailbox starts underperforming, pause it for 5-7 days, run warmup again, and rotate it back in slowly.
+
+## Sending Volume: The Rule We Don't Break
+
+Founders always want to scale faster than the infrastructure supports. We turn down clients who insist on it.
+
+- **Per mailbox:** 20-30/day cold, 40 max
+- **Per domain:** 60-80/day across mailboxes
+- **Per campaign:** Spread across 5+ domains minimum at any meaningful volume
+- **Sending hours:** Stagger across the recipient's time zone, 7am-4pm local
+
+If you want to send 5,000 cold emails per month, you need infrastructure for it — not a clever workaround.
+
+## Ready to apply this?
+
+Deliverability is the single highest-leverage problem in cold outreach. Fix it once, and every campaign that follows compounds on it. We've audited hundreds of cold email setups and rebuilt the broken ones — happy to take a look at yours.
+
+[Book a free 30-minute strategy call](https://calendly.com/proleadmaker/lead-generation)

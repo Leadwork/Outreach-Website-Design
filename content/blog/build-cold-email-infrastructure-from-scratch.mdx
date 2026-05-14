@@ -1,0 +1,232 @@
+---
+title: "How to Build a Full Cold Email Infrastructure From Scratch"
+date: "2026-03-16"
+category: "Infrastructure"
+excerpt: "A step-by-step build guide: domains, SPF/DKIM/DMARC, mailbox providers, warmup, and sending tools — including the exact DNS records that land you in primary inbox."
+author: "MD. Al Amin"
+coverImage: ""
+---
+
+Cold email infrastructure is the unglamorous half of outbound. Nobody books a meeting because your DKIM signature is valid. But ship one campaign with a broken setup and you'll spend six weeks rebuilding domain reputation that took six months to earn.
+
+After setting up infrastructure for hundreds of clients, the pattern is consistent: the teams that hit primary inbox at 90%+ deliverability do the same five things, in the same order. The teams that land in spam skipped a step.
+
+This is the build guide I'd hand to a new operator on day one.
+
+## The architecture overview
+
+Before any DNS record, understand the stack:
+
+1. **Sending domains** — separate from your main brand domain.
+2. **DNS authentication** — SPF, DKIM, DMARC, MX.
+3. **Mailboxes** — Google Workspace, Microsoft 365, or dedicated SMTP.
+4. **Warmup** — 2–4 weeks of automated reputation building.
+5. **Sending tool** — Smartlead, Instantly, or similar.
+
+Skip any layer and the whole thing breaks. Let's walk through each.
+
+## Step 1: Buy sending domains (not your main domain)
+
+**Never send cold email from your primary brand domain.** One blocklist hit and your team can't send invoices, recover passwords, or talk to existing customers.
+
+The setup:
+
+- Buy 2–4 secondary domains that look similar to your brand.
+- Examples for "acmegrowth.com": `acmegrowth.io`, `getacmegrowth.com`, `try-acmegrowth.com`, `acmegrowthhq.com`.
+- Use a registrar with clean DNS management: **Namecheap, Cloudflare, or Porkbun.** Avoid GoDaddy.
+- **Avoid** `.xyz`, `.click`, `.shop`, and similar TLDs — they correlate with spam.
+
+**Budget:** ~$15/domain/year. Plan for 1 sending domain per 3 mailboxes.
+
+## Step 2: Configure DNS authentication
+
+This is where 80% of teams quietly fail. The four records that matter:
+
+### MX record
+
+Tells the world where mail for the domain should be delivered. For Google Workspace:
+
+```
+Type: MX
+Host: @
+Priority: 1
+Value: SMTP.GOOGLE.COM
+```
+
+For Microsoft 365:
+
+```
+Type: MX
+Host: @
+Priority: 0
+Value: <yourdomain>-com.mail.protection.outlook.com
+```
+
+### SPF record
+
+Authorizes which servers can send mail on behalf of your domain. Google Workspace:
+
+```
+Type: TXT
+Host: @
+Value: v=spf1 include:_spf.google.com ~all
+```
+
+Microsoft 365:
+
+```
+Type: TXT
+Host: @
+Value: v=spf1 include:spf.protection.outlook.com -all
+```
+
+**Only one SPF record per domain.** Multiple SPF records = silent failure.
+
+### DKIM record
+
+Cryptographically signs every outgoing email so receivers can verify it wasn't tampered with. The exact value comes from your mailbox provider (in Workspace: Admin → Apps → Gmail → Authenticate email).
+
+Google Workspace example:
+
+```
+Type: TXT
+Host: google._domainkey
+Value: v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA... (your full key)
+```
+
+### DMARC record
+
+Tells receivers what to do with mail that fails SPF or DKIM. Start permissive, tighten over time.
+
+```
+Type: TXT
+Host: _dmarc
+Value: v=DMARC1; p=none; rua=mailto:dmarc@yourdomain.com; pct=100; aspf=r; adkim=r
+```
+
+After 2–3 weeks of clean sending, move to `p=quarantine`. Don't jump to `p=reject` until you've reviewed DMARC reports.
+
+### Domain forwarding + landing page
+
+Two more things that matter:
+
+- **301 redirect** the sending domain to your main brand site (so anyone who clicks the domain in the email signature lands somewhere real).
+- **Set up a simple landing page** with the company name, logo, and a "Contact us" CTA. Empty domains = spam signal.
+
+### Verify before sending
+
+Use **MXToolbox** or **dmarcian** to verify every record passes. If any are red, fix them before issuing a single mailbox. Then check `mail-tester.com` — aim for 10/10 before going live.
+
+## Step 3: Pick a mailbox provider
+
+You have three real options. Each has tradeoffs.
+
+### Google Workspace
+
+The default for most B2B outbound, especially into US/UK markets where Gmail dominates inboxes.
+
+- **Pricing:** $6/user/mo (Business Starter).
+- **Deliverability:** Excellent into Gmail. Strong reputation.
+- **Mailbox limit per domain:** 2–3 mailboxes per sending domain is the safe ceiling.
+- **Daily send limit:** 2,000 emails/day technical limit, but **stay under 30–40/day per mailbox** for cold.
+
+### Microsoft 365
+
+Better when your target audience is heavy Outlook (financial services, enterprise, government).
+
+- **Pricing:** $6/user/mo (Business Basic).
+- **Deliverability:** Excellent into Outlook/Office365. Slightly more setup friction.
+- **Mailbox limit per domain:** Same — 2–3 per domain.
+- **Daily send limit:** 10,000/day technical, but **stay under 30–40/day per mailbox.**
+
+### Dedicated SMTP (Mailgun, Postmark, SendGrid, Maildoso, Mailforge)
+
+The cheaper option at scale. Built for higher volume on dedicated IPs.
+
+- **Pricing:** $1–$3/mailbox/mo at volume.
+- **Deliverability:** Variable. Depends heavily on IP reputation and warmup discipline.
+- **Best for:** Agencies running 50+ mailboxes, or teams sending >5,000/day total.
+
+> Pick Google Workspace if you're under 20 mailboxes. Pick SMTP if you're above 50. Microsoft 365 if your prospects are on Outlook.
+
+## Step 4: Warm up every mailbox
+
+Brand-new mailboxes have zero sender reputation. Send 30 cold emails on day one and you'll land in spam — and stay there.
+
+The warmup process:
+
+1. **Create the mailbox** with a real-looking name, signature, and profile photo.
+2. **Connect it to a warmup tool** — Warmup Inbox, Mailwarm, Instantly Warmup, or Smartlead's built-in warmup.
+3. **Run automated warmup for 2–4 weeks** before any cold send. The tool sends low-volume conversational emails between participants and opens/replies to yours.
+4. **Ramp gradually** — start at 5 sends/day, increase by 5 every 2 days, cap at 30–40/day per mailbox.
+5. **Keep warmup running forever** at 10–20 emails/day in the background, even after you start cold campaigns.
+
+The warmup tool isn't optional. Send before reputation is built and you'll burn the domain.
+
+## Step 5: Choose a sending tool
+
+This is the layer that actually executes campaigns. The three serious options:
+
+### Smartlead
+
+The current category leader for cold email at scale.
+
+- **Pricing:** From $39/mo, scaling to $174/mo for unlimited mailboxes.
+- **Strengths:** Unlimited mailboxes on higher tiers, native warmup, master inbox, strong reply detection.
+- **Best for:** Agencies and teams running 10+ mailboxes.
+
+### Instantly
+
+The most user-friendly of the bunch.
+
+- **Pricing:** From $37/mo.
+- **Strengths:** Clean UI, fast learning curve, solid deliverability tools.
+- **Best for:** Solo founders and smaller teams getting started.
+
+### Lemlist
+
+The best for personalization-heavy plays with images and video.
+
+- **Pricing:** From $59/user/mo.
+- **Strengths:** Dynamic image personalization, LinkedIn multichannel, strong template library.
+- **Best for:** Account-based plays where each email is highly personalized.
+
+## The math: how many mailboxes do you need?
+
+To run a steady **1,000 cold sends/day** safely:
+
+- 1,000 sends ÷ 30 sends/mailbox/day = **34 mailboxes.**
+- 34 mailboxes ÷ 3 per domain = **12 sending domains.**
+- 12 domains × $15/yr = **$180/yr in domains.**
+- 34 mailboxes × $6/mo = **$204/mo in mailbox fees.**
+- Sending tool (Smartlead unlimited): **$94/mo.**
+- Total: ~**$300/mo** for the infrastructure layer.
+
+That's the real cost of doing it properly. Anyone quoting you $50/mo for 1,000 sends/day is cutting corners that will cost you the domain.
+
+## Common mistakes that kill deliverability
+
+- **Sending before warmup is complete.**
+- **Using the same domain for cold and transactional email.**
+- **Skipping DMARC** because "it works without it." It doesn't, especially for Gmail post-2024 enforcement.
+- **Pushing past 40 sends/day per mailbox.** Volume kills reputation faster than anything.
+- **Reusing the same template across thousands of sends.** Spam filters fingerprint repeated content.
+- **Not removing bounced contacts after the first send.** Bounce rates above 3% will get you blocked.
+
+## How to know it's working
+
+Track these every week:
+
+- **Inbox placement rate** (use GlockApps or MailReach to test) — aim for 85%+ primary.
+- **Bounce rate** — under 2%.
+- **Reply rate** — 8%+ if copy is good.
+- **Spam complaint rate** — under 0.1%.
+- **Domain health** in your sending tool's dashboard.
+
+When any of these drift, slow down and diagnose before the problem compounds.
+
+## Ready to apply this?
+
+Cold email infrastructure is engineering work disguised as marketing. Done right, it's a compounding asset. Done wrong, it's a burning fuse. If you want the full stack built, warmed, and producing inbox placement above 90% before you send a single campaign, we'll set it up end to end.
+
+[Book a free 30-minute strategy call](https://calendly.com/proleadmaker/lead-generation)
