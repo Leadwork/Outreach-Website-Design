@@ -42,10 +42,14 @@ export function generateMetadata({ params }: Props): Metadata {
   };
 }
 
+// Cast: TS widens [Plugin, options] tuples inside arrays to unions, breaking Pluggable[].
 const mdxOptions = {
   mdxOptions: {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]],
+    rehypePlugins: [
+      rehypeSlug,
+      [rehypeAutolinkHeadings, { behavior: 'wrap' }],
+    ] as any,
   },
 };
 
