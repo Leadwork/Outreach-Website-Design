@@ -47,7 +47,7 @@ const mdxOptions = {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]],
   },
-} as const;
+};
 
 export default function BlogPostPage({ params }: Props) {
   const post = getPostBySlug(params.slug);
@@ -119,7 +119,6 @@ export default function BlogPostPage({ params }: Props) {
 
           <div className="mx-auto max-w-3xl">
             <div className="prose-blog">
-              {/* @ts-expect-error MDXRemote async server component */}
               <MDXRemote source={post.content} options={mdxOptions} />
             </div>
 
