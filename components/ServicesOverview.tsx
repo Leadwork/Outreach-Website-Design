@@ -14,11 +14,12 @@ import {
   Filter,
   Search,
   ArrowRight,
+  type LucideIcon,
 } from 'lucide-react';
 import Reveal from './Reveal';
 import { services } from '@/lib/site';
 
-const iconMap: Record<string, React.ComponentType<{ size?: number; 'aria-hidden'?: boolean }>> = {
+const iconMap: Record<string, LucideIcon> = {
   'intent-based-b2b-lead-generation': Target,
   'signal-based-b2b-lead-generation': Radar,
   'b2b-lead-generation': Users,
