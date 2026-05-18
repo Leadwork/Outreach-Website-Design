@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navLinks, siteConfig } from '@/lib/site';
@@ -32,12 +33,15 @@ export default function Navbar() {
       }`}
     >
       <nav aria-label="Primary" className="container-px flex h-16 items-center justify-between lg:h-20">
-        <Link href="/" className="flex items-center gap-2" aria-label={`${siteConfig.name} home`}>
-          <span aria-hidden className="inline-block h-7 w-7 rounded-lg bg-brand-gradient" />
-          <span className="text-lg font-bold tracking-tight">
-            <span className="text-neutral-900">Pro </span>
-            <span className="text-gradient">Lead Maker</span>
-          </span>
+        <Link href="/" className="flex items-center" aria-label={`${siteConfig.name} home`}>
+          <Image
+            src="/logo.png"
+            alt={siteConfig.name}
+            width={160}
+            height={38}
+            className="h-10 w-auto"
+            priority
+          />
         </Link>
 
         <ul className="hidden items-center gap-1 lg:flex">
