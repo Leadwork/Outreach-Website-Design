@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Linkedin, Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
 import { navLinks, services, siteConfig } from '@/lib/site';
 
@@ -18,12 +19,14 @@ export default function Footer() {
       <div className="container-px py-16">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
-            <Link href="/" className="flex items-center gap-2">
-              <span aria-hidden className="inline-block h-7 w-7 rounded-lg bg-brand-gradient" />
-              <span className="text-lg font-bold tracking-tight">
-                <span className="text-neutral-900">Pro </span>
-                <span className="text-gradient">Lead Maker</span>
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt={siteConfig.name}
+                width={160}
+                height={38}
+                className="h-10 w-auto"
+              />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-neutral-600">
               We build outbound machines that fill your pipeline. Cold email outreach,
