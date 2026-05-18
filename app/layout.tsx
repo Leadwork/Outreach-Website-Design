@@ -85,7 +85,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'Organization',
     name: siteConfig.name,
     url: siteConfig.url,
-    logo: `${siteConfig.url}/logo.svg`,
+    logo: `${siteConfig.url}/logo.png`,
     founder: { '@type': 'Person', name: siteConfig.founder },
     email: siteConfig.emails.company,
     telephone: siteConfig.phone,
