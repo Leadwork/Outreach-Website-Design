@@ -5,6 +5,32 @@ import CTAButton from '@/components/CTAButton';
 import FinalCTA from '@/components/FinalCTA';
 import Reveal from '@/components/Reveal';
 
+// ── Structured Data ────────────────────────────────────────────────────────────
+const aboutUrl = `${siteConfig.url}/about`;
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: siteConfig.founder,
+  url: aboutUrl,
+  jobTitle: 'Founder & Outbound Strategist',
+  worksFor: { '@type': 'Organization', name: siteConfig.name, url: siteConfig.url },
+  knowsAbout: ['Cold Email Outreach', 'B2B Lead Generation', 'Email Deliverability', 'Appointment Setting'],
+  sameAs: [
+    siteConfig.social.linkedinPersonal,
+    siteConfig.social.twitter,
+  ],
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+    { '@type': 'ListItem', position: 2, name: 'About', item: aboutUrl },
+  ],
+};
+
 export const metadata: Metadata = {
   title: 'About — The Team Building Outbound Machines',
   description:
@@ -236,6 +262,17 @@ export default function AboutPage() {
       </section>
 
       <FinalCTA />
+
+      <script
+        id="ld-person"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
+      <script
+        id="ld-about-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
     </>
   );
 }

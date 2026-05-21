@@ -102,7 +102,12 @@ export default function Footer() {
               Services
             </h3>
             <ul className="mt-4 space-y-2 text-sm">
-              {services.slice(0, 7).map((s) => (
+              <li>
+                <Link href="/cold-email-agency" className="font-semibold text-brand-purple hover:underline">
+                  Cold Email Agency
+                </Link>
+              </li>
+              {services.slice(0, 6).map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/services#${s.slug}`}

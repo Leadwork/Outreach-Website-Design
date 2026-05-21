@@ -1,6 +1,5 @@
 import type { Metadata, Viewport } from 'next';
 import { Inter } from 'next/font/google';
-import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -30,19 +29,6 @@ export const metadata: Metadata = {
   applicationName: siteConfig.name,
   authors: [{ name: siteConfig.founder }],
   generator: 'Next.js',
-  keywords: [
-    'cold email outreach',
-    'B2B lead generation',
-    'appointment setting',
-    'LinkedIn lead generation',
-    'cold email setup',
-    'email infrastructure',
-    'email warmup',
-    'data enrichment',
-    'email verification',
-    'outbound agency',
-    'Pro Lead Maker',
-  ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -82,14 +68,37 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const orgJsonLd = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
+    '@type': ['Organization', 'ProfessionalService'],
     name: siteConfig.name,
+    legalName: siteConfig.legalName,
     url: siteConfig.url,
     logo: `${siteConfig.url}/logo.png`,
-    founder: { '@type': 'Person', name: siteConfig.founder },
+    image: `${siteConfig.url}/og-image.png`,
+    founder: {
+      '@type': 'Person',
+      name: siteConfig.founder,
+      url: `${siteConfig.url}/about`,
+      sameAs: [siteConfig.social.linkedinPersonal],
+    },
+    foundingDate: '2020',
     email: siteConfig.emails.company,
     telephone: siteConfig.phone,
     description: siteConfig.description,
+    priceRange: '$$',
+    areaServed: [
+      { '@type': 'Country', name: 'United States' },
+      { '@type': 'Country', name: 'United Kingdom' },
+      { '@type': 'Country', name: 'Germany' },
+      { '@type': 'Country', name: 'Canada' },
+      { '@type': 'Country', name: 'Australia' },
+    ],
+    knowsAbout: [
+      'Cold Email Outreach',
+      'B2B Lead Generation',
+      'Appointment Setting',
+      'Email Deliverability',
+      'LinkedIn Lead Generation',
+    ],
     sameAs: [
       siteConfig.social.linkedinCompany,
       siteConfig.social.linkedinPersonal,
@@ -135,16 +144,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <Footer />
         <WhatsAppButton />
-        <Script
+        <script
           id="ld-org"
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
         />
-        <Script
+        <script
           id="ld-website"
           type="application/ld+json"
-          strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
       </body>

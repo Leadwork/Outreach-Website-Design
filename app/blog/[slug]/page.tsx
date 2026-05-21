@@ -1,14 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import Script from 'next/script';
 import { Calendar, ArrowLeft, User } from 'lucide-react';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
 import { getAllPosts, getAllSlugs, getPostBySlug } from '@/lib/blog';
-import { siteConfig } from '@/lib/site';
+import { siteConfig, services } from '@/lib/site';
 import FinalCTA from '@/components/FinalCTA';
 
 type Props = { params: { slug: string } };
@@ -24,6 +23,7 @@ export function generateMetadata({ params }: Props): Metadata {
   return {
     title: post.title,
     description: post.excerpt,
+    keywords: post.tags,
     alternates: { canonical: url },
     openGraph: {
       type: 'article',
@@ -31,13 +31,16 @@ export function generateMetadata({ params }: Props): Metadata {
       description: post.excerpt,
       url,
       publishedTime: post.date,
-      authors: [post.author],
-      tags: [post.category],
+      modifiedTime: post.updatedAt ?? post.date,
+      authors: [`${siteConfig.url}/about`],
+      tags: post.tags ?? [post.category],
+      images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: post.title }],
     },
     twitter: {
       card: 'summary_large_image',
       title: post.title,
       description: post.excerpt,
+      images: [siteConfig.ogImage],
     },
   };
 }
@@ -61,25 +64,59 @@ export default function BlogPostPage({ params }: Props) {
   const idx = all.findIndex((p) => p.slug === post.slug);
   const related = all.filter((_, i) => i !== idx).slice(0, 3);
 
+  const postUrl = `${siteConfig.url}/blog/${post.slug}`;
+
   const ldJson = {
     '@context': 'https://schema.org',
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
-    author: { '@type': 'Person', name: post.author },
+    keywords: (post.tags ?? []).join(', '),
+    wordCount: post.wordCount,
+    url: postUrl,
+    image: { '@type': 'ImageObject', url: `${siteConfig.url}/og-image.png`, width: 1200, height: 630 },
+    author: {
+      '@type': 'Person',
+      name: post.author,
+      url: `${siteConfig.url}/about`,
+      sameAs: [siteConfig.social.linkedinPersonal],
+    },
     datePublished: post.date,
+    dateModified: post.updatedAt ?? post.date,
     publisher: {
       '@type': 'Organization',
       name: siteConfig.name,
       logo: { '@type': 'ImageObject', url: `${siteConfig.url}/logo.svg` },
     },
-    mainEntityOfPage: `${siteConfig.url}/blog/${post.slug}`,
+    mainEntityOfPage: { '@type': 'WebPage', '@id': postUrl },
+    isPartOf: { '@type': 'Blog', name: `${siteConfig.name} Blog`, url: `${siteConfig.url}/blog` },
+  };
+
+  const breadcrumbLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+      { '@type': 'ListItem', position: 2, name: 'Blog', item: `${siteConfig.url}/blog` },
+      { '@type': 'ListItem', position: 3, name: post.title, item: postUrl },
+    ],
   };
 
   return (
     <>
       <article className="relative pt-28 lg:pt-32">
         <div className="container-px">
+          {/* Breadcrumb nav */}
+          <nav aria-label="Breadcrumb" className="mb-2">
+            <ol className="flex flex-wrap items-center gap-1.5 text-sm text-neutral-500">
+              <li><Link href="/" className="hover:text-brand-purple">Home</Link></li>
+              <li aria-hidden>/</li>
+              <li><Link href="/blog" className="hover:text-brand-purple">Blog</Link></li>
+              <li aria-hidden>/</li>
+              <li className="truncate text-neutral-700 font-medium" aria-current="page">{post.category}</li>
+            </ol>
+          </nav>
+
           <Link
             href="/blog"
             className="inline-flex items-center gap-1 text-sm font-semibold text-brand-purple hover:underline"
@@ -179,13 +216,56 @@ export default function BlogPostPage({ params }: Props) {
         </section>
       )}
 
+      {/* Related Services — internal linking to service pages */}
+      <section className="section bg-neutral-50">
+        <div className="container-px">
+          <div className="mx-auto max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple">
+              Explore our services
+            </p>
+            <h2 className="mt-2 text-2xl font-bold text-neutral-900 sm:text-3xl">
+              Let Us Do This For You
+            </h2>
+            <p className="mt-3 text-neutral-600">
+              Reading about outbound is one thing. Having a team build and run it is another.
+            </p>
+            <div className="mt-8 grid gap-4 sm:grid-cols-3">
+              {services.slice(0, 3).map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/services#${s.slug}`}
+                  className="group rounded-xl border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
+                >
+                  <p className="font-semibold text-neutral-900 group-hover:text-brand-purple">
+                    {s.title}
+                  </p>
+                  <p className="mt-1 text-sm text-neutral-500">{s.short}</p>
+                </Link>
+              ))}
+            </div>
+            <div className="mt-5 text-center">
+              <Link
+                href="/services"
+                className="text-sm font-semibold text-brand-purple hover:underline"
+              >
+                View all 13 services →
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <FinalCTA />
 
-      <Script
+      <script
         id={`ld-blog-${post.slug}`}
         type="application/ld+json"
-        strategy="afterInteractive"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(ldJson) }}
+      />
+      <script
+        id={`ld-breadcrumb-${post.slug}`}
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
       />
     </>
   );

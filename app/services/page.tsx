@@ -6,6 +6,81 @@ import CTAButton from '@/components/CTAButton';
 import FinalCTA from '@/components/FinalCTA';
 import Reveal from '@/components/Reveal';
 
+// ── Structured Data ────────────────────────────────────────────────────────────
+const servicesUrl = `${siteConfig.url}/services`;
+
+const faqJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'How long until we start seeing meetings booked?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'For most clients, first qualified meetings hit the calendar between week 3 and week 5. Weeks 1-2 are spent on infrastructure, warmup, list-building and copy. Once we launch, expect a steady ramp as we test and optimise.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do you work with companies outside the US, UK and Europe?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Our core focus is US, UK and EU markets, but we run successful campaigns into Canada, Australia, the Nordics and parts of APAC. Reach out and we will tell you honestly whether your target market is a good fit.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'What is the difference between Cold Email Setup and Full Outreach System?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Cold Email Setup is the infrastructure layer — domains, mailboxes, DNS, warmup. Full Outreach System is the entire engine including strategy, lists, copy, sending and reply management. Setup is a project, Full System is an ongoing service.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Will my primary domain get burned?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'No. We always send from secondary domains — typically variations on your brand name with proper redirects. Your primary domain stays protected for transactional and existing-client communication.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Can you guarantee a specific number of meetings?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: "Anyone guaranteeing a fixed number on day one is overselling. What we guarantee is process: a fully-built system, weekly testing, transparent reporting and ongoing optimisation. In practice, our clients average 20+ qualified meetings per month.",
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'How are you priced?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'We offer two pricing models: a monthly retainer for ongoing services, or a pay-per-meeting option for select clients. Setup-only projects are quoted as a one-time fee. Book a call and we will scope something that fits.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Do we own the domains and infrastructure you set up?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Yes. Domains are registered under your name, mailboxes belong to you, and all data is yours. If we ever part ways, you keep everything.',
+      },
+    },
+  ],
+};
+
+const breadcrumbLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: siteConfig.url },
+    { '@type': 'ListItem', position: 2, name: 'Services', item: servicesUrl },
+  ],
+};
+
 export const metadata: Metadata = {
   title: 'Cold Email Outreach & B2B Lead Generation Services',
   description:
@@ -227,6 +302,17 @@ export default function ServicesPage() {
       </section>
 
       <FinalCTA />
+
+      <script
+        id="ld-faq"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        id="ld-services-breadcrumb"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }}
+      />
     </>
   );
 }

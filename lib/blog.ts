@@ -8,16 +8,19 @@ const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
 export type BlogFrontmatter = {
   title: string;
   date: string;
+  updatedAt?: string;
   category: string;
   excerpt: string;
   author: string;
   coverImage?: string;
+  tags?: string[];
 };
 
 export type BlogPost = BlogFrontmatter & {
   slug: string;
   content: string;
   readingTime: string;
+  wordCount: number;
 };
 
 export function getAllSlugs(): string[] {
@@ -38,12 +41,15 @@ export function getPostBySlug(slug: string): BlogPost | null {
     slug,
     title: data.title,
     date: data.date,
+    updatedAt: data.updatedAt,
     category: data.category,
     excerpt: data.excerpt,
     author: data.author ?? 'MD. Al Amin',
     coverImage: data.coverImage,
+    tags: data.tags ?? [],
     content,
     readingTime: stats.text,
+    wordCount: Math.round(stats.words),
   };
 }
 
