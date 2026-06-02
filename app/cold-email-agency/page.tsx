@@ -149,8 +149,8 @@ export default function ColdEmailAgencyPage() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <CTAButton>Book a Free Strategy Call</CTAButton>
-            <CTAButton href="/services" variant="secondary" external={false} withArrow={false}>
-              See All Services
+            <CTAButton href="/pricing" variant="secondary" external={false} withArrow={false}>
+              See Pricing
             </CTAButton>
           </div>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-500">

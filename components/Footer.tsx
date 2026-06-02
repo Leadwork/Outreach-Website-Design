@@ -107,7 +107,12 @@ export default function Footer() {
                   Cold Email Agency
                 </Link>
               </li>
-              {services.slice(0, 6).map((s) => (
+              <li>
+                <Link href="/pricing" className="font-semibold text-brand-purple hover:underline">
+                  Pricing
+                </Link>
+              </li>
+              {services.slice(0, 5).map((s) => (
                 <li key={s.slug}>
                   <Link
                     href={`/services#${s.slug}`}

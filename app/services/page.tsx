@@ -141,8 +141,8 @@ export default function ServicesPage() {
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <CTAButton>Book a Free Strategy Call</CTAButton>
-            <CTAButton href="#service-list" variant="secondary" external={false} withArrow={false}>
-              Explore Services
+            <CTAButton href="/pricing" variant="secondary" external={false} withArrow={false}>
+              See Pricing
             </CTAButton>
           </div>
         </div>
