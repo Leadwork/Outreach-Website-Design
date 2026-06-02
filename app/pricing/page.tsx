@@ -53,7 +53,7 @@ const packages = [
     period: '/month',
     badge: 'MOST POPULAR',
     summary: 'We buy and set everything up. You just show up for the interviews.',
-    target: '15–25+ qualified meetings / month',
+    target: '~2,000 cold sends + LinkedIn touches / month',
     features: [
       '5 sending domains (lookalikes — your main domain stays protected)',
       '15 inboxes, fully set up',
@@ -81,7 +81,7 @@ const packages = [
     period: '/month',
     badge: null,
     summary: 'A–Z LinkedIn outreach from your profile. We provide tools, write copy, send, manage replies.',
-    target: '8–15+ qualified conversations / month',
+    target: '~1,500–2,000 LinkedIn touches / month',
     features: [
       'LinkedIn Sales Navigator strategy + saved searches',
       'Closely.io / HeyReach automation, compliant with LinkedIn ToS',
@@ -106,7 +106,7 @@ const packages = [
     period: '/month',
     badge: null,
     summary: 'You provide tools and/or contacts. We handle setup, sequences, sending, replies, reports.',
-    target: 'Depends on your data quality & volume',
+    target: 'Tailored to your existing data & volume',
     features: [
       'Use your existing data, tools, or domains (or we add what\'s missing)',
       'Full domain authentication audit & fixes (SPF/DKIM/DMARC/tracking)',
@@ -198,12 +198,12 @@ const faqs = [
     a: 'No. All retainers are month-to-month with 30 days\' notice to cancel. We earn your renewal every month — most of our clients stay 12+ months because the pipeline keeps growing.',
   },
   {
-    q: 'How long until I see meetings booked?',
-    a: 'First qualified meetings typically hit your calendar in weeks 3–5. Weeks 1–2 cover infrastructure setup, inbox warmup, list-building, and copy. By month 2 you should be at full target volume.',
+    q: 'How long until campaigns are live?',
+    a: 'Weeks 1–2 cover infrastructure setup, inbox warmup, list-building, and copy. Live sending typically begins in week 3, with steady optimisation from there. We cannot promise a meeting timeline — that depends on your offer, ICP, market, and deal size.',
   },
   {
-    q: 'What is the meeting-quality guarantee?',
-    a: 'If a booked meeting isn\'t a real decision-maker, doesn\'t match your ICP, or no-shows twice in a row — it doesn\'t count toward your target. We replace it free of charge.',
+    q: 'What quality control do you offer on replies?',
+    a: 'If we forward you a "positive reply" or booked call that turns out to be off-ICP, not a decision-maker, or a hard no-show — flag it and we will replace it in the next batch at no extra cost. We are accountable for the quality of what we hand off, not for an arbitrary number we cannot honestly control.',
   },
   {
     q: 'Do I own the domains, mailboxes, and data?',
@@ -223,7 +223,7 @@ const faqs = [
   },
   {
     q: 'Do you guarantee a specific number of meetings?',
-    a: 'We guarantee the inputs — a fully-built system, weekly testing, transparent reporting, and ongoing optimisation. The targets on this page (15–25, 8–15, etc.) are averages across the last 50+ clients. Your industry, offer, deal size, and ICP will move the number up or down.',
+    a: 'No. Anyone promising "X meetings per month" upfront is either inflating numbers or carrying hidden caveats. Meeting volume depends on factors outside our control — your offer, deal size, market timing, ICP fit, sales follow-up. What we do guarantee: a fully-built system, daily operations, weekly testing, transparent reporting, and ongoing optimisation. We are accountable for inputs and operations, not arbitrary outcome promises.',
   },
   {
     q: 'Can you work with non-US/UK/EU markets?',
@@ -594,16 +594,18 @@ export default function PricingPage() {
               <Shield aria-hidden size={26} />
             </span>
             <h2 className="mt-5 text-3xl font-bold text-neutral-900 sm:text-4xl">
-              The Pro Lead Maker Guarantee
+              What We Actually Guarantee
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-neutral-700">
-              If a booked meeting is not a real decision-maker, doesn&apos;t match your ICP, or no-shows
-              twice — it does not count toward your monthly target.{' '}
-              <strong>We replace it free of charge.</strong>
+              We do <strong>not</strong> promise a specific number of meetings — anyone who does is
+              setting a number they can&apos;t honestly control. What we{' '}
+              <strong>do</strong> guarantee: a fully-built outbound system, daily operations,
+              weekly testing, transparent reporting, and quality control on every reply we forward.
             </p>
             <p className="mt-4 text-sm text-neutral-600">
-              Plus: 30-day no-strings cancellation on every retainer. You own all domains,
-              mailboxes, and data forever.
+              If a forwarded reply or booked call is off-ICP or a hard no-show, we replace it in
+              the next batch at no extra cost. 30-day cancellation on every retainer. You own all
+              domains, mailboxes, and data forever.
             </p>
             <div className="mt-7">
               <CTAButton>Book a Free Strategy Call</CTAButton>

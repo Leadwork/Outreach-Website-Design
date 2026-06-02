@@ -104,11 +104,11 @@ export const services = [
     title: 'Appointment Setting',
     short: 'We book qualified sales meetings straight onto your calendar.',
     description:
-      'Our SDR-grade reply handlers manage every conversation — answering questions, handling objections, and booking meetings only when the prospect matches your qualification criteria.',
+      'Our SDR-grade reply handlers manage every conversation — answering questions, handling objections, and booking meetings only when the prospect matches your qualification criteria. We never promise a specific monthly meeting count; we promise the operations that make qualified meetings possible.',
     benefits: [
-      '20+ qualified meetings per month',
       'Human reply handling, not bots',
-      'Show-up rates above industry average',
+      'Strict ICP qualification before booking',
+      'Calendar sync + automated reminders to reduce no-shows',
     ],
   },
   {

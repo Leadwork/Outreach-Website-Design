@@ -50,7 +50,7 @@ const faqJsonLd = {
       name: 'Can you guarantee a specific number of meetings?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "Anyone guaranteeing a fixed number on day one is overselling. What we guarantee is process: a fully-built system, weekly testing, transparent reporting and ongoing optimisation. In practice, our clients average 20+ qualified meetings per month.",
+        text: "No — and anyone promising a fixed number upfront is either inflating it or hiding caveats. Meeting volume depends on your offer, deal size, market timing, and ICP fit — factors outside our control. What we do guarantee: a fully-built system, daily operations, weekly testing, transparent reporting, ongoing optimisation, and quality control on every reply we forward.",
       },
     },
     {
@@ -113,7 +113,7 @@ const faqs = [
   },
   {
     q: 'Can you guarantee a specific number of meetings?',
-    a: "Anyone guaranteeing a fixed number on day one is overselling. What we guarantee is process: a fully-built system, weekly testing, transparent reporting and ongoing optimisation. In practice, our clients average 20+ qualified meetings per month.",
+    a: "No — and anyone promising a fixed number upfront is either inflating it or hiding caveats. Meeting volume depends on your offer, deal size, market timing, and ICP fit — factors outside our control. What we do guarantee: a fully-built system, daily operations, weekly testing, transparent reporting, ongoing optimisation, and quality control on every reply we forward.",
   },
   {
     q: 'How are you priced?',

@@ -86,7 +86,7 @@ const faqJsonLd = {
       name: 'How is Pro Lead Maker different from other cold email agencies?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We specialise exclusively in cold email and outbound — it\'s all we do. We use signal-based and intent-based prospecting, which means every email is timed to a real buying trigger. Our clients average 20+ qualified meetings per month, and our inbox placement rate stays above 90%.',
+        text: 'We specialise exclusively in cold email and outbound — it\'s all we do. We use signal-based and intent-based prospecting, which means every email is timed to a real buying trigger. We do not promise specific monthly meeting counts (meeting volume depends on your offer, deal size, and ICP), but we do guarantee a fully-built system, 90%+ inbox placement, daily operations, and quality control on every reply we forward.',
       },
     },
     {
@@ -119,10 +119,10 @@ const deliverables = [
 ];
 
 const stats = [
-  { value: '20+', label: 'Qualified meetings/month (average)' },
   { value: '90%+', label: 'Inbox placement rate' },
   { value: '500+', label: 'B2B clients served since 2020' },
   { value: '5.0', label: 'Average client rating (Fiverr & Upwork)' },
+  { value: '8', label: 'Specialist team members' },
 ];
 
 const industries = [
@@ -154,7 +154,7 @@ export default function ColdEmailAgencyPage() {
             </CTAButton>
           </div>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-500">
-            {['No long-term contracts', '20+ meetings/month average', '90%+ inbox placement'].map((t) => (
+            {['No long-term contracts', 'Founder-led campaigns', '90%+ inbox placement'].map((t) => (
               <span key={t} className="inline-flex items-center gap-1.5">
                 <Check aria-hidden size={14} className="text-brand-purple" />
                 {t}
