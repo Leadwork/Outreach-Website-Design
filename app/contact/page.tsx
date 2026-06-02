@@ -61,7 +61,7 @@ export default function ContactPage() {
                 <ul className="mt-5 space-y-4 text-sm">
                   <li>
                     <a
-                      href={`mailto:${siteConfig.emails.company}`}
+                      href={`mailto:${siteConfig.email}`}
                       className="flex items-start gap-3 text-neutral-700 hover:text-brand-purple"
                     >
                       <span className="flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-lg bg-brand-purple/10 text-brand-purple">
@@ -69,7 +69,7 @@ export default function ContactPage() {
                       </span>
                       <span>
                         <span className="block text-xs font-semibold uppercase tracking-wider text-neutral-500">Email</span>
-                        <span className="block font-medium">{siteConfig.emails.company}</span>
+                        <span className="block font-medium">{siteConfig.email}</span>
                       </span>
                     </a>
                   </li>

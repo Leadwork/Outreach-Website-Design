@@ -207,8 +207,8 @@ This site is optimised to score 100/100 across PageSpeed Insights:
 
 ## ✦ Contact
 
-- Email — `hello@proleadmaker.com`
-- Founder — MD. Al Amin (`alamin@proleadmaker.com`)
+- Email — `alamin@proleadmaker.com`
+- Founder — MD. Al Amin
 - Phone / WhatsApp — `+8801315739311`
 - LinkedIn — <https://www.linkedin.com/company/proleadmaker/>
 

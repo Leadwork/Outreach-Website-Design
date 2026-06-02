@@ -7,10 +7,7 @@ export const siteConfig = {
   url: 'https://proleadmaker.com',
   ogImage: '/og-image.png',
   founder: 'MD. Al Amin',
-  emails: {
-    personal: 'alamin@proleadmaker.com',
-    company: 'hello@proleadmaker.com',
-  },
+  email: 'alamin@proleadmaker.com',
   phone: '+8801315739311',
   whatsapp: 'https://wa.me/8801315739311',
   calendly: 'https://calendly.com/proleadmaker/lead-generation',

@@ -127,11 +127,11 @@ export default function Footer() {
             <ul className="mt-4 space-y-3 text-sm">
               <li>
                 <a
-                  href={`mailto:${siteConfig.emails.company}`}
+                  href={`mailto:${siteConfig.email}`}
                   className="flex items-center gap-2 text-neutral-600 hover:text-brand-purple"
                 >
                   <Mail aria-hidden size={16} />
-                  {siteConfig.emails.company}
+                  {siteConfig.email}
                 </a>
               </li>
               <li>

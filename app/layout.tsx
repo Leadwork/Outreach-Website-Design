@@ -81,7 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       sameAs: [siteConfig.social.linkedinPersonal],
     },
     foundingDate: '2020',
-    email: siteConfig.emails.company,
+    email: siteConfig.email,
     telephone: siteConfig.phone,
     description: siteConfig.description,
     priceRange: '$$',
@@ -111,7 +111,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       {
         '@type': 'ContactPoint',
         contactType: 'sales',
-        email: siteConfig.emails.company,
+        email: siteConfig.email,
         telephone: siteConfig.phone,
         areaServed: ['US', 'GB', 'EU'],
         availableLanguage: ['en'],
