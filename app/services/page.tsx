@@ -133,11 +133,11 @@ export default function ServicesPage() {
         <div className="container-px relative z-10 pb-16 text-center">
           <span className="eyebrow">Services</span>
           <h1 className="h-display mt-4">
-            Full-Stack <span className="text-gradient">Cold Email Outreach</span> Services
+            Three Services That <span className="text-gradient">Fill B2B Pipelines</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-600">
-            Thirteen tightly-integrated services that cover every part of the modern outbound stack —
-            built and run by senior outbound operators who do this every single day.
+            We specialise in three things — cold email outreach, cold LinkedIn outreach, and B2B
+            lead generation — and we run them together for B2B founders, SaaS, and agencies.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
             <CTAButton>Book a Free Strategy Call</CTAButton>
@@ -149,56 +149,67 @@ export default function ServicesPage() {
       </section>
 
       <section id="service-list" className="section">
-        <div className="container-px space-y-16">
+        <div className="container-px space-y-20">
           {services.map((s, i) => (
             <Reveal key={s.slug}>
               <article
                 id={s.slug}
-                className="grid scroll-mt-24 gap-10 lg:grid-cols-12 lg:items-center"
+                className="scroll-mt-24 rounded-3xl border border-neutral-200 bg-white p-8 shadow-sm sm:p-12"
               >
-                <div className={`lg:col-span-7 ${i % 2 === 1 ? 'lg:order-2' : ''}`}>
-                  <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple">
-                    Service {String(i + 1).padStart(2, '0')}
-                  </p>
-                  <h2 className="mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
-                    {s.title}
-                  </h2>
-                  <p className="mt-4 text-lg text-neutral-600">{s.description}</p>
-                  <ul className="mt-6 space-y-3">
-                    {s.benefits.map((b) => (
-                      <li key={b} className="flex gap-3 text-neutral-700">
-                        <Check
-                          aria-hidden
-                          size={20}
-                          className="mt-0.5 flex-shrink-0 text-brand-purple"
-                        />
-                        <span>{b}</span>
-                      </li>
-                    ))}
-                  </ul>
-                  <div className="mt-7">
-                    <CTAButton>Discuss This Service</CTAButton>
+                <div className="grid gap-10 lg:grid-cols-12 lg:items-start">
+                  <div className="lg:col-span-7">
+                    <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple">
+                      Service {String(i + 1).padStart(2, '0')} of {services.length}
+                    </p>
+                    <h2 className="mt-2 text-3xl font-bold tracking-tight text-neutral-900 sm:text-4xl">
+                      {s.title}
+                    </h2>
+                    <p className="mt-4 text-lg text-neutral-600">{s.description}</p>
+                    <ul className="mt-6 space-y-3">
+                      {s.benefits.map((b) => (
+                        <li key={b} className="flex gap-3 text-neutral-700">
+                          <Check
+                            aria-hidden
+                            size={20}
+                            className="mt-0.5 flex-shrink-0 text-brand-purple"
+                          />
+                          <span>{b}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="mt-7 flex flex-wrap items-center gap-3">
+                      <CTAButton href={`/services/${s.slug}`} external={false} withArrow={true}>
+                        Explore {s.title}
+                      </CTAButton>
+                      <CTAButton variant="secondary" withArrow={false}>
+                        Book a Strategy Call
+                      </CTAButton>
+                    </div>
                   </div>
-                </div>
-                <div className={`lg:col-span-5 ${i % 2 === 1 ? 'lg:order-1' : ''}`}>
-                  <div className="relative overflow-hidden rounded-2xl border border-brand-purple/20 bg-brand-gradient-soft p-1">
-                    <div className="rounded-2xl bg-white p-8">
-                      <p className="text-xs font-semibold uppercase tracking-wider text-neutral-500">
-                        Quick summary
+
+                  <div className="lg:col-span-5">
+                    <div className="rounded-2xl border border-brand-purple/20 bg-brand-gradient-soft p-6">
+                      <p className="text-xs font-semibold uppercase tracking-wider text-brand-purple">
+                        What&apos;s included
                       </p>
-                      <p className="mt-3 text-lg font-semibold text-neutral-900">{s.short}</p>
-                      <ul className="mt-5 space-y-3 text-sm text-neutral-600">
-                        {s.benefits.map((b) => (
-                          <li key={b} className="flex gap-2">
+                      <ul className="mt-4 space-y-2.5 text-sm text-neutral-700">
+                        {s.subServices.map((sub) => (
+                          <li key={sub} className="flex gap-2.5">
                             <ArrowRight
                               aria-hidden
                               size={14}
                               className="mt-1 flex-shrink-0 text-brand-purple"
                             />
-                            <span>{b}</span>
+                            <span>{sub}</span>
                           </li>
                         ))}
                       </ul>
+                      <Link
+                        href={`/services/${s.slug}`}
+                        className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-brand-purple hover:underline"
+                      >
+                        See full breakdown <ArrowRight aria-hidden size={14} />
+                      </Link>
                     </div>
                   </div>
                 </div>

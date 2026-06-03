@@ -1,5 +1,5 @@
 import type { MetadataRoute } from 'next';
-import { siteConfig } from '@/lib/site';
+import { siteConfig, services } from '@/lib/site';
 import { getAllPosts } from '@/lib/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -8,6 +8,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const priorityMap: Record<string, number> = {
     '': 1.0,
     '/services': 0.9,
+    '/services/cold-email-outreach': 0.95,
+    '/services/cold-linkedin-outreach': 0.95,
+    '/services/b2b-lead-generation': 0.95,
     '/cold-email-agency': 0.9,
     '/pricing': 0.9,
     '/results': 0.8,
@@ -17,9 +20,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/tools': 0.6,
   };
 
+  const servicePaths = services.map((s) => `/services/${s.slug}`);
+
   const staticRoutes = [
     '',
     '/services',
+    ...servicePaths,
     '/cold-email-agency',
     '/pricing',
     '/results',

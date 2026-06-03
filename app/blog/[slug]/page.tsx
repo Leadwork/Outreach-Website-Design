@@ -230,10 +230,10 @@ export default function BlogPostPage({ params }: Props) {
               Reading about outbound is one thing. Having a team build and run it is another.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {services.slice(0, 3).map((s) => (
+              {services.map((s) => (
                 <Link
                   key={s.slug}
-                  href={`/services#${s.slug}`}
+                  href={`/services/${s.slug}`}
                   className="group rounded-xl border border-neutral-200 bg-white p-5 transition-shadow hover:shadow-md"
                 >
                   <p className="font-semibold text-neutral-900 group-hover:text-brand-purple">
@@ -248,7 +248,7 @@ export default function BlogPostPage({ params }: Props) {
                 href="/services"
                 className="text-sm font-semibold text-brand-purple hover:underline"
               >
-                View all 13 services →
+                See all services →
               </Link>
             </div>
           </div>

@@ -112,16 +112,24 @@ export default function Footer() {
                   Pricing
                 </Link>
               </li>
-              {services.slice(0, 5).map((s) => (
+              {services.map((s) => (
                 <li key={s.slug}>
                   <Link
-                    href={`/services#${s.slug}`}
+                    href={`/services/${s.slug}`}
                     className="text-neutral-600 hover:text-brand-purple"
                   >
                     {s.title}
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/services"
+                  className="text-neutral-600 hover:text-brand-purple"
+                >
+                  All Services →
+                </Link>
+              </li>
             </ul>
           </div>
 
