@@ -65,7 +65,29 @@ export default function ServicesOverview() {
           })}
         </div>
 
-        <div className="mt-12 flex flex-wrap justify-center gap-3">
+        {/* Niche solutions — internal links for long-tail SEO */}
+        <div className="mt-12 text-center">
+          <p className="text-sm font-semibold uppercase tracking-wider text-neutral-500">
+            Built for your team
+          </p>
+          <div className="mt-4 flex flex-wrap justify-center gap-3">
+            {[
+              { href: '/cold-email-for-saas', label: 'For B2B SaaS' },
+              { href: '/cold-email-for-agencies', label: 'For Marketing Agencies' },
+              { href: '/cold-email-for-startups', label: 'For Founders & Startups' },
+            ].map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                className="rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-medium text-neutral-700 transition-colors hover:border-brand-purple hover:text-brand-purple"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-wrap justify-center gap-3">
           <Link href="/services" className="btn-primary">
             See All Services
           </Link>
