@@ -18,13 +18,19 @@ export const metadata: Metadata = {
   },
 };
 
-type Tool = { name: string; description: string; useCase: string; url: string };
+type Tool = {
+  name: string;
+  description: string;
+  useCase: string;
+  url: string;
+  affiliate?: boolean;
+};
 
 const groups: { category: string; tools: Tool[] }[] = [
   {
     category: 'Sending Platforms',
     tools: [
-      { name: 'Instantly', description: 'High-volume cold email sender with built-in warmup and unibox.', useCase: 'Best for agencies running multi-domain sends.', url: 'https://instantly.ai' },
+      { name: 'Instantly', description: 'High-volume cold email sender with built-in warmup and unibox.', useCase: 'Best for agencies running multi-domain sends.', url: 'https://refer.instantly.ai/pro-lead-maker', affiliate: true },
       { name: 'Smartlead', description: 'AI-powered cold email and reply handling at scale.', useCase: 'Great when you need flexible API and multi-channel.', url: 'https://smartlead.ai' },
       { name: 'Apollo', description: 'Database + sending + sequencing in one stack.', useCase: 'Ideal for early-stage teams building lists fast.', url: 'https://apollo.io' },
       { name: 'Lemlist', description: 'Personalised cold email with images and videos.', useCase: 'Best when hyper-personalisation matters most.', url: 'https://lemlist.com' },
@@ -54,7 +60,7 @@ const groups: { category: string; tools: Tool[] }[] = [
       { name: 'Mailreach', description: 'Reputation warmup with peer-to-peer network.', useCase: 'Stable warmup for new domains.', url: 'https://mailreach.co' },
       { name: 'Warmup Inbox', description: 'Automated inbox warming with reporting.', useCase: 'Great for monitoring sender reputation.', url: 'https://warmupinbox.com' },
       { name: 'Smartlead Warmup', description: 'Built-in warmup tied to sending campaigns.', useCase: 'Useful if Smartlead is your sender.', url: 'https://smartlead.ai' },
-      { name: 'Instantly Warmup', description: 'Free warmup included with Instantly accounts.', useCase: 'Default warmup for Instantly users.', url: 'https://instantly.ai' },
+      { name: 'Instantly Warmup', description: 'Free warmup included with Instantly accounts.', useCase: 'Default warmup for Instantly users.', url: 'https://refer.instantly.ai/pro-lead-maker', affiliate: true },
     ],
   },
   {
@@ -97,6 +103,10 @@ export default function ToolsPage() {
               Try Our Free Mini-Tool
             </CTAButton>
           </div>
+          <p className="mx-auto mt-6 max-w-2xl text-xs text-neutral-400">
+            Some links on this page are referral links — if you sign up through them we may earn a
+            commission at no extra cost to you. We only recommend tools we actually use with clients.
+          </p>
         </div>
       </section>
 
@@ -116,7 +126,11 @@ export default function ToolsPage() {
                     <a
                       href={t.url}
                       target="_blank"
-                      rel="noopener noreferrer nofollow"
+                      rel={
+                        t.affiliate
+                          ? 'sponsored noopener noreferrer'
+                          : 'nofollow noopener noreferrer'
+                      }
                       className="card flex h-full flex-col"
                     >
                       <div className="flex items-center justify-between">
@@ -128,7 +142,14 @@ export default function ToolsPage() {
                         </span>
                         <ExternalLink aria-hidden size={14} className="text-neutral-400" />
                       </div>
-                      <h3 className="mt-4 text-lg font-bold text-neutral-900">{t.name}</h3>
+                      <div className="mt-4 flex items-center gap-2">
+                        <h3 className="text-lg font-bold text-neutral-900">{t.name}</h3>
+                        {t.affiliate && (
+                          <span className="rounded-full bg-brand-purple/10 px-2 py-0.5 text-[10px] font-semibold uppercase tracking-wider text-brand-purple">
+                            Referral
+                          </span>
+                        )}
+                      </div>
                       <p className="mt-2 text-sm leading-relaxed text-neutral-600">{t.description}</p>
                       <p className="mt-3 text-xs font-semibold uppercase tracking-wider text-brand-purple">
                         {t.useCase}
