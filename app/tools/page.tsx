@@ -5,6 +5,17 @@ import CTAButton from '@/components/CTAButton';
 import FinalCTA from '@/components/FinalCTA';
 import Reveal from '@/components/Reveal';
 import SubjectLineTester from '@/components/SubjectLineTester';
+import ToolLogo from '@/components/ToolLogo';
+
+/** Resolve the logo domain: explicit override, else derived from the URL host. */
+function getLogoDomain(t: Tool): string {
+  if (t.logoDomain) return t.logoDomain;
+  try {
+    return new URL(t.url).hostname.replace(/^www\./, '');
+  } catch {
+    return '';
+  }
+}
 
 export const metadata: Metadata = {
   title: 'The Best Cold Outreach Tools — Curated By Pro Lead Maker',
@@ -24,13 +35,15 @@ type Tool = {
   useCase: string;
   url: string;
   affiliate?: boolean;
+  /** Override the domain used for logo lookup (e.g. when url is a referral link). */
+  logoDomain?: string;
 };
 
 const groups: { category: string; tools: Tool[] }[] = [
   {
     category: 'Sending Platforms',
     tools: [
-      { name: 'Instantly', description: 'High-volume cold email sender with built-in warmup and unibox.', useCase: 'Best for agencies running multi-domain sends.', url: 'https://refer.instantly.ai/pro-lead-maker', affiliate: true },
+      { name: 'Instantly', description: 'High-volume cold email sender with built-in warmup and unibox.', useCase: 'Best for agencies running multi-domain sends.', url: 'https://refer.instantly.ai/pro-lead-maker', affiliate: true, logoDomain: 'instantly.ai' },
       { name: 'Smartlead', description: 'AI-powered cold email and reply handling at scale.', useCase: 'Great when you need flexible API and multi-channel.', url: 'https://smartlead.ai' },
       { name: 'Apollo', description: 'Database + sending + sequencing in one stack.', useCase: 'Ideal for early-stage teams building lists fast.', url: 'https://apollo.io' },
       { name: 'Lemlist', description: 'Personalised cold email with images and videos.', useCase: 'Best when hyper-personalisation matters most.', url: 'https://lemlist.com' },
@@ -60,7 +73,7 @@ const groups: { category: string; tools: Tool[] }[] = [
       { name: 'Mailreach', description: 'Reputation warmup with peer-to-peer network.', useCase: 'Stable warmup for new domains.', url: 'https://mailreach.co' },
       { name: 'Warmup Inbox', description: 'Automated inbox warming with reporting.', useCase: 'Great for monitoring sender reputation.', url: 'https://warmupinbox.com' },
       { name: 'Smartlead Warmup', description: 'Built-in warmup tied to sending campaigns.', useCase: 'Useful if Smartlead is your sender.', url: 'https://smartlead.ai' },
-      { name: 'Instantly Warmup', description: 'Free warmup included with Instantly accounts.', useCase: 'Default warmup for Instantly users.', url: 'https://refer.instantly.ai/pro-lead-maker', affiliate: true },
+      { name: 'Instantly Warmup', description: 'Free warmup included with Instantly accounts.', useCase: 'Default warmup for Instantly users.', url: 'https://refer.instantly.ai/pro-lead-maker', affiliate: true, logoDomain: 'instantly.ai' },
     ],
   },
   {
@@ -78,7 +91,7 @@ const groups: { category: string; tools: Tool[] }[] = [
       { name: 'Clay', description: 'Programmable data enrichment and outbound automation.', useCase: 'Powerful for building custom signal workflows.', url: 'https://clay.com' },
       { name: 'Common Room', description: 'Signal-based selling across community and product data.', useCase: 'Strong for PLG and community-led teams.', url: 'https://commonroom.io' },
       { name: 'Trigify', description: 'Buying signal aggregator for B2B sellers.', useCase: 'Surfaces signals like job changes and tech adoption.', url: 'https://trigify.io' },
-      { name: 'LinkedIn Sales Navigator', description: 'Advanced LinkedIn search and filtering.', useCase: 'Foundation for LinkedIn-based prospecting.', url: 'https://business.linkedin.com/sales-solutions/sales-navigator' },
+      { name: 'LinkedIn Sales Navigator', description: 'Advanced LinkedIn search and filtering.', useCase: 'Foundation for LinkedIn-based prospecting.', url: 'https://business.linkedin.com/sales-solutions/sales-navigator', logoDomain: 'linkedin.com' },
     ],
   },
 ];
@@ -134,12 +147,7 @@ export default function ToolsPage() {
                       className="card flex h-full flex-col"
                     >
                       <div className="flex items-center justify-between">
-                        <span
-                          aria-hidden
-                          className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-gradient-soft text-base font-bold text-brand-purple"
-                        >
-                          {t.name.charAt(0)}
-                        </span>
+                        <ToolLogo domain={getLogoDomain(t)} name={t.name} />
                         <ExternalLink aria-hidden size={14} className="text-neutral-400" />
                       </div>
                       <div className="mt-4 flex items-center gap-2">
