@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { Linkedin, Facebook, Instagram, Twitter, Mail, Phone } from 'lucide-react';
+import { Linkedin, Facebook, Instagram, Twitter, Mail, Phone, Star } from 'lucide-react';
 import { navLinks, services, siteConfig } from '@/lib/site';
 
 const TikTokIcon = () => (
@@ -170,7 +170,38 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-3 border-t border-neutral-200 pt-6 text-xs text-neutral-500 sm:flex-row">
+        {/* Trust badges — verified third-party profiles (social proof + reciprocal links) */}
+        <div className="mt-12 border-t border-neutral-200 pt-8">
+          <p className="text-center text-xs font-semibold uppercase tracking-wider text-neutral-400">
+            Verified & reviewed on
+          </p>
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-3">
+            <a
+              href={siteConfig.social.clutch}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 transition-colors hover:border-brand-purple hover:text-brand-purple"
+            >
+              <Star aria-hidden size={14} className="fill-yellow-400 text-yellow-400" />
+              Clutch — 5.0 Verified Reviews
+            </a>
+            <a
+              href={siteConfig.social.google}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 transition-colors hover:border-brand-purple hover:text-brand-purple"
+            >
+              <Star aria-hidden size={14} className="fill-yellow-400 text-yellow-400" />
+              Google Business Profile
+            </a>
+            <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700">
+              <Star aria-hidden size={14} className="fill-yellow-400 text-yellow-400" />
+              Fiverr Top Rated Plus
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-neutral-200 pt-6 text-xs text-neutral-500 sm:flex-row">
           <p>© {year} {siteConfig.legalName}. All rights reserved.</p>
           <p>Founded by {siteConfig.founder}</p>
         </div>

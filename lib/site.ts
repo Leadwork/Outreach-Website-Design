@@ -17,7 +17,8 @@ export const siteConfig = {
     locality: 'Dhaka',
   },
   social: {
-    google: 'https://share.google/zUhXxcWrs8jf1XhUJ',
+    google: 'https://share.google/3pGf6JqInZRf27eMX',
+    clutch: 'https://clutch.co/profile/pro-lead-maker',
     linkedinPersonal: 'https://www.linkedin.com/in/thedmalamin/',
     linkedinCompany: 'https://www.linkedin.com/company/proleadmaker/',
     facebook: 'https://www.facebook.com/ProLeadMaker',

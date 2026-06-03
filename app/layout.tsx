@@ -103,6 +103,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     sameAs: [
       siteConfig.social.linkedinCompany,
       siteConfig.social.linkedinPersonal,
+      siteConfig.social.clutch,
+      siteConfig.social.google,
       siteConfig.social.facebook,
       siteConfig.social.twitter,
       siteConfig.social.instagram,
