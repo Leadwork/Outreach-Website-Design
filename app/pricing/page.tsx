@@ -20,7 +20,7 @@ import Reveal from '@/components/Reveal';
 export const metadata: Metadata = {
   title: 'Pricing — Cold Email & LinkedIn Outreach Packages',
   description:
-    'Transparent outreach pricing for B2B founders, SaaS, and agencies. Done-for-you multichannel from $1,000/month, LinkedIn-only, outreach management, and list-building packages.',
+    'Transparent cold outreach pricing for B2B teams. Done-for-you multichannel from $1,000/mo, plus LinkedIn-only, management, and list-building plans.',
   keywords: [
     'cold email agency pricing',
     'LinkedIn outreach pricing',

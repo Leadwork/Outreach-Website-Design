@@ -6,7 +6,7 @@ import ServiceLandingPage from '@/components/ServiceLandingPage';
 export const metadata: Metadata = {
   title: 'Cold Email Outreach Services — Done For You',
   description:
-    'Done-for-you cold email outreach for B2B founders, SaaS, and agencies. Infrastructure, copy, sending, reply handling — all in one. 90%+ inbox placement, no long contracts.',
+    'Done-for-you cold email outreach for B2B teams. Infrastructure, copy, sending, and reply handling in one. 90%+ inbox placement, no long contracts.',
   keywords: [
     'cold email outreach',
     'cold email service',

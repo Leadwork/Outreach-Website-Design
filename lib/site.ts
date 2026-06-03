@@ -3,7 +3,7 @@ export const siteConfig = {
   legalName: 'Pro Lead Maker',
   tagline: 'Cold Email Outreach Built To Fill Your Pipeline',
   description:
-    'Pro Lead Maker is a B2B cold email outreach agency that builds full outbound systems, books qualified meetings, and scales pipeline for agencies, SaaS, and service businesses.',
+    'B2B cold email and LinkedIn outreach agency. We build full outbound systems and fill pipelines for founders, SaaS, and agencies — done for you.',
   url: 'https://proleadmaker.com',
   ogImage: '/og-image.png',
   founder: 'MD. Al Amin',

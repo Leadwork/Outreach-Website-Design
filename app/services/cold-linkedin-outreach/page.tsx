@@ -6,7 +6,7 @@ import ServiceLandingPage from '@/components/ServiceLandingPage';
 export const metadata: Metadata = {
   title: 'Cold LinkedIn Outreach Services — From Your Profile',
   description:
-    'Done-for-you LinkedIn outreach from your profile. Profile optimisation, Sales Nav strategy, multi-touch sequences with voice notes, full reply handling. ToS-compliant.',
+    'Done-for-you LinkedIn outreach from your profile. Profile optimisation, Sales Nav, multi-touch sequences, voice notes, reply handling. ToS-compliant.',
   keywords: [
     'cold LinkedIn outreach',
     'LinkedIn lead generation',

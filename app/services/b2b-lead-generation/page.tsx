@@ -6,7 +6,7 @@ import ServiceLandingPage from '@/components/ServiceLandingPage';
 export const metadata: Metadata = {
   title: 'B2B Lead Generation Services — Verified, Enriched, Ready',
   description:
-    'Done-for-you B2B lead generation. Verified contacts, multi-source waterfall enrichment, intent and signal-based prospecting. 2,000 ICP-aligned leads/month. Under 2% bounce.',
+    'Done-for-you B2B lead generation. Verified, enriched contacts via multi-source waterfall. 2,000 ICP-aligned leads/month, under 2% bounce.',
   keywords: [
     'B2B lead generation',
     'B2B lead generation agency',

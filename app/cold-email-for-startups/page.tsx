@@ -6,7 +6,7 @@ import ServiceLandingPage from '@/components/ServiceLandingPage';
 export const metadata: Metadata = {
   title: 'Cold Email Agency for B2B Founders & Startups — Pipeline Before You Hire',
   description:
-    'Done-for-you cold email and LinkedIn outreach for B2B founders and startups. Get consistent pipeline before you can afford an SDR. From $1,000/mo, no setup fee, cancel any time.',
+    'Done-for-you cold email + LinkedIn outreach for B2B founders. Consistent pipeline before you can afford an SDR. From $1,000/mo, cancel any time.',
   keywords: [
     'cold email agency for startups',
     'cold email for B2B founders',
