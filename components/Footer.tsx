@@ -183,7 +183,7 @@ export default function Footer() {
               className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700 transition-colors hover:border-brand-purple hover:text-brand-purple"
             >
               <Star aria-hidden size={14} className="fill-yellow-400 text-yellow-400" />
-              Clutch — 5.0 Verified Reviews
+              Reviewed on Clutch
             </a>
             <a
               href={siteConfig.social.google}
@@ -196,7 +196,7 @@ export default function Footer() {
             </a>
             <span className="inline-flex items-center gap-2 rounded-full border border-neutral-200 bg-white px-4 py-2 text-sm font-semibold text-neutral-700">
               <Star aria-hidden size={14} className="fill-yellow-400 text-yellow-400" />
-              Fiverr Top Rated Plus
+              Upwork Top Rated
             </span>
           </div>
         </div>

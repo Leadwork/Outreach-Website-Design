@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Linkedin, User, BadgeCheck, Award, Sparkles } from 'lucide-react';
+import { Linkedin, User, Sparkles } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import CTAButton from '@/components/CTAButton';
 import FinalCTA from '@/components/FinalCTA';
@@ -77,7 +77,7 @@ const milestones = [
   { year: '2020', title: 'Pro Lead Maker founded', body: 'MD. Al Amin starts solo on Fiverr and Upwork.' },
   { year: '2021', title: 'First international clients', body: 'Top Rated on Upwork; first 6-figure agency client lands.' },
   { year: '2022', title: 'Team of 4 + first US retainer', body: 'Move from gigs to full-service retainers across SaaS and agencies.' },
-  { year: '2023', title: 'Fiverr Top Rated Plus', body: '500+ five-star outreach orders delivered worldwide.' },
+  { year: '2023', title: '500+ five-star orders', body: '500+ five-star outreach orders delivered worldwide across Upwork and Fiverr.' },
   { year: '2024', title: 'Scaled to 8-person team', body: 'Dedicated deliverability, copy, list and reply roles.' },
   { year: '2025', title: 'Full outbound systems launched', body: 'Productised infrastructure + strategy + sending under one roof.' },
 ];
@@ -231,33 +231,6 @@ export default function AboutPage() {
               </Reveal>
             ))}
           </ol>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container-px">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="eyebrow">Recognition</span>
-            <h2 className="h-section mt-4">
-              Awards & <span className="text-gradient">Badges</span>
-            </h2>
-          </div>
-          <div className="mx-auto mt-10 grid max-w-3xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { label: 'Fiverr Top Rated Plus', icon: BadgeCheck },
-              { label: 'Upwork Top Rated', icon: BadgeCheck },
-              { label: '100% Job Success', icon: Award },
-              { label: '5.0 / 5.0 Average', icon: Award },
-            ].map((b, i) => (
-              <div
-                key={b.label}
-                className="flex flex-col items-center justify-center rounded-2xl border border-neutral-200 bg-white p-6 text-center"
-              >
-                <b.icon aria-hidden size={28} className="text-brand-purple" />
-                <p className="mt-3 text-sm font-semibold text-neutral-900">{b.label}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 

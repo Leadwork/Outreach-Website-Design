@@ -187,7 +187,7 @@ const idealClients = [
 const faqs = [
   {
     q: 'Why are you cheaper than other agencies?',
-    a: 'Most US-based cold email agencies charge $3,000–$15,000/month for a Done-For-You-equivalent plan. We deliver the same scope at $1,000/month because our 8-person team is based in Bangladesh — same senior operators, same tools, lower overhead. Our 5.0/5.0 rating across 500+ Fiverr and Upwork orders backs this up.',
+    a: 'Most US-based cold email agencies charge $3,000–$15,000/month for a Done-For-You-equivalent plan. We deliver the same scope at $1,000/month because our 8-person team is based in Bangladesh — same senior operators, same tools, lower overhead. Our 4.9/5 rating across 500+ Upwork and Fiverr orders, plus Upwork Top Rated status, backs this up.',
   },
   {
     q: 'Are there any hidden costs?',
@@ -257,7 +257,7 @@ const productJsonLd = {
   },
   aggregateRating: {
     '@type': 'AggregateRating',
-    ratingValue: '5.0',
+    ratingValue: '4.9',
     bestRating: '5',
     ratingCount: '500',
     reviewCount: '500',

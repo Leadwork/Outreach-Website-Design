@@ -9,7 +9,7 @@ const reviewsJsonLd = {
   url: 'https://proleadmaker.com',
   aggregateRating: {
     '@type': 'AggregateRating',
-    ratingValue: '5.0',
+    ratingValue: '4.9',
     bestRating: '5',
     worstRating: '1',
     ratingCount: '500',

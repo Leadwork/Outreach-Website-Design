@@ -121,7 +121,7 @@ const deliverables = [
 const stats = [
   { value: '90%+', label: 'Inbox placement rate' },
   { value: '500+', label: 'B2B clients served since 2020' },
-  { value: '5.0', label: 'Average client rating (Fiverr & Upwork)' },
+  { value: '4.9', label: 'Average client rating (Upwork & Fiverr)' },
   { value: '8', label: 'Specialist team members' },
 ];
 

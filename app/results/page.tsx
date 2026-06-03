@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { PlayCircle, Star, Quote, BadgeCheck, Image as ImageIcon } from 'lucide-react';
+import { PlayCircle, Star, Quote, Image as ImageIcon } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import CTAButton from '@/components/CTAButton';
 import FinalCTA from '@/components/FinalCTA';
@@ -8,7 +8,7 @@ import Reveal from '@/components/Reveal';
 export const metadata: Metadata = {
   title: 'Client Results — Real Pipelines, Real Reviews',
   description:
-    'Video testimonials, Fiverr and Upwork reviews, and screenshots from real Pro Lead Maker clients. See the kind of pipeline our cold email outreach drives.',
+    'Video testimonials, Upwork and Fiverr reviews, and screenshots from real Pro Lead Maker clients. See the kind of pipeline our cold email outreach drives.',
   alternates: { canonical: `${siteConfig.url}/results` },
   openGraph: {
     title: 'Client Results — Pro Lead Maker',
@@ -27,8 +27,8 @@ const videoTestimonials = [
 ];
 
 const reviewScreens = [
-  { source: 'Fiverr', heading: '5-star review', body: 'Top Rated Plus seller, 500+ five-star outreach orders delivered.' },
-  { source: 'Upwork', heading: 'Top Rated', body: 'Long-term clients with 100% job success score and rehires.' },
+  { source: 'Upwork', heading: 'Top Rated', body: 'Top Rated with 100% Job Success score, long-term clients and rehires.' },
+  { source: 'Fiverr', heading: '5-star reviews', body: '500+ five-star outreach orders delivered across platforms.' },
   { source: 'LinkedIn', heading: 'Recommendation', body: 'Public endorsements from CEOs and Heads of Sales.' },
   { source: 'Email', heading: 'Direct feedback', body: 'Screenshots of replies from clients after first month.' },
   { source: 'Google', heading: 'Business profile', body: 'Verified Google Business reviews from international clients.' },
@@ -107,31 +107,12 @@ export default function ResultsPage() {
           <div className="mx-auto max-w-3xl text-center">
             <span className="eyebrow">Review screenshots</span>
             <h2 className="h-section mt-4">
-              Verified Reviews From <span className="text-gradient">Fiverr, Upwork & More</span>
+              Verified Reviews From <span className="text-gradient">Upwork, Fiverr & More</span>
             </h2>
             <p className="mt-4 text-lg text-neutral-600">
-              We've kept our reputation pristine across every platform we sell on — including Fiverr
-              Top Rated Plus and Upwork Top Rated. Drop in real screenshots below to replace placeholders.
+              We're Upwork Top Rated with a 100% Job Success score and a 4.9 average across 500+
+              orders. Real review screenshots go below to replace the placeholders.
             </p>
-          </div>
-
-          <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
-            <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-neutral-700 ring-1 ring-neutral-200">
-              <BadgeCheck aria-hidden size={16} className="text-brand-purple" />
-              Fiverr Top Rated Plus
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-neutral-700 ring-1 ring-neutral-200">
-              <BadgeCheck aria-hidden size={16} className="text-brand-purple" />
-              Upwork Top Rated
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-neutral-700 ring-1 ring-neutral-200">
-              <BadgeCheck aria-hidden size={16} className="text-brand-purple" />
-              100% Job Success
-            </span>
-            <span className="inline-flex items-center gap-2 rounded-full bg-white px-4 py-2 text-sm font-semibold text-neutral-700 ring-1 ring-neutral-200">
-              <BadgeCheck aria-hidden size={16} className="text-brand-purple" />
-              5.0 / 5.0 Average
-            </span>
           </div>
 
           <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
