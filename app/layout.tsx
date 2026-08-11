@@ -157,6 +157,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
+        {/* BrandJet analytics — privacy-friendly pageview + event tracking */}
+        <Script
+          id="brandjet-analytics"
+          strategy="afterInteractive"
+          src="https://analytics.brandjet.ai/api/script.js"
+          data-website-id="d711050c-d4f1-4514-bf85-fb7f2eadac4c"
+          data-domain="proleadmaker.com"
+        />
         {/* Tawk.to live chat — loads after page interactive to protect LCP */}
         <Script id="tawk-to" strategy="lazyOnload">
           {`
