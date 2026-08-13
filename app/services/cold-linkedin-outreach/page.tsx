@@ -102,12 +102,6 @@ export default function ColdLinkedInOutreachPage() {
         { scope: 'Voice note option', us: 'Premium add-on', ours: 'Included' },
         { scope: 'Contract length', us: '3–6 months minimum', ours: 'Month-to-month' },
       ]}
-      testimonialQuote={{
-        quote:
-          'I expected a typical agency — they delivered like an in-house team. Strategy calls weekly, reports weekly, and qualified meetings hitting my calendar every single day.',
-        name: 'Head of Growth',
-        title: 'Consulting Firm, Germany',
-      }}
       faqs={[
         {
           q: 'Is LinkedIn automation safe? Will my profile get banned?',

@@ -84,7 +84,7 @@ const breadcrumbLd = {
 export const metadata: Metadata = {
   title: 'Cold Email Outreach & B2B Lead Generation Services',
   description:
-    'Three core services for B2B teams: cold email outreach, cold LinkedIn outreach, and B2B lead generation. Done for you by an 8-person specialist team.',
+    'Three core services for B2B teams: cold email outreach, cold LinkedIn outreach, and B2B lead generation. Done for you, end to end.',
   alternates: { canonical: `${siteConfig.url}/services` },
   openGraph: {
     title: 'Services — Pro Lead Maker',

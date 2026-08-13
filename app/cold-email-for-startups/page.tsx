@@ -92,12 +92,6 @@ export default function ColdEmailForStartupsPage() {
         { scope: 'Setup fee', us: '$1,500 – $5,000', ours: 'Included' },
         { scope: 'Commitment', us: 'Salaried hire / 3–6mo contract', ours: 'Month-to-month' },
       ]}
-      testimonialQuote={{
-        quote:
-          "I expected a typical agency — they delivered like an in-house team. Strategy calls weekly, reports weekly, and qualified meetings hitting my calendar every single day. Worth every dollar.",
-        name: 'Head of Growth',
-        title: 'Consulting Firm, Germany',
-      }}
       faqs={[
         {
           q: "It's just me right now. Is it too early for outbound?",

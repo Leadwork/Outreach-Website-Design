@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { Linkedin, User, Sparkles } from 'lucide-react';
+import { Linkedin, Sparkles } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import CTAButton from '@/components/CTAButton';
 import FinalCTA from '@/components/FinalCTA';
@@ -34,13 +34,13 @@ const breadcrumbLd = {
 };
 
 export const metadata: Metadata = {
-  title: 'About — The Team Building Outbound Machines',
+  title: 'About — The Outbound Specialist Behind Your Pipeline',
   description:
-    'Meet Pro Lead Maker — founded by MD. Al Amin and powered by an 8-person team obsessed with cold outreach, deliverability and pipeline outcomes for B2B teams.',
+    'Meet Pro Lead Maker — founded and run by MD. Al Amin, a cold email and LinkedIn outreach specialist focused on deliverability and pipeline outcomes for B2B teams.',
   alternates: { canonical: `${siteConfig.url}/about` },
   openGraph: {
     title: 'About Pro Lead Maker',
-    description: 'The team behind the outbound machines.',
+    description: 'The specialist behind the outbound machines.',
     url: `${siteConfig.url}/about`,
   },
 };
@@ -64,23 +64,12 @@ const values = [
   },
 ];
 
-const team = [
-  { role: 'Founder & Outbound Strategist', bio: 'Sets ICP, runs strategy calls, owns client outcomes.' },
-  { role: 'Senior Copywriter', bio: 'Writes signal-based cold email and LinkedIn copy across campaigns.' },
-  { role: 'Deliverability Lead', bio: 'Owns infrastructure, warmup and inbox placement above 90%.' },
-  { role: 'Data & List Builder', bio: 'Builds and enriches verified ICP lists from multiple sources.' },
-  { role: 'Reply Handler #1', bio: 'Qualifies inbound replies and books meetings on client calendars.' },
-  { role: 'Reply Handler #2', bio: 'Coverage across US and EU timezones for fast turnaround.' },
-  { role: 'LinkedIn Specialist', bio: 'Runs multi-touch LinkedIn campaigns and profile optimisations.' },
-  { role: 'Operations & QA', bio: 'Owns reporting, weekly QA and project delivery for every client.' },
-];
-
 const milestones = [
   { year: '2020', title: 'Pro Lead Maker founded', body: 'MD. Al Amin starts solo on Fiverr and Upwork.' },
-  { year: '2021', title: 'First international clients', body: 'Top Rated on Upwork; first 6-figure agency client lands.' },
-  { year: '2022', title: 'Team of 4 + first US retainer', body: 'Move from gigs to full-service retainers across SaaS and agencies.' },
-  { year: '2023', title: '500+ five-star orders', body: '500+ five-star outreach orders delivered worldwide across Upwork and Fiverr.' },
-  { year: '2024', title: 'Scaled to 8-person team', body: 'Dedicated deliverability, copy, list and reply roles.' },
+  { year: '2021', title: 'First international clients', body: 'Regular repeat work from agencies and B2B teams across the US, UK and EU.' },
+  { year: '2022', title: 'First US retainers', body: 'Move from one-off gigs to ongoing retainers across SaaS and agencies.' },
+  { year: '2023', title: '100K+ verified contacts built', body: 'Deep specialisation in B2B data — sourcing, verification and enrichment at scale.' },
+  { year: '2024', title: 'From lists to full outreach', body: 'Expanded beyond list building into cold email and LinkedIn campaign delivery.' },
   { year: '2025', title: 'Full outbound systems launched', body: 'Productised infrastructure + strategy + sending under one roof.' },
 ];
 
@@ -93,14 +82,14 @@ export default function AboutPage() {
           <div className="mx-auto max-w-3xl text-center">
             <span className="eyebrow">About us</span>
             <h1 className="h-display mt-4">
-              We're An <span className="text-gradient">8-Person Outbound Team</span> Behind The Pipeline
+              The <span className="text-gradient">Outbound Specialist</span> Behind The Pipeline
             </h1>
             <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-600">
               Pro Lead Maker exists for one reason: B2B teams need predictable pipeline, and most cold
               outreach agencies don't actually understand outbound. We do. It's all we do.
             </p>
             <div className="mt-8 flex justify-center">
-              <CTAButton>Book a Call With The Team</CTAButton>
+              <CTAButton>Book a Call</CTAButton>
             </div>
           </div>
         </div>
@@ -133,7 +122,7 @@ export default function AboutPage() {
                 because most agencies treat it as a service to sell — not a system to operate.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-neutral-700">
-                Five years and 500+ clients later, he's still hands-on — sitting in on strategy calls,
+                1,000+ delivered orders later, he's still hands-on — running strategy calls,
                 reviewing copy, auditing deliverability, and obsessing over the one metric that matters:
                 qualified meetings hitting client calendars.
               </p>
@@ -181,39 +170,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="section">
-        <div className="container-px">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="eyebrow">The team</span>
-            <h2 className="h-section mt-4">
-              An <span className="text-gradient">8-Person Team</span> Built For Outbound
-            </h2>
-            <p className="mt-4 text-lg text-neutral-600">
-              Specialists, not generalists. Every role exists because outbound is too complex to be done
-              well by a single person juggling everything.
-            </p>
-          </div>
-          <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {team.map((m, i) => (
-              <Reveal key={`${m.role}-${i}`} delay={i * 0.03}>
-                <div className="h-full rounded-2xl border border-neutral-200 bg-white p-6 text-center">
-                  <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-brand-gradient text-white">
-                    <User aria-hidden size={36} strokeWidth={1.5} />
-                  </div>
-                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-brand-purple">
-                    Team member {i + 1}
-                  </p>
-                  <h3 className="mt-1 text-base font-bold text-neutral-900">{m.role}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-neutral-600">{m.bio}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-          <p className="mt-6 text-center text-xs text-neutral-500">
-            Avatar placeholders — replace with team photos when ready.
-          </p>
-        </div>
-      </section>
 
       <section className="section bg-neutral-50">
         <div className="container-px">

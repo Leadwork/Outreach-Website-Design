@@ -5,7 +5,7 @@ import ContactForm from '@/components/ContactForm';
 import CalendlyEmbed from '@/components/CalendlyEmbed';
 
 export const metadata: Metadata = {
-  title: 'Contact — Talk To The Pro Lead Maker Team',
+  title: 'Contact — Talk To Pro Lead Maker',
   description:
     'Get in touch with Pro Lead Maker. Send a message, book a free strategy call on Calendly, or chat instantly via WhatsApp.',
   alternates: { canonical: `${siteConfig.url}/contact` },

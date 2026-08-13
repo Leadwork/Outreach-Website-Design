@@ -92,12 +92,6 @@ export default function ColdEmailForAgenciesPage() {
         { scope: 'Setup fee', us: '$1,500 – $5,000', ours: 'Included' },
         { scope: 'Contract', us: '3–6 months minimum', ours: 'Month-to-month' },
       ]}
-      testimonialQuote={{
-        quote:
-          'They rebuilt our entire outbound stack from scratch — domains, copy, lists, sequencing. Deliverability went from 40% to 92% and reply rates tripled within the first month. A game changer for our agency.',
-        name: 'Founder',
-        title: 'Marketing Agency, United Kingdom',
-      }}
       faqs={[
         {
           q: 'Can you run outbound under our agency brand (white-label)?',

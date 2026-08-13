@@ -92,12 +92,6 @@ export default function ColdEmailForSaaSPage() {
         { scope: 'Engineering hours needed', us: 'Varies', ours: 'Zero' },
         { scope: 'Contract', us: '3–6 months minimum', ours: 'Month-to-month' },
       ]}
-      testimonialQuote={{
-        quote:
-          'Pro Lead Maker booked 27 qualified demos in our first 45 days. We had tried three other agencies before — none came close to this kind of output.',
-        name: 'VP of Sales',
-        title: 'B2B SaaS Company, USA',
-      }}
       faqs={[
         {
           q: 'Do you work with early-stage SaaS or only funded companies?',
