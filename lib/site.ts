@@ -10,7 +10,7 @@ export const siteConfig = {
   email: 'alamin@proleadmaker.com',
   phone: '+8801315739311',
   whatsapp: 'https://wa.me/8801315739311',
-  calendly: 'https://calendly.com/proleadmaker/lead-generation',
+  calendly: 'https://calendly.com/alamin-proleadmaker/outreach-strategy-call',
   formspree: 'https://formspree.io/f/mlgzlykl',
   address: {
     country: 'Bangladesh',
