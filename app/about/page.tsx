@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { Linkedin, User, Sparkles } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import CTAButton from '@/components/CTAButton';
@@ -13,6 +14,7 @@ const personJsonLd = {
   '@type': 'Person',
   name: siteConfig.founder,
   url: aboutUrl,
+  image: `${siteConfig.url}/founder.jpg`,
   jobTitle: 'Founder & Outbound Strategist',
   worksFor: { '@type': 'Organization', name: siteConfig.name, url: siteConfig.url },
   knowsAbout: ['Cold Email Outreach', 'B2B Lead Generation', 'Email Deliverability', 'Appointment Setting'],
@@ -109,12 +111,15 @@ export default function AboutPage() {
           <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
             <div className="lg:col-span-5">
               <div className="relative mx-auto aspect-square w-full max-w-sm overflow-hidden rounded-3xl border border-brand-purple/20 bg-brand-gradient-soft p-1">
-                <div className="flex h-full w-full flex-col items-center justify-center rounded-3xl bg-white text-center">
-                  <span aria-hidden className="flex h-32 w-32 items-center justify-center rounded-full bg-brand-gradient text-white">
-                    <User aria-hidden size={64} strokeWidth={1.5} />
-                  </span>
-                  <p className="mt-4 text-sm font-semibold text-neutral-500">Photo placeholder</p>
-                  <p className="text-xs text-neutral-400">Replace with founder image</p>
+                <div className="relative h-full w-full overflow-hidden rounded-3xl bg-white">
+                  <Image
+                    src="/founder.jpg"
+                    alt={`${siteConfig.founder}, founder of ${siteConfig.name}`}
+                    fill
+                    priority
+                    sizes="(min-width: 1024px) 384px, 100vw"
+                    className="object-cover object-top"
+                  />
                 </div>
               </div>
             </div>
