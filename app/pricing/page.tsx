@@ -187,7 +187,7 @@ const idealClients = [
 const faqs = [
   {
     q: 'Why are you cheaper than other agencies?',
-    a: 'Most US-based cold email agencies charge $3,000–$15,000/month for a Done-For-You-equivalent plan. We deliver the same scope at $1,000/month because our 8-person team is based in Bangladesh — same senior operators, same tools, lower overhead. Our 4.9/5 rating across 500+ Upwork and Fiverr orders, plus Upwork Top Rated status, backs this up.',
+    a: 'Most US-based cold email agencies charge $3,000–$15,000/month for a Done-For-You-equivalent plan. We deliver the same scope at $1,000/month because we are based in Bangladesh — same senior operator, same tools, far lower overhead. You are paying for the work, not for an agency office in New York.',
   },
   {
     q: 'Are there any hidden costs?',
@@ -255,13 +255,6 @@ const productJsonLd = {
     availability: 'https://schema.org/InStock',
     url: pricingUrl,
   },
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    bestRating: '5',
-    ratingCount: '500',
-    reviewCount: '500',
-  },
 };
 
 const faqJsonLd = {
@@ -304,7 +297,7 @@ export default function PricingPage() {
               'No setup fees',
               'No long contracts',
               'You own all domains & data',
-              '5.0 ★ from 500+ clients',
+              '1,000+ orders delivered',
             ].map((t) => (
               <span key={t} className="inline-flex items-center gap-1.5">
                 <Check aria-hidden size={14} className="text-brand-purple" />

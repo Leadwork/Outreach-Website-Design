@@ -98,12 +98,6 @@ export default function B2BLeadGenerationPage() {
         { scope: 'Bounce replacement', us: 'Add-on cost', ours: 'Included' },
         { scope: 'Refresh frequency', us: 'Monthly', ours: 'Weekly' },
       ]}
-      testimonialQuote={{
-        quote:
-          'The list quality is on a different planet. Cleaner data than ZoomInfo, more contacts than Apollo, and they enrich every record with intent signals. Our reply rates jumped 40% on the first batch.',
-        name: 'Director of Demand Gen',
-        title: 'Fintech Startup, USA',
-      }}
       faqs={[
         {
           q: 'How is this different from buying Apollo or ZoomInfo myself?',

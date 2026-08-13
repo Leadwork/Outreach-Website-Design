@@ -19,8 +19,8 @@ export default function ServicesOverview() {
             Three Focused Services. <span className="text-gradient">One Outbound Engine.</span>
           </h2>
           <p className="mt-4 text-lg text-neutral-600">
-            Cold email, cold LinkedIn, and B2B lead generation — run together by an 8-person
-            specialist team for B2B founders, SaaS, and agencies.
+            Cold email, cold LinkedIn, and B2B lead generation — run together as one
+            outbound system for B2B founders, SaaS, and agencies.
           </p>
         </div>
 

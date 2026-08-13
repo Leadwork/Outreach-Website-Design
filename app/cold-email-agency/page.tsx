@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Check, ArrowRight, Star } from 'lucide-react';
+import { Check, ArrowRight } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import CTAButton from '@/components/CTAButton';
 import FinalCTA from '@/components/FinalCTA';
@@ -119,10 +119,10 @@ const deliverables = [
 ];
 
 const stats = [
-  { value: '90%+', label: 'Inbox placement rate' },
-  { value: '500+', label: 'B2B clients served since 2020' },
-  { value: '4.9', label: 'Average client rating (Upwork & Fiverr)' },
-  { value: '8', label: 'Specialist team members' },
+  { value: '1,000+', label: 'Freelance orders delivered' },
+  { value: '100K+', label: 'Verified B2B contacts built' },
+  { value: '2020', label: 'Running outbound since' },
+  { value: '90%+', label: 'Inbox placement target' },
 ];
 
 const industries = [
@@ -233,50 +233,6 @@ export default function ColdEmailAgencyPage() {
                 {ind}
               </span>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social proof */}
-      <section className="section">
-        <div className="container-px">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="eyebrow">Client results</span>
-            <h2 className="h-section mt-4">
-              What Clients Say About Our <span className="text-gradient">Cold Email Agency</span>
-            </h2>
-          </div>
-          <div className="mt-12 grid gap-6 md:grid-cols-2">
-            {[
-              {
-                quote: 'Pro Lead Maker booked 27 qualified demos in our first 45 days. We had tried three other agencies before — none came close to this kind of output.',
-                name: 'VP of Sales', title: 'B2B SaaS Company, USA',
-              },
-              {
-                quote: 'They rebuilt our entire outbound stack from scratch. Deliverability went from 40% to 92% and reply rates tripled within the first month.',
-                name: 'Founder', title: 'Marketing Agency, United Kingdom',
-              },
-            ].map((t, i) => (
-              <Reveal key={t.name} delay={i * 0.06}>
-                <figure className="h-full rounded-2xl border border-neutral-200 bg-white p-8 shadow-sm">
-                  <div className="flex items-center gap-0.5" aria-label="Five star rating">
-                    {[0, 1, 2, 3, 4].map((s) => (
-                      <Star key={s} size={16} aria-hidden className="fill-yellow-400 text-yellow-400" />
-                    ))}
-                  </div>
-                  <blockquote className="mt-4 text-base leading-relaxed text-neutral-700">"{t.quote}"</blockquote>
-                  <figcaption className="mt-5 border-t border-neutral-100 pt-4">
-                    <p className="font-semibold text-neutral-900">{t.name}</p>
-                    <p className="text-sm text-neutral-500">{t.title}</p>
-                  </figcaption>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-          <div className="mt-10 text-center">
-            <Link href="/results" className="text-sm font-semibold text-brand-purple hover:underline">
-              See all client results →
-            </Link>
           </div>
         </div>
       </section>

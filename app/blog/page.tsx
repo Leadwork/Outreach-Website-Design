@@ -71,7 +71,7 @@ export default function BlogPage() {
                   </p>
                   <h3 className="mt-2 text-lg font-bold">Get your outbound built for you.</h3>
                   <p className="mt-2 text-sm text-neutral-300">
-                    Book a free strategy call with the team.
+                    Book a free strategy call.
                   </p>
                   <a
                     href={siteConfig.calendly}

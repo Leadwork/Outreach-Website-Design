@@ -1,8 +1,7 @@
 const stats = [
-  { value: '500+', label: 'Clients served worldwide' },
-  { value: '10M+', label: 'Cold emails delivered' },
-  { value: '75%+', label: 'Average open rate' },
-  { value: '20+', label: 'Meetings booked / month avg.' },
+  { value: '1,000+', label: 'Client orders delivered' },
+  { value: '100K+', label: 'Verified B2B contacts built' },
+  { value: '2020', label: 'Delivering outbound since' },
 ];
 
 export default function Stats() {
@@ -10,7 +9,7 @@ export default function Stats() {
     <section aria-labelledby="stats-heading" className="section">
       <div className="container-px">
         <h2 id="stats-heading" className="sr-only">Results in numbers</h2>
-        <div className="grid gap-px overflow-hidden rounded-2xl bg-neutral-200 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-px overflow-hidden rounded-2xl bg-neutral-200 sm:grid-cols-3">
           {stats.map((s) => (
             <div
               key={s.label}

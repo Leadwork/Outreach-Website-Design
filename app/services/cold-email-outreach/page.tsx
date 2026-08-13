@@ -97,12 +97,6 @@ export default function ColdEmailOutreachPage() {
         { scope: 'Verified contacts per month', us: 'Add-on, $300+', ours: '2,000 included' },
         { scope: 'Long-term contract', us: '3–6 months minimum', ours: 'Month-to-month' },
       ]}
-      testimonialQuote={{
-        quote:
-          'They rebuilt our entire outbound stack from scratch — domains, copy, lists, sequencing. Deliverability went from 40% to 92% within the first month.',
-        name: 'Founder',
-        title: 'Marketing Agency, United Kingdom',
-      }}
       faqs={[
         {
           q: 'How is this different from buying Instantly or Smartlead myself?',
