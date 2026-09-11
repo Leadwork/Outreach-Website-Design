@@ -123,6 +123,14 @@ export default function ToolsPage() {
         </div>
       </section>
 
+      <section className="container-px py-12">
+        <div className="card">
+          <span className="eyebrow">Our spreadsheet tools</span>
+          <h2 className="mt-4 text-2xl font-bold">SheetKit</h2>
+          <p className="mt-3 max-w-2xl text-neutral-600">Remove duplicate rows, merge values and change case in Google Sheets. Free tools by ProLeadMaker Tools; public Marketplace installation is being prepared.</p>
+          <a href="/sheetkit" className="btn-primary mt-6">Explore SheetKit</a>
+        </div>
+      </section>
       <section className="section">
         <div className="container-px space-y-16">
           {groups.map((g) => (
