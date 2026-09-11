@@ -35,6 +35,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/pricing',
     '/blog',
     '/tools',
+    '/sheetkit',
+    '/sheetkit/privacy',
+    '/sheetkit/terms',
+    '/sheetkit/support',
     '/about',
     '/contact',
   ].map((path) => ({
