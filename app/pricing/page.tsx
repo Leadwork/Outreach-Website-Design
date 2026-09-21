@@ -12,6 +12,7 @@ import {
   Crown,
 } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
+import { pricing, formatPrice } from '@/lib/pricing';
 import CTAButton from '@/components/CTAButton';
 import FinalCTA from '@/components/FinalCTA';
 import Reveal from '@/components/Reveal';
@@ -20,7 +21,7 @@ import Reveal from '@/components/Reveal';
 export const metadata: Metadata = {
   title: 'Pricing — Cold Email & LinkedIn Outreach Packages',
   description:
-    'Transparent cold outreach pricing for B2B teams. Done-for-you multichannel from $1,000/mo, plus LinkedIn-only, management, and list-building plans.',
+    'Transparent cold outreach pricing for B2B teams. Done-for-you multichannel from $1,700/mo, plus LinkedIn-only, management, and list-building plans.',
   keywords: [
     'cold email agency pricing',
     'LinkedIn outreach pricing',
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     type: 'website',
     title: 'Pricing — Pro Lead Maker',
     description:
-      'Four outreach packages built for B2B founders, SaaS, and agencies. From $297/month for list-building to $1,000/month for full multichannel.',
+      'Four outreach packages built for B2B founders, SaaS, and agencies. Monthly outreach from $900; full multichannel at $1,700/month. List building and enrichment at $0.20 per contact.',
     url: `${siteConfig.url}/pricing`,
     images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: 'Pro Lead Maker Pricing' }],
   },
@@ -48,14 +49,14 @@ const packages = [
     name: 'Done For You',
     icon: Sparkles,
     audience: 'For founders & teams who want zero hassle',
-    price: 1000,
-    priceLabel: '$1,000',
+    price: pricing.doneForYou,
+    priceLabel: formatPrice(pricing.doneForYou),
     period: '/month',
     badge: 'MOST POPULAR',
-    summary: 'We buy and set everything up. You just show up for the interviews.',
+    summary: 'We buy and set everything up. You just take the sales meetings.',
     target: '~2,000 cold sends + LinkedIn touches / month',
     features: [
-      '5 sending domains (lookalikes — your main domain stays protected)',
+      '5 separate sending domains to reduce risk to your main domain',
       '15 inboxes, fully set up',
       'Complete email infrastructure: SPF, DKIM, DMARC, custom tracking domain',
       'Inbox warmup (2–3 weeks before real sending)',
@@ -65,7 +66,7 @@ const packages = [
       'Email verification on all contacts',
       '4+ email sequence variations — written with your input & A/B tested',
       'LinkedIn outreach sequence from your profile',
-      'Positive replies + booked interviews forwarded straight to you',
+      'Positive replies + booked sales meetings forwarded straight to you',
       'Weekly performance reports',
       'Setup included — no separate setup fee',
     ],
@@ -76,8 +77,8 @@ const packages = [
     name: 'LinkedIn Outreach',
     icon: Linkedin,
     audience: 'For founders building authority on LinkedIn',
-    price: 497,
-    priceLabel: '$497',
+    price: pricing.linkedin,
+    priceLabel: formatPrice(pricing.linkedin),
     period: '/month',
     badge: null,
     summary: 'A–Z LinkedIn outreach from your profile. We provide tools, write copy, send, manage replies.',
@@ -101,14 +102,14 @@ const packages = [
     name: 'Outreach Management',
     icon: Settings,
     audience: 'For teams that already have tools or contacts',
-    price: 797,
-    priceLabel: '$797',
+    price: pricing.management,
+    priceLabel: formatPrice(pricing.management),
     period: '/month',
     badge: null,
     summary: 'You provide tools and/or contacts. We handle setup, sequences, sending, replies, reports.',
     target: 'Tailored to your existing data & volume',
     features: [
-      'Use your existing data, tools, or domains (or we add what\'s missing)',
+      'Use your existing data, tools, and domains; additions quoted first',
       'Full domain authentication audit & fixes (SPF/DKIM/DMARC/tracking)',
       'Inbox warmup management',
       '4+ email sequences — written with your input, A/B tested',
@@ -126,21 +127,21 @@ const packages = [
     name: 'List Building & Enrichment',
     icon: Database,
     audience: 'For in-house SDRs who need clean data',
-    price: 297,
-    priceLabel: '$297',
-    period: '/month',
+    price: pricing.contact,
+    priceLabel: formatPrice(pricing.contact),
+    period: '/contact',
     badge: 'BEST VALUE',
     summary: 'Done-for-you prospect lists. Verified contacts, enriched data, ready to send.',
-    target: '2,000 verified contacts / month',
+    target: 'Example: 2,000 contacts = $400',
     features: [
       'ICP definition workshop (45 min)',
-      '2,000 verified B2B contacts per month',
+      'Verified B2B contacts at $0.20 each — choose your quantity',
       'Multi-source waterfall: Apollo, ZoomInfo, Cognism, Clay, Hunter',
-      'Email verification (<2% bounce rate guaranteed)',
+      'Email verification, with bounced contacts replaced free',
       '15+ enrichment fields: title, LinkedIn URL, phone, company size, tech stack, funding, industry',
       'Lookalike & competitor-customer expansion',
       'CSV / Google Sheets / direct CRM push (HubSpot, Pipedrive, Salesforce)',
-      'Weekly list refreshes',
+      'Delivery schedule agreed before your order',
       'Replace bounces free of charge',
     ],
     cta: 'Get The List',
@@ -149,14 +150,10 @@ const packages = [
 
 // ── Foundation: included across all retainer plans ─────────────────────────────
 const includedAcrossPlans = [
-  'No long-term contracts (cancel any time)',
-  'You own all domains, mailboxes & data forever',
-  'Slack channel for fast support',
-  '90%+ inbox placement, monitored daily',
-  'Senior copywriting (no AI templates)',
-  'Weekly performance reporting',
-  'Meeting-quality guarantee (we replace no-shows & non-ICP)',
-  'Founder-led strategy (MD. Al Amin on every account)',
+  'Scope and costs agreed before work starts',
+  'You own the data we deliver',
+  'Direct support from our team',
+  'Founder-led strategy and quality control',
 ];
 
 // ── Who's it for ────────────────────────────────────────────────────────────────
@@ -186,16 +183,20 @@ const idealClients = [
 // ── FAQs ────────────────────────────────────────────────────────────────────────
 const faqs = [
   {
-    q: 'Why are you cheaper than other agencies?',
-    a: 'Most US-based cold email agencies charge $3,000–$15,000/month for a Done-For-You-equivalent plan. We deliver the same scope at $1,000/month because we are based in Bangladesh — same senior operator, same tools, far lower overhead. You are paying for the work, not for an agency office in New York.',
+    q: 'How much does List Building & Enrichment cost?',
+    a: 'The price is $0.20 per contact. For example, 2,000 contacts cost $400. We agree your target criteria, quantity, included fields, and delivery schedule before you order. Sending campaigns, outreach tools, and reply handling are not included.',
+  },
+  {
+    q: 'How is your pricing structured?',
+    a: "Our team is based in Bangladesh and works directly with clients. Done For You is $1,700/month, LinkedIn Outreach is $900/month, and Outreach Management is $1,200/month. Compare the included channels, tools, contact volume, and support when evaluating proposals.",
   },
   {
     q: 'Are there any hidden costs?',
-    a: 'No. Every retainer includes domains, mailboxes, sending tools, warmup tools, list building, and reply handling. The number on the card is the number you pay. The only extras would be premium add-ons you explicitly request (e.g. paid LinkedIn Sales Navigator if you don\'t have one — we\'ll quote it transparently first).',
+    a: "Each package includes the items on its card. Done For You includes the listed sending infrastructure, outreach tools, contacts, copy, and reply handling. LinkedIn Outreach covers LinkedIn operations and the listed outreach tools; Sales Navigator, if needed, is quoted separately. Outreach Management uses your existing tools and contacts; missing tools or extra data are quoted before purchase. List Building & Enrichment is $0.20 per contact and does not include campaign management. We confirm any extras before work starts.",
   },
   {
     q: 'Are there long-term contracts?',
-    a: 'No. All retainers are month-to-month with 30 days\' notice to cancel. We earn your renewal every month — most of our clients stay 12+ months because the pipeline keeps growing.',
+    a: "The three monthly outreach plans are month-to-month with 30 days of notice to cancel. List Building & Enrichment is priced per contact, with quantity, delivery schedule, and total agreed before the order.",
   },
   {
     q: 'How long until campaigns are live?',
@@ -207,7 +208,7 @@ const faqs = [
   },
   {
     q: 'Do I own the domains, mailboxes, and data?',
-    a: 'Yes — completely. Domains are registered in your company name, mailboxes belong to you, all data lives in your accounts. If we ever part ways, you keep everything operational.',
+    a: "You own the domains, mailboxes, and data supplied for your package. After cancellation, ongoing domain renewals and third-party subscriptions remain your responsibility. List Building & Enrichment includes the delivered contact data, not sending infrastructure.",
   },
   {
     q: 'Can I switch packages?',
@@ -219,7 +220,7 @@ const faqs = [
   },
   {
     q: 'Do I need to buy any tools separately?',
-    a: 'For Done For You: no — we include domains, sending tools (Lemlist/Instantly/Smartlead/Plusvibe), warmup, LinkedIn (Closely.io), and verification. For LinkedIn-only and Management: depends on what you already have. We\'ll audit on the discovery call and only add what\'s missing.',
+    a: "Done For You includes the tools listed in its package. LinkedIn Outreach includes the listed outreach tools; Sales Navigator is separate if required. For Outreach Management, you supply your existing tools and contacts. Any additions are quoted for approval first. List Building & Enrichment delivers contacts for use in your own tools.",
   },
   {
     q: 'Do you guarantee a specific number of meetings?',
@@ -238,23 +239,26 @@ const faqs = [
 // ── Structured Data ────────────────────────────────────────────────────────────
 const pricingUrl = `${siteConfig.url}/pricing`;
 
+// Separate offers keep monthly retainers and per-contact pricing distinct.
 const productJsonLd = {
   '@context': 'https://schema.org',
-  '@type': 'Product',
+  '@type': 'OfferCatalog',
   name: 'Pro Lead Maker Outreach Packages',
-  description:
-    'Four outreach packages for B2B founders, SaaS, and agencies: Done For You ($1,000), LinkedIn Outreach ($497), Outreach Management ($797), List Building & Enrichment ($297), plus Custom.',
-  brand: { '@type': 'Brand', name: siteConfig.name },
-  image: `${siteConfig.url}/og-image.png`,
-  offers: {
-    '@type': 'AggregateOffer',
+  url: pricingUrl,
+  itemListElement: packages.map((p) => ({
+    '@type': 'Offer',
+    name: p.name,
+    url: `${pricingUrl}#${p.key}`,
+    price: p.price,
     priceCurrency: 'USD',
-    lowPrice: '297',
-    highPrice: '1000',
-    offerCount: '4',
-    availability: 'https://schema.org/InStock',
-    url: pricingUrl,
-  },
+    priceSpecification: {
+      '@type': 'UnitPriceSpecification',
+      price: p.price,
+      priceCurrency: 'USD',
+      unitText: p.key === 'list-building' ? 'contact' : 'month',
+    },
+    itemOffered: { '@type': 'Service', name: p.name, description: p.summary },
+  })),
 };
 
 const faqJsonLd = {
@@ -290,7 +294,7 @@ export default function PricingPage() {
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-600">
             Four transparent packages built for B2B founders, SaaS, and agencies. No long-term
-            contracts. Cancel any time. Most US agencies charge 3–5× more for the same scope.
+            contracts: monthly plans have a 30-day cancellation notice. List building is priced per contact.
           </p>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-500">
             {[
@@ -319,6 +323,7 @@ export default function PricingPage() {
               return (
                 <Reveal key={p.key} delay={i * 0.05}>
                   <article
+                    id={p.key}
                     className={[
                       'relative flex h-full flex-col rounded-3xl border p-6 shadow-sm transition-shadow hover:shadow-lg',
                       isPopular
@@ -349,8 +354,8 @@ export default function PricingPage() {
                         <Icon aria-hidden size={20} />
                       </span>
                       <div className="min-w-0">
-                        <h2 className="truncate text-lg font-bold text-neutral-900">{p.name}</h2>
-                        <p className="truncate text-xs text-neutral-500">{p.audience}</p>
+                        <h2 className="text-lg font-bold text-neutral-900">{p.name}</h2>
+                        <p className="text-xs text-neutral-500">{p.audience}</p>
                       </div>
                     </div>
 
@@ -392,7 +397,7 @@ export default function PricingPage() {
           </div>
 
           <p className="mt-8 text-center text-sm text-neutral-500">
-            All retainers billed monthly in USD. Pricing for US, UK & EU markets.{' '}
+            All prices are in USD. Outreach plans are billed monthly with 30 days of notice to cancel. List Building &amp; Enrichment is $0.20 per contact; 2,000 contacts cost $400.{' '}
             <Link href="/contact" className="font-semibold text-brand-purple hover:underline">
               Ask about regional pricing →
             </Link>
@@ -484,12 +489,12 @@ export default function PricingPage() {
       <section className="section bg-neutral-50">
         <div className="container-px">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="eyebrow">Included in every retainer</span>
+            <span className="eyebrow">Included in every engagement</span>
             <h2 className="h-section mt-4">
               The <span className="text-gradient">Foundation</span> Every Package Ships With
             </h2>
             <p className="mt-4 text-lg text-neutral-600">
-              Eight non-negotiables that make outbound actually work — bundled into every retainer plan.
+              Shared standards across our services. Infrastructure, copywriting, sending, and reply handling are included only where listed in your package.
             </p>
           </div>
           <div className="mx-auto mt-10 grid max-w-4xl gap-3 sm:grid-cols-2">
@@ -517,14 +522,14 @@ export default function PricingPage() {
           <div className="mx-auto max-w-3xl text-center">
             <span className="eyebrow">Why we are priced this way</span>
             <h2 className="h-section mt-4">
-              Same Output, <span className="text-gradient">3–5× Cheaper</span>
+              Compare Scope, <span className="text-gradient">Then Compare Price</span>
             </h2>
             <p className="mt-4 text-lg text-neutral-600">
-              Honest comparison of what typical US and UK agencies charge for equivalent scope in 2026.
+              Indicative pricing ranges for context. Providers differ in scope, volume, and terms; confirm current quotes before comparing.
             </p>
           </div>
 
-          <div className="mx-auto mt-12 max-w-4xl overflow-hidden rounded-2xl border border-neutral-200 bg-white shadow-sm">
+          <div className="mx-auto mt-12 max-w-4xl overflow-x-auto rounded-2xl border border-neutral-200 bg-white shadow-sm">
             <table className="w-full text-left">
               <thead className="bg-neutral-50">
                 <tr>
@@ -541,10 +546,10 @@ export default function PricingPage() {
               </thead>
               <tbody className="divide-y divide-neutral-100 text-sm">
                 {[
-                  ['Full multichannel (email + LinkedIn) DFY', '$3,000 – $8,000/mo', '$1,000/mo'],
-                  ['LinkedIn-only outreach', '$1,500 – $5,000/mo', '$497/mo'],
-                  ['Outreach management (you bring data/tools)', '$2,500 – $4,500/mo', '$797/mo'],
-                  ['List building & enrichment (2K contacts/mo)', '$500 – $1,500/mo', '$297/mo'],
+                  ['Full multichannel (email + LinkedIn) DFY', '$3,000 – $8,000/mo', '$1,700/mo'],
+                  ['LinkedIn-only outreach', '$1,500 – $5,000/mo', '$900/mo'],
+                  ['Outreach management (you bring data/tools)', '$2,500 – $4,500/mo', '$1,200/mo'],
+                  ['List building & enrichment (2,000 contacts)', '$500 – $1,500', '$400 ($0.20/contact)'],
                   ['Setup fee', '$1,500 – $5,000 one-time', 'Included'],
                 ].map((row) => (
                   <tr key={row[0]}>
@@ -587,18 +592,18 @@ export default function PricingPage() {
               <Shield aria-hidden size={26} />
             </span>
             <h2 className="mt-5 text-3xl font-bold text-neutral-900 sm:text-4xl">
-              What We Actually Guarantee
+              Our Quality Commitment
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-neutral-700">
               We do <strong>not</strong> promise a specific number of meetings — anyone who does is
               setting a number they can&apos;t honestly control. What we{' '}
               <strong>do</strong> guarantee: a fully-built outbound system, daily operations,
-              weekly testing, transparent reporting, and quality control on every reply we forward.
+              weekly testing, transparent reporting, and quality control on replies for managed outreach packages. List-only orders include verification and free replacement of bounced contacts.
             </p>
             <p className="mt-4 text-sm text-neutral-600">
               If a forwarded reply or booked call is off-ICP or a hard no-show, we replace it in
               the next batch at no extra cost. 30-day cancellation on every retainer. You own all
-              domains, mailboxes, and data forever.
+              domains, mailboxes, and data supplied for your package; ongoing renewals and subscriptions remain your responsibility after cancellation.
             </p>
             <div className="mt-7">
               <CTAButton>Book a Free Strategy Call</CTAButton>

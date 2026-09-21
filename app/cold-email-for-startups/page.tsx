@@ -6,7 +6,7 @@ import ServiceLandingPage from '@/components/ServiceLandingPage';
 export const metadata: Metadata = {
   title: 'Cold Email Agency for B2B Founders & Startups — Pipeline Before You Hire',
   description:
-    'Done-for-you cold email + LinkedIn outreach for B2B founders. Consistent pipeline before you can afford an SDR. From $1,000/mo, cancel any time.',
+    'Done-for-you cold email + LinkedIn outreach for B2B founders. From $1,700/mo, with 30 days of notice to cancel.',
   keywords: [
     'cold email agency for startups',
     'cold email for B2B founders',
@@ -54,7 +54,7 @@ export default function ColdEmailForStartupsPage() {
         },
         {
           title: 'Cheaper than a single hire',
-          body: 'An in-house SDR is $4–6K/month plus tools, plus ramp time, plus management. We are a full team — copy, data, sending, replies — for $1,000/month, live in 3 weeks, no management.',
+          body: 'An in-house SDR is $4–6K/month plus tools, plus ramp time, plus management. We are a full team — copy, data, sending, replies — for $1,700/month, live in 3 weeks, no management.',
         },
         {
           title: 'Outreach from your profile',
@@ -86,8 +86,8 @@ export default function ColdEmailForStartupsPage() {
         'No setup fee — included',
       ]}
       competitorComparison={[
-        { scope: 'Founder-friendly DFY outbound', us: '$3,000 – $8,000/mo', ours: '$1,000/mo' },
-        { scope: 'In-house SDR (salary + tools + ramp)', us: '$5,000 – $7,000/mo', ours: '$1,000/mo' },
+        { scope: 'Founder-friendly DFY outbound', us: '$3,000 – $8,000/mo', ours: '$1,700/mo' },
+        { scope: 'In-house SDR (salary + tools + ramp)', us: '$5,000 – $7,000/mo', ours: '$1,700/mo' },
         { scope: 'Time to live', us: '8–12 weeks (hiring)', ours: '3 weeks' },
         { scope: 'Setup fee', us: '$1,500 – $5,000', ours: 'Included' },
         { scope: 'Commitment', us: 'Salaried hire / 3–6mo contract', ours: 'Month-to-month' },
@@ -103,7 +103,7 @@ export default function ColdEmailForStartupsPage() {
         },
         {
           q: 'Why not just hire an SDR?',
-          a: "An SDR costs $4–6K/month, takes 8–12 weeks to hire and ramp, needs tools, and needs managing — a lot for an early-stage founder. We're a full team for $1,000/month, live in 3 weeks, with no management overhead. When you're ready to hire, we hand over a proven playbook.",
+          a: "An SDR costs $4–6K/month, takes 8–12 weeks to hire and ramp, needs tools, and needs managing — a lot for an early-stage founder. We're a full team for $1,700/month, live in 3 weeks, with no management overhead. When you're ready to hire, we hand over a proven playbook.",
         },
         {
           q: 'Can outreach come from my personal profile?',

@@ -203,6 +203,7 @@ export default function Footer() {
 
         <div className="mt-10 flex flex-col items-center justify-between gap-3 border-t border-neutral-200 pt-6 text-xs text-neutral-500 sm:flex-row">
           <p>© {year} {siteConfig.legalName}. All rights reserved.</p>
+          <Link href="/privacy" className="hover:text-brand-purple underline underline-offset-4">Privacy Policy</Link>
           <p>Founded by {siteConfig.founder}</p>
         </div>
       </div>

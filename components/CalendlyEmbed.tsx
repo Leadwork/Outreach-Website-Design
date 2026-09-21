@@ -4,7 +4,7 @@ import { siteConfig } from '@/lib/site';
 // it directly instead of loading their widget.js. The script-based embed depends
 // on third-party JS running at the right moment and is silently blocked by many
 // ad blockers; a plain iframe has no such failure modes.
-const EMBED_URL = `${siteConfig.calendly}?embed_domain=proleadmaker.com&embed_type=Inline&hide_gdpr_banner=1&primary_color=7c3aed`;
+const EMBED_URL = `${siteConfig.calendly}?embed_domain=proleadmaker.com&embed_type=Inline&primary_color=7c3aed`;
 
 export default function CalendlyEmbed() {
   return (

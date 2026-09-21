@@ -10,7 +10,7 @@ import Reveal from '@/components/Reveal';
 export const metadata: Metadata = {
   title: 'Cold Email Agency — B2B Outbound Done For You',
   description:
-    'Specialist B2B cold email agency. We build the infrastructure, write the copy, build lists, send, and handle replies — done for you. From $1,000/mo.',
+    'Specialist B2B cold email agency. We build the infrastructure, write the copy, build lists, send, and handle replies — done for you. From $1,700/mo.',
   keywords: [
     'cold email agency',
     'B2B cold email agency',

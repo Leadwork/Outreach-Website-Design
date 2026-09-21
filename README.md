@@ -1,6 +1,6 @@
 # Pro Lead Maker — Website
 
-A production-ready, high-performance B2B agency website for **Pro Lead Maker** — built with Next.js 14 (App Router), TypeScript, Tailwind CSS, Framer Motion, and an MDX-powered blog.
+A production-ready, high-performance B2B agency website for **Pro Lead Maker** — built with Next.js 16 (App Router), TypeScript, Tailwind CSS, Framer Motion, and an MDX-powered blog.
 
 Deployed via [Vercel](https://vercel.com) — repo: [Leadwork/Outreach-Website-Design](https://github.com/Leadwork/Outreach-Website-Design).
 
@@ -10,7 +10,7 @@ Deployed via [Vercel](https://vercel.com) — repo: [Leadwork/Outreach-Website-D
 
 | Layer | Tech |
 |---|---|
-| Framework | Next.js 14 (App Router) + TypeScript |
+| Framework | Next.js 16 (App Router) + TypeScript |
 | Styling | Tailwind CSS + custom utilities |
 | Animations | Framer Motion (lazy, motion-safe) |
 | Blog | MDX files in `/content/blog/` — no CMS |
@@ -25,18 +25,18 @@ Deployed via [Vercel](https://vercel.com) — repo: [Leadwork/Outreach-Website-D
 
 ```bash
 # 1. install deps
-npm install
+pnpm install --frozen-lockfile
 
 # 2. run dev server
-npm run dev
+pnpm dev
 
 # 3. build for production
-npm run build && npm run start
+pnpm build && pnpm start
 ```
 
 Open <http://localhost:3000>.
 
-> Requires Node 18.17+ (Node 20 LTS recommended).
+> Requires Node 20.9+ (Node 22 or 24 LTS recommended).
 
 ---
 

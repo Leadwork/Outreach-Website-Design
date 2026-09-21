@@ -6,7 +6,7 @@ import ServiceLandingPage from '@/components/ServiceLandingPage';
 export const metadata: Metadata = {
   title: 'Cold Email Agency for SaaS Companies — Pipeline On Demand',
   description:
-    'Done-for-you cold email + LinkedIn outreach for B2B SaaS. We book ICP-matched demos while your team ships product. From $1,000/mo, no setup fee.',
+    'Done-for-you cold email + LinkedIn outreach for B2B SaaS. We book ICP-matched demos while your team ships product. From $1,700/mo, no setup fee.',
   keywords: [
     'cold email agency for SaaS',
     'cold email for SaaS startups',
@@ -86,7 +86,7 @@ export default function ColdEmailForSaaSPage() {
         'No setup fee — included',
       ]}
       competitorComparison={[
-        { scope: 'SaaS-focused DFY outbound', us: '$3,000 – $8,000/mo', ours: '$1,000/mo' },
+        { scope: 'SaaS-focused DFY outbound', us: '$3,000 – $8,000/mo', ours: '$1,700/mo' },
         { scope: 'Technographic data targeting', us: 'Premium add-on', ours: 'Included' },
         { scope: 'Setup fee', us: '$1,500 – $5,000', ours: 'Included' },
         { scope: 'Engineering hours needed', us: 'Varies', ours: 'Zero' },

@@ -6,7 +6,7 @@ import ServiceLandingPage from '@/components/ServiceLandingPage';
 export const metadata: Metadata = {
   title: 'Cold Email Agency for Marketing Agencies — Fill Your Own Pipeline',
   description:
-    'Done-for-you cold email + LinkedIn outreach for marketing agencies. We fill your retainer pipeline while you serve clients. From $1,000/mo, no setup fee.',
+    'Done-for-you cold email + LinkedIn outreach for marketing agencies. We fill your retainer pipeline while you serve clients. From $1,700/mo, no setup fee.',
   keywords: [
     'cold email agency for marketing agencies',
     'lead generation for agencies',
@@ -86,7 +86,7 @@ export default function ColdEmailForAgenciesPage() {
         'No setup fee — included',
       ]}
       competitorComparison={[
-        { scope: 'Agency new-business DFY outbound', us: '$3,000 – $8,000/mo', ours: '$1,000/mo' },
+        { scope: 'Agency new-business DFY outbound', us: '$3,000 – $8,000/mo', ours: '$1,700/mo' },
         { scope: 'Positioning & offer help', us: 'Consulting add-on', ours: 'Included' },
         { scope: 'White-label reselling', us: 'Enterprise tier only', ours: 'Available on request' },
         { scope: 'Setup fee', us: '$1,500 – $5,000', ours: 'Included' },

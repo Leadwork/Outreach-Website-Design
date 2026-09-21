@@ -40,7 +40,7 @@ export default function Hero() {
             </CTAButton>
           </div>
           <p className="mt-6 text-sm text-neutral-500">
-            No contracts • No setup fee on pilot • Free strategy session worth $500
+            Monthly plans • 30-day cancellation notice • No setup fee on Done For You
           </p>
         </motion.div>
       </div>

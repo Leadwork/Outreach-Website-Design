@@ -6,7 +6,7 @@ import ServiceLandingPage from '@/components/ServiceLandingPage';
 export const metadata: Metadata = {
   title: 'B2B Lead Generation Services — Verified, Enriched, Ready',
   description:
-    'Done-for-you B2B lead generation. Verified, enriched contacts via multi-source waterfall. 2,000 ICP-aligned leads/month, under 2% bounce.',
+    'Done-for-you B2B lead generation. Verified, enriched contacts via multi-source waterfall. $0.20 per ICP-aligned contact, with bounce replacement.',
   keywords: [
     'B2B lead generation',
     'B2B lead generation agency',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: 'website',
     title: 'B2B Lead Generation — Pro Lead Maker',
     description:
-      'Verified, ICP-aligned B2B contact lists. 2,000 fresh leads per month, enriched across 15+ fields.',
+      'Verified, ICP-aligned B2B contact lists. $0.20 per contact, enriched across 15+ fields.',
     url: `${siteConfig.url}/services/b2b-lead-generation`,
     images: [
       { url: siteConfig.ogImage, width: 1200, height: 630, alt: 'B2B Lead Generation Services' },
@@ -43,10 +43,10 @@ export default function B2BLeadGenerationPage() {
             B2B Lead Generation That <span className="text-gradient">Actually Converts</span>
           </>
         ),
-        lead: 'Done-for-you prospect lists for B2B founders, SaaS, and SDRs. We define your ICP, source verified contacts from multiple data providers, enrich across 15+ fields, and deliver sales-ready lists every week.',
+        lead: 'Done-for-you prospect lists for B2B founders, SaaS, and SDRs. We define your ICP, source verified contacts from multiple data providers, enrich across 15+ fields, and deliver sales-ready lists on an agreed schedule at $0.20 per contact.',
       }}
       stats={[
-        { value: '2,000', label: 'Verified contacts / month' },
+        { value: '$0.20', label: 'Per verified contact' },
         { value: '<2%', label: 'Bounce rate (or we replace)' },
         { value: '15+', label: 'Enrichment fields per contact' },
         { value: '5', label: 'Data sources in our waterfall' },
@@ -79,7 +79,7 @@ export default function B2BLeadGenerationPage() {
       ]}
       whatsIncluded={[
         'ICP definition workshop (45 min)',
-        '2,000 verified B2B contacts/month',
+        'Choose your quantity at $0.20 per verified contact',
         'Multi-source waterfall enrichment',
         '15+ fields: title, LinkedIn, phone, tech stack, funding, industry',
         'Intent-based prospecting (Bombora, G2)',
@@ -88,11 +88,11 @@ export default function B2BLeadGenerationPage() {
         'Catch-all verification (up to 85% accuracy)',
         'Lookalike & competitor-customer expansion',
         'CSV / Google Sheets / direct CRM push',
-        'Weekly list refreshes',
+        'Delivery schedule agreed before your order',
         'Replace bounces free of charge',
       ]}
       competitorComparison={[
-        { scope: 'List building (2K verified contacts/mo)', us: '$500 – $1,500/mo', ours: '$297/mo' },
+        { scope: 'List building (2,000 verified contacts)', us: '$500 – $1,500', ours: '$400 ($0.20/contact)' },
         { scope: 'Single-source data (Apollo only, ZoomInfo only)', us: 'Typical agency offering', ours: 'Waterfall across 5 sources' },
         { scope: 'Enrichment fields', us: '5–8 fields', ours: '15+ fields' },
         { scope: 'Bounce replacement', us: 'Add-on cost', ours: 'Included' },

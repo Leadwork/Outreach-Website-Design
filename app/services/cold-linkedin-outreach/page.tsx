@@ -96,7 +96,7 @@ export default function ColdLinkedInOutreachPage() {
         'Monthly strategy call',
       ]}
       competitorComparison={[
-        { scope: 'LinkedIn DFY outreach', us: '$1,500 – $5,000/mo', ours: '$497/mo' },
+        { scope: 'LinkedIn DFY outreach', us: '$1,500 – $5,000/mo', ours: '$900/mo' },
         { scope: 'Profile rewrite', us: '$500 – $1,500 add-on', ours: 'Included' },
         { scope: 'Sales Navigator seat', us: 'Client pays separately', ours: 'Configured for you' },
         { scope: 'Voice note option', us: 'Premium add-on', ours: 'Included' },

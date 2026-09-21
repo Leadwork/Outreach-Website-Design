@@ -12,7 +12,7 @@ const steps = [
     icon: Wrench,
     title: 'Infrastructure & Setup',
     body:
-      'New domains, mailboxes, DNS, warmup and sending tools — fully configured so every email lands in the inbox.',
+      'New domains, mailboxes, DNS, warmup and sending tools — configured and monitored to improve inbox placement.',
   },
   {
     icon: Send,

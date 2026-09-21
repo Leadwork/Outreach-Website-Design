@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { CheckCircle2, Loader2 } from 'lucide-react';
 import { siteConfig, services } from '@/lib/site';
 
@@ -12,11 +13,20 @@ export default function ContactForm() {
 
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    setStatus('submitting');
+    if (status === 'submitting') return;
     setError(null);
 
     const form = e.currentTarget;
+    for (const field of ['name', 'message']) {
+      const input = form.elements.namedItem(field) as HTMLInputElement | HTMLTextAreaElement;
+      input.setCustomValidity(input.value.trim() ? '' : `Please enter your ${field === 'name' ? 'name' : 'message'}.`);
+    }
+    if (!form.reportValidity()) return;
+    setStatus('submitting');
     const data = new FormData(form);
+    for (const field of ['name', 'email', 'company', 'message']) {
+      data.set(field, String(data.get(field) ?? '').trim());
+    }
 
     try {
       const res = await fetch(siteConfig.formspree, {
@@ -40,7 +50,7 @@ export default function ContactForm() {
 
   if (status === 'success') {
     return (
-      <div className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
+      <div role="status" className="rounded-2xl border border-emerald-200 bg-emerald-50 p-8 text-center">
         <CheckCircle2 aria-hidden size={40} className="mx-auto text-emerald-600" />
         <h3 className="mt-3 text-xl font-bold text-neutral-900">Thanks — message received.</h3>
         <p className="mt-2 text-neutral-700">
@@ -51,7 +61,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5" noValidate>
+    <form onSubmit={onSubmit} className="space-y-5" aria-busy={status === 'submitting'}>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-neutral-900">
@@ -62,6 +72,8 @@ export default function ContactForm() {
             name="name"
             type="text"
             required
+            maxLength={200}
+            onInput={(e) => e.currentTarget.setCustomValidity('')}
             autoComplete="name"
             className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-base outline-none transition-colors focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20"
             placeholder="Jane Doe"
@@ -127,6 +139,8 @@ export default function ContactForm() {
           id="message"
           name="message"
           required
+          maxLength={5000}
+          onInput={(e) => e.currentTarget.setCustomValidity('')}
           rows={5}
           className="mt-2 w-full rounded-xl border border-neutral-200 px-4 py-3 text-base outline-none transition-colors focus:border-brand-purple focus:ring-2 focus:ring-brand-purple/20"
           placeholder="Tell us a bit about your business, current outbound and goals."
@@ -157,7 +171,8 @@ export default function ContactForm() {
         )}
       </button>
       <p className="text-xs text-neutral-500">
-        We reply within one business day. By submitting you agree to be contacted by Pro Lead Maker.
+        We reply within one business day. By submitting, you ask Pro Lead Maker to contact you about your enquiry.{' '}
+        <Link href="/privacy" className="underline underline-offset-4 hover:text-brand-purple">Read our Privacy Policy</Link>.
       </p>
     </form>
   );

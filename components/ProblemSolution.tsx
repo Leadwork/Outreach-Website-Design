@@ -14,7 +14,7 @@ const solutions = [
   'Multi-domain, warmed infrastructure with 90%+ inbox placement',
   'Hyper-personalised first lines based on real buying signals',
   'Sequenced, multi-channel outreach designed to compound replies',
-  'Dedicated sending stack that protects your primary domain forever',
+  'Separate sending domains designed to reduce risk to your primary domain',
   'Only qualified, intent-checked meetings hit your sales calendar',
   'One agency, one team, one accountable outbound engine',
 ];

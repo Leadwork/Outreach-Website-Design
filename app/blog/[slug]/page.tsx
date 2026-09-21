@@ -10,14 +10,15 @@ import { getAllPosts, getAllSlugs, getPostBySlug } from '@/lib/blog';
 import { siteConfig, services } from '@/lib/site';
 import FinalCTA from '@/components/FinalCTA';
 
-type Props = { params: { slug: string } };
+type Props = { params: Promise<{ slug: string }> };
 
 export function generateStaticParams() {
   return getAllSlugs().map((slug) => ({ slug }));
 }
 
-export function generateMetadata({ params }: Props): Metadata {
-  const post = getPostBySlug(params.slug);
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) return {};
   const url = `${siteConfig.url}/blog/${post.slug}`;
   return {
@@ -56,8 +57,9 @@ const mdxOptions = {
   },
 };
 
-export default function BlogPostPage({ params }: Props) {
-  const post = getPostBySlug(params.slug);
+export default async function BlogPostPage({ params }: Props) {
+  const { slug } = await params;
+  const post = getPostBySlug(slug);
   if (!post) notFound();
 
   const all = getAllPosts();

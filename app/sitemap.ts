@@ -41,6 +41,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/sheetkit/support',
     '/about',
     '/contact',
+    '/privacy',
   ].map((path) => ({
     url: `${base}${path}`,
     lastModified,

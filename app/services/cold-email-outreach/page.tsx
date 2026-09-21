@@ -91,7 +91,7 @@ export default function ColdEmailOutreachPage() {
         'No setup fee — included',
       ]}
       competitorComparison={[
-        { scope: 'Full DFY cold email (infra + copy + sending)', us: '$3,000 – $8,000/mo', ours: '$1,000/mo' },
+        { scope: 'Full DFY cold email (infra + copy + sending)', us: '$3,000 – $8,000/mo', ours: '$1,700/mo' },
         { scope: 'One-time setup fee', us: '$1,500 – $5,000', ours: 'Included' },
         { scope: 'Domains & mailboxes provisioned', us: '2–3 domains, 6–10 inboxes', ours: '5 domains, 15 inboxes' },
         { scope: 'Verified contacts per month', us: 'Add-on, $300+', ours: '2,000 included' },
