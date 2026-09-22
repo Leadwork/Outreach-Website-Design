@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { ArrowRight, TrendingUp } from 'lucide-react';
@@ -6,8 +7,8 @@ import { siteConfig } from '@/lib/site';
 import BlogList from '@/components/BlogList';
 import FinalCTA from '@/components/FinalCTA';
 
-export const metadata: Metadata = {
-  title: 'Cold Email Outreach Blog — Playbooks, Templates & Tactics',
+export const metadata: Metadata = withSocialMetadata({
+  title: "Cold Email & Outreach Guides",
   description:
     'Tactical articles on cold email, B2B lead generation, LinkedIn outreach, deliverability and full outbound systems — written by the operators at Pro Lead Maker.',
   alternates: { canonical: `${siteConfig.url}/blog` },
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Cold email outreach playbooks for B2B teams.',
     url: `${siteConfig.url}/blog`,
   },
-};
+});
 
 export default function BlogPage() {
   const posts = getAllPosts();
@@ -33,8 +34,8 @@ export default function BlogPage() {
             Outbound <span className="text-gradient">Playbooks & Tactics</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-600">
-            Real-world plays from the campaigns we run every day. No fluff, no theory —
-            tactics you can implement this week to lift replies and book more meetings.
+            Practical guides to targeting, outreach, and measurement. Examples are clearly
+            distinguished from documented results, with sources for provider requirements.
           </p>
         </div>
       </section>
@@ -43,14 +44,14 @@ export default function BlogPage() {
         <div className="container-px">
           <div className="grid gap-12 lg:grid-cols-12">
             <div className="lg:col-span-9">
-              <BlogList posts={posts} categories={categories} />
+              <BlogList posts={posts.map(({ slug, title, date, category, excerpt, author, readingTime }) => ({ slug, title, date, category, excerpt, author, readingTime }))} categories={categories} />
             </div>
             <aside className="lg:col-span-3">
               <div className="sticky top-24 space-y-6">
                 <div className="rounded-2xl border border-neutral-200 bg-white p-6">
                   <h2 className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-neutral-900">
                     <TrendingUp aria-hidden size={16} className="text-brand-purple" />
-                    Popular posts
+                    Latest posts
                   </h2>
                   <ul className="mt-4 space-y-3">
                     {popular.map((p) => (

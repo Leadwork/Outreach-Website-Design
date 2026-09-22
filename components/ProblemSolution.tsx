@@ -5,13 +5,13 @@ const problems = [
   'Emails landing in spam folders nobody checks',
   'Generic "Hope this finds you well" copy that gets ignored',
   'Buying a list, sending once, hearing nothing back',
-  'No infrastructure — one bounce kills the whole sender domain',
+  'No infrastructure — poor sending practices damage sender reputation',
   'Sales reps drowning in unqualified noise instead of selling',
   'Tools, copy and lists all bought separately and badly stitched together',
 ];
 
 const solutions = [
-  'Multi-domain, warmed infrastructure with 90%+ inbox placement',
+  'Authenticated sending infrastructure with placement monitoring',
   'Hyper-personalised first lines based on real buying signals',
   'Sequenced, multi-channel outreach designed to compound replies',
   'Separate sending domains designed to reduce risk to your primary domain',

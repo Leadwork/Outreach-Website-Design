@@ -4,7 +4,7 @@ export const siteConfig = {
   tagline: 'Cold Email Outreach Built To Fill Your Pipeline',
   description:
     'B2B cold email and LinkedIn outreach agency. We build full outbound systems and fill pipelines for founders, SaaS, and agencies — done for you.',
-  url: 'https://proleadmaker.com',
+  url: 'https://www.proleadmaker.com',
   ogImage: '/og-image.png',
   founder: 'MD. Al Amin',
   email: 'alamin@proleadmaker.com',
@@ -46,13 +46,13 @@ export const services = [
     description:
       'End-to-end cold email outreach for B2B teams. We build the sending infrastructure, write signal-based sequences, manage daily operations, and handle every reply — so your team only sees qualified conversations.',
     benefits: [
-      '90%+ inbox placement, monitored daily',
+      'Inbox placement monitored; volume adjusted to results',
       'Senior-written sequences, A/B tested',
       'Reply handling + meeting forwarding',
     ],
     subServices: [
       'Email infrastructure setup (lookalike domains, mailboxes, SPF/DKIM/DMARC, tracking domain)',
-      'Inbox warmup management (2–3 weeks structured ramp)',
+      'Sending-readiness checks and gradual volume ramp',
       'Sequence copywriting & A/B testing (4+ variations)',
       'Daily sending across multi-domain rotation',
       'Reply triage & appointment setting',
@@ -68,7 +68,7 @@ export const services = [
     benefits: [
       'Profile that converts visitors to conversations',
       'Multi-touch sequences with voice notes',
-      'LinkedIn ToS-compliant (Closely.io / HeyReach)',
+      'Workflow and account risks reviewed before launch',
     ],
     subServices: [
       'Profile audit & optimisation (headline, banner, About, featured)',
@@ -84,19 +84,19 @@ export const services = [
     title: 'B2B Lead Generation',
     short: 'Verified, ICP-aligned contact lists — enriched and ready to send.',
     description:
-      'Done-for-you B2B lead generation. We define your ICP, source verified contacts via multi-source waterfall, enrich across 15+ fields, and hand you sales-ready lists every week. Foundation for both email and LinkedIn campaigns.',
+      'Done-for-you B2B lead generation. We define your ICP, source verified contacts via multi-source waterfall, enrich agreed fields, and deliver lists on an agreed schedule. Foundation for both email and LinkedIn campaigns.',
     benefits: [
       'Multi-source waterfall (Apollo, ZoomInfo, Cognism, Clay, Hunter)',
-      'Email + LinkedIn + phone + tech-stack fields',
-      'Under 2% bounce rate, replaced free of charge',
+      'Work email and agreed enrichment fields, subject to coverage',
+      'Email verification and free bounce replacement',
     ],
     subServices: [
       'ICP workshop & target list definition',
-      'Intent-based prospecting (Bombora, G2)',
-      'Signal-based prospecting (30+ buying triggers)',
+      'Intent data where available and agreed in scope',
+      'Relevant public business signals',
       'Email finding & SMTP-level verification',
-      'Catch-all email verification (up to 85% accuracy)',
-      'Data enrichment (15+ firmographic & technographic fields)',
+      'Catch-all risk flags and separate review',
+      'Agreed firmographic and technographic fields',
     ],
   },
 ] as const;

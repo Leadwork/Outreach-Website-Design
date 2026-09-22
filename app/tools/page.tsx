@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import { ExternalLink } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
@@ -17,8 +18,8 @@ function getLogoDomain(t: Tool): string {
   }
 }
 
-export const metadata: Metadata = {
-  title: 'The Best Cold Outreach Tools — Curated By Pro Lead Maker',
+export const metadata: Metadata = withSocialMetadata({
+  title: "Cold Outreach Tools",
   description:
     'A hand-picked stack of the email finders, verifiers, warmup tools, sending platforms, CRMs and enrichment services we actually use to run outbound campaigns.',
   alternates: { canonical: `${siteConfig.url}/tools` },
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
     description: 'Curated cold outreach stack with categories, use cases and links.',
     url: `${siteConfig.url}/tools`,
   },
-};
+});
 
 type Tool = {
   name: string;
@@ -61,7 +62,7 @@ const groups: { category: string; tools: Tool[] }[] = [
   {
     category: 'Email Verification',
     tools: [
-      { name: 'MillionVerifier', description: 'Bulk email verification with 99% accuracy.', useCase: 'Go-to for cleaning large list dumps.', url: 'https://millionverifier.com' },
+      { name: 'MillionVerifier', description: 'Bulk email verification with risk classifications.', useCase: 'Go-to for cleaning large list dumps.', url: 'https://millionverifier.com' },
       { name: 'NeverBounce', description: 'Real-time and bulk email verification.', useCase: 'Best for API-integrated verification workflows.', url: 'https://neverbounce.com' },
       { name: 'ZeroBounce', description: 'Verification + scoring + catch-all detection.', useCase: 'Solid all-rounder with strong catch-all logic.', url: 'https://zerobounce.net' },
       { name: 'Bouncer', description: 'GDPR-friendly email verification with team workflows.', useCase: 'Great for EU clients who care about compliance.', url: 'https://usebouncer.com' },
@@ -188,7 +189,7 @@ export default function ToolsPage() {
             </h2>
             <p className="mt-4 text-lg text-neutral-600">
               Paste your subject line below — we'll score it instantly on length, spam triggers,
-              personalisation and urgency. Pure client-side, no signup, no email gate.
+              personalisation and urgency. A client-side writing heuristic, not a prediction of delivery, opens, or replies. No signup required.
             </p>
           </div>
           <div className="mx-auto mt-10 max-w-2xl">

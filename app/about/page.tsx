@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { Linkedin, Sparkles } from 'lucide-react';
@@ -33,8 +34,8 @@ const breadcrumbLd = {
   ],
 };
 
-export const metadata: Metadata = {
-  title: 'About — The Outbound Specialist Behind Your Pipeline',
+export const metadata: Metadata = withSocialMetadata({
+  title: "About Pro Lead Maker",
   description:
     'Meet Pro Lead Maker — founded and run by MD. Al Amin, a cold email and LinkedIn outreach specialist focused on deliverability and pipeline outcomes for B2B teams.',
   alternates: { canonical: `${siteConfig.url}/about` },
@@ -43,7 +44,7 @@ export const metadata: Metadata = {
     description: 'The specialist behind the outbound machines.',
     url: `${siteConfig.url}/about`,
   },
-};
+});
 
 const values = [
   {
@@ -52,7 +53,7 @@ const values = [
   },
   {
     title: 'Speed of execution',
-    body: 'Most agencies take 8 weeks to launch. We do it in 3-5. Speed compounds — pipeline today beats pipeline next quarter.',
+    body: 'We agree a launch plan after reviewing your accounts, target audience, and copy. Sending starts when the infrastructure and approvals are ready.',
   },
   {
     title: 'Total transparency',
@@ -60,7 +61,7 @@ const values = [
   },
   {
     title: 'Trust over transactions',
-    body: 'Most of our clients stay 12+ months. That only happens when you stop selling and start partnering.',
+    body: 'We earn ongoing work through clear communication, agreed deliverables, and honest reporting.',
   },
 ];
 
@@ -118,8 +119,8 @@ export default function AboutPage() {
                 Meet <span className="text-gradient">MD. Al Amin</span>
               </h2>
               <p className="mt-5 text-lg leading-relaxed text-neutral-700">
-                MD. Al Amin started Pro Lead Maker in 2020 with one belief: most B2B outbound is broken
-                because most agencies treat it as a service to sell — not a system to operate.
+                MD. Al Amin started Pro Lead Maker in 2020 with one belief: effective B2B outreach needs
+                careful research, a clear offer, and consistent follow-through.
               </p>
               <p className="mt-4 text-lg leading-relaxed text-neutral-700">
                 1,000+ delivered orders later, he's still hands-on — running strategy calls,

@@ -3,10 +3,10 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { Search, Calendar, ArrowRight } from 'lucide-react';
-import type { BlogPost } from '@/lib/blog';
+import type { BlogSummary } from '@/lib/blog';
 
 type Props = {
-  posts: BlogPost[];
+  posts: BlogSummary[];
   categories: string[];
 };
 
@@ -78,15 +78,7 @@ export default function BlogList({ posts, categories }: Props) {
         )}
         {filtered.map((p) => (
           <article key={p.slug} className="card flex h-full flex-col">
-            <div
-              aria-hidden
-              className="aspect-[16/9] w-full rounded-xl"
-              style={{
-                backgroundImage:
-                  'linear-gradient(135deg, rgba(233,30,140,0.15) 0%, rgba(192,38,211,0.15) 50%, rgba(124,58,237,0.15) 100%)',
-              }}
-            />
-            <div className="mt-5 flex items-center gap-3 text-xs text-neutral-500">
+            <div className="flex flex-wrap items-center gap-3 text-xs text-neutral-500">
               <span className="rounded-full bg-brand-purple/10 px-2.5 py-1 font-semibold text-brand-purple">
                 {p.category}
               </span>

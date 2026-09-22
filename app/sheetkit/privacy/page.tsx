@@ -1,11 +1,12 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialMetadata({
   title: { absolute: "SheetKit Privacy Policy | ProLeadMaker Tools" },
   description: "How SheetKit processes and protects spreadsheet data, permissions, temporary previews and support requests.",
   alternates: { canonical: 'https://www.proleadmaker.com/sheetkit/privacy' },
   openGraph: { title: "SheetKit Privacy Policy | ProLeadMaker Tools", description: "How SheetKit processes and protects spreadsheet data, permissions, temporary previews and support requests.", url: 'https://www.proleadmaker.com/sheetkit/privacy', type: 'website' },
   twitter: { card: 'summary', title: "SheetKit Privacy Policy | ProLeadMaker Tools", description: "How SheetKit processes and protects spreadsheet data, permissions, temporary previews and support requests." }
-};
+});
 
 export default function PrivacyPage() {
   return <article className="prose-blog mx-auto max-w-3xl py-14">

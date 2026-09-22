@@ -1,11 +1,12 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialMetadata({
   title: { absolute: "SheetKit - Remove Duplicates, Merge, Change Case" },
   description: "Remove duplicate rows, merge values and change text case in Google Sheets. A free add-on by ProLeadMaker Tools.",
   alternates: { canonical: 'https://www.proleadmaker.com/sheetkit' },
   openGraph: { title: "SheetKit - Remove Duplicates, Merge, Change Case", description: "Remove duplicate rows, merge values and change text case in Google Sheets. A free add-on by ProLeadMaker Tools.", url: 'https://www.proleadmaker.com/sheetkit', type: 'website' },
   twitter: { card: 'summary', title: "SheetKit - Remove Duplicates, Merge, Change Case", description: "Remove duplicate rows, merge values and change text case in Google Sheets. A free add-on by ProLeadMaker Tools." }
-};
+});
 
 import Link from 'next/link';
 const features = [

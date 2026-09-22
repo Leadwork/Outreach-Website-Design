@@ -17,7 +17,7 @@ export default function BlogPreview() {
               Outbound <span className="text-gradient">Insights & Playbooks</span>
             </h2>
             <p className="mt-3 text-lg text-neutral-600">
-              Tactics, templates and tear-downs from the campaigns we run every day.
+              Practical guides, clearly labeled examples, and tools for planning your outreach.
             </p>
           </div>
           <Link href="/blog" className="btn-secondary">
@@ -29,15 +29,7 @@ export default function BlogPreview() {
           {posts.map((p, i) => (
             <Reveal key={p.slug} delay={i * 0.06}>
               <article className="card flex h-full flex-col">
-                <div
-                  aria-hidden
-                  className="aspect-[16/9] w-full rounded-xl bg-brand-gradient-soft"
-                  style={{
-                    backgroundImage:
-                      'linear-gradient(135deg, rgba(233,30,140,0.15) 0%, rgba(192,38,211,0.15) 50%, rgba(124,58,237,0.15) 100%)',
-                  }}
-                />
-                <div className="mt-5 flex items-center gap-3 text-xs text-neutral-500">
+                <div className="flex flex-wrap items-center gap-3 text-xs text-neutral-500">
                   <span className="rounded-full bg-brand-purple/10 px-2.5 py-1 font-semibold text-brand-purple">
                     {p.category}
                   </span>

@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Check, ArrowRight } from 'lucide-react';
@@ -7,7 +8,7 @@ import FinalCTA from '@/components/FinalCTA';
 import Reveal from '@/components/Reveal';
 
 // ── Page Metadata ──────────────────────────────────────────────────────────────
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialMetadata({
   title: 'Cold Email Agency — B2B Outbound Done For You',
   description:
     'Specialist B2B cold email agency. We build the infrastructure, write the copy, build lists, send, and handle replies — done for you. From $1,700/mo.',
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/cold-email-agency`,
     images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: 'Pro Lead Maker Cold Email Agency' }],
   },
-};
+});
 
 // ── Structured Data ────────────────────────────────────────────────────────────
 const pageUrl = `${siteConfig.url}/cold-email-agency`;
@@ -86,7 +87,7 @@ const faqJsonLd = {
       name: 'How is Pro Lead Maker different from other cold email agencies?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We specialise exclusively in cold email and outbound — it\'s all we do. We use signal-based and intent-based prospecting, which means every email is timed to a real buying trigger. We do not promise specific monthly meeting counts (meeting volume depends on your offer, deal size, and ICP), but we do guarantee a fully-built system, 90%+ inbox placement, daily operations, and quality control on every reply we forward.',
+        text: 'We specialise exclusively in cold email and outbound — it\'s all we do. We use signal-based and intent-based prospecting, which means every email is timed to a real buying trigger. We do not promise specific monthly meeting counts (meeting volume depends on your offer, deal size, and ICP), but we do guarantee the agreed system, placement monitoring, daily operations, and quality control on every reply we forward.',
       },
     },
     {
@@ -94,7 +95,7 @@ const faqJsonLd = {
       name: 'How long does it take to start getting meetings?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Most clients book their first qualified meetings in weeks 3-5. The first two weeks cover infrastructure setup, warmup, list building, and copy. From week 3 onward we\'re live and optimising.',
+        text: "We agree a launch plan after reviewing infrastructure, targeting, and copy approvals. Sending ramps gradually after readiness checks. Reply and meeting timing depend on the audience and offer; no timeline is guaranteed.",
       },
     },
     {
@@ -113,7 +114,7 @@ const deliverables = [
   { title: 'Cold Email Infrastructure', body: 'Secondary domains, mailboxes, SPF/DKIM/DMARC, and warmup — all configured correctly from day one.' },
   { title: 'ICP & List Building', body: 'We define your ideal customer profile, source contacts, and verify every email before it touches a domain.' },
   { title: 'Signal-Based Copywriting', body: 'Every sequence is written around a real buying trigger — not a generic template.' },
-  { title: 'Sending & Deliverability', body: '1,000+ daily sends with 90%+ inbox placement, monitored and maintained continuously.' },
+  { title: 'Sending & Deliverability', body: 'Sending volume is agreed for your package and adjusted to delivery and reply quality. Higher-volume campaigns require a separate scope.' },
   { title: 'Reply Management', body: 'Trained reply handlers qualify inbound responses and book meetings directly to your calendar.' },
   { title: 'Weekly Reporting', body: 'Open dashboards, weekly calls, and full transparency — no black-box agency behaviour.' },
 ];
@@ -122,7 +123,7 @@ const stats = [
   { value: '1,000+', label: 'Freelance orders delivered' },
   { value: '100K+', label: 'Verified B2B contacts built' },
   { value: '2020', label: 'Running outbound since' },
-  { value: '90%+', label: 'Inbox placement target' },
+  { value: 'Monitored', label: 'Delivery signals and inbox placement' },
 ];
 
 const industries = [
@@ -154,7 +155,7 @@ export default function ColdEmailAgencyPage() {
             </CTAButton>
           </div>
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-500">
-            {['No long-term contracts', 'Founder-led campaigns', '90%+ inbox placement'].map((t) => (
+            {['No long-term contracts', 'Founder-led campaigns', 'Inbox placement monitoring'].map((t) => (
               <span key={t} className="inline-flex items-center gap-1.5">
                 <Check aria-hidden size={14} className="text-brand-purple" />
                 {t}

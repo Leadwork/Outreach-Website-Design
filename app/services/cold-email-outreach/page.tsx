@@ -1,12 +1,13 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import { Mail } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import ServiceLandingPage from '@/components/ServiceLandingPage';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialMetadata({
   title: 'Cold Email Outreach Services — Done For You',
   description:
-    'Done-for-you cold email outreach for B2B teams. Infrastructure, copy, sending, and reply handling in one. 90%+ inbox placement, no long contracts.',
+    'Done-for-you cold email outreach for B2B teams. Infrastructure, copy, sending, and reply handling in one. Placement monitoring, with clear monthly terms.',
   keywords: [
     'cold email outreach',
     'cold email service',
@@ -27,7 +28,7 @@ export const metadata: Metadata = {
       { url: siteConfig.ogImage, width: 1200, height: 630, alt: 'Cold Email Outreach Services' },
     ],
   },
-};
+});
 
 export default function ColdEmailOutreachPage() {
   return (
@@ -45,19 +46,19 @@ export default function ColdEmailOutreachPage() {
         lead: 'End-to-end cold email for B2B founders, SaaS, and agencies. We buy and set up the infrastructure, write the sequences, manage daily sending, and forward every positive reply to your inbox.',
       }}
       stats={[
-        { value: '90%+', label: 'Inbox placement rate' },
-        { value: '<2%', label: 'Bounce rate (or we replace)' },
+        { value: 'Monitored', label: 'Delivery signals and inbox placement' },
+        { value: 'Verified', label: 'Emails checked; bounces replaced' },
         { value: '5', label: 'Domains per campaign (lookalikes)' },
         { value: '15', label: 'Inboxes warmed & ready' },
       ]}
       features={[
         {
           title: 'Lookalike sending infrastructure',
-          body: '5 secondary domains (variants of your brand), 15 mailboxes, full SPF/DKIM/DMARC, custom tracking domain — so your primary domain is never at risk.',
+          body: '5 secondary domains (variants of your brand), 15 mailboxes, full SPF/DKIM/DMARC, custom tracking domain — to reduce direct exposure of your primary domain but does not eliminate risk.',
         },
         {
           title: 'Structured warmup',
-          body: '2–3 weeks of intelligent inbox warmup before any real campaign — using premium warmup tools and ongoing reputation monitoring.',
+          body: "We review authentication, mailbox readiness, and provider feedback before launch. Volume ramps gradually; preparation can take longer when accounts or delivery signals need attention.",
         },
         {
           title: 'Signal-based copywriting',
@@ -65,7 +66,7 @@ export default function ColdEmailOutreachPage() {
         },
         {
           title: 'Multi-domain rotation',
-          body: 'Daily sends are spread across all 5 domains with smart throttling so no single inbox burns out and overall volume stays high.',
+          body: "Sending is distributed across the supplied accounts within the agreed allowance. We monitor provider feedback and pause or reduce activity when issues appear.",
         },
         {
           title: 'Reply handling that books meetings',
@@ -73,7 +74,7 @@ export default function ColdEmailOutreachPage() {
         },
         {
           title: 'Weekly performance reporting',
-          body: 'Open rates, reply rates, meeting rates, deliverability score — delivered every Monday with a 30-min review call available on request.',
+          body: "Weekly reporting separates contacts reached, sends, delivery errors, positive replies, and meetings. Open tracking, where used, is an imperfect diagnostic rather than a measure of human interest.",
         },
       ]}
       whatsIncluded={[
@@ -81,7 +82,7 @@ export default function ColdEmailOutreachPage() {
         '15 inboxes (Google Workspace or M365)',
         'SPF / DKIM / DMARC configured',
         'Custom tracking domain',
-        '2–3 weeks inbox warmup',
+        'Readiness checks and gradual sending ramp',
         'Sending tool (Lemlist / Instantly / Smartlead / Plusvibe)',
         '2,000 fresh verified contacts/month',
         'Email verification (under 2% bounce)',
@@ -100,19 +101,19 @@ export default function ColdEmailOutreachPage() {
       faqs={[
         {
           q: 'How is this different from buying Instantly or Smartlead myself?',
-          a: 'Tools like Instantly and Smartlead are the sending engine. We provide everything else — the domains, the warmup, the contacts, the copy, the daily sending operations, and the reply handling. The tool is ~10% of what makes cold email work; we handle the other 90%.',
+          a: "Sending tools execute campaigns. We also provide the listed infrastructure, contact data, approved copy, daily operations, reply handling, and reporting. See the package details for scope and allowances.",
         },
         {
           q: 'Will my main domain be safe?',
-          a: 'Yes. We never send from your primary domain. We register lookalike domains (e.g. tryyourbrand.com, getyourbrand.io) that mirror your brand. Even if a campaign hits a spam complaint, your real domain reputation is untouched.',
+          a: "Separate sending domains reduce direct exposure of your primary domain. They do not eliminate reputation, deliverability, or brand risk. We monitor delivery signals and pause or adjust sending when problems appear.",
         },
         {
           q: 'How long until campaigns are live?',
-          a: 'Week 1: domains registered, DNS configured. Week 2: inboxes set up, warmup begins. Week 3: ICP/list/copy approved, first real sends. We cannot promise a meeting timeline — that depends on your offer, deal size, and market.',
+          a: "We prepare domains, authentication, targeting, and approved copy first. The initial launch is planned after readiness checks, with a gradual sending ramp. New accounts or delivery problems can extend setup; meeting timing is not guaranteed.",
         },
         {
           q: 'Do you guarantee a number of meetings?',
-          a: 'No. Anyone promising "X meetings per month" upfront is either inflating numbers or hiding caveats. Meeting volume depends on factors outside our control (offer, deal size, market, ICP fit). What we guarantee: the system, daily operations, transparent reporting, and quality control on every reply we forward.',
+          a: 'No. Meeting volume depends on factors outside our control (offer, deal size, market, ICP fit). What we guarantee: the system, daily operations, transparent reporting, and quality control on every reply we forward.',
         },
         {
           q: 'What sending tool do you use?',

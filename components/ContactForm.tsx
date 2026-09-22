@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { CheckCircle2, Loader2 } from 'lucide-react';
-import { siteConfig, services } from '@/lib/site';
+import { siteConfig } from '@/lib/site';
 
 type Status = 'idle' | 'submitting' | 'success' | 'error';
 
@@ -61,7 +61,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-5" aria-busy={status === 'submitting'}>
+    <form id="enquiry" onSubmit={onSubmit} className="scroll-mt-24 space-y-5" aria-busy={status === 'submitting'}>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="block text-sm font-semibold text-neutral-900">
@@ -122,10 +122,8 @@ export default function ContactForm() {
           <option value="" disabled>
             Select a service…
           </option>
-          {services.map((s) => (
-            <option key={s.slug} value={s.title}>
-              {s.title}
-            </option>
+          {['Done For You — $1,700/month', 'LinkedIn Outreach — $900/month', 'Outreach Management — $1,200/month', 'List Building & Enrichment — $0.20/contact'].map((name) => (
+            <option key={name} value={name}>{name}</option>
           ))}
           <option value="Not sure yet">Not sure yet</option>
         </select>

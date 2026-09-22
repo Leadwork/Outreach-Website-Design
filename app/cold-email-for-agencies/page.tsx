@@ -1,10 +1,11 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import { Briefcase } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import ServiceLandingPage from '@/components/ServiceLandingPage';
 
-export const metadata: Metadata = {
-  title: 'Cold Email Agency for Marketing Agencies — Fill Your Own Pipeline',
+export const metadata: Metadata = withSocialMetadata({
+  title: "Cold Email & LinkedIn for Agencies",
   description:
     'Done-for-you cold email + LinkedIn outreach for marketing agencies. We fill your retainer pipeline while you serve clients. From $1,700/mo, no setup fee.',
   keywords: [
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/cold-email-for-agencies`,
     images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: 'Cold Email for Agencies' }],
   },
-};
+});
 
 export default function ColdEmailForAgenciesPage() {
   return (
@@ -36,15 +37,15 @@ export default function ColdEmailForAgenciesPage() {
         eyebrow: 'For Marketing & Creative Agencies',
         h1: (
           <>
-            The Cobbler&apos;s Children Finally Get <span className="text-gradient">New Shoes</span>
+            Cold Email &amp; LinkedIn Outreach <span className="text-gradient">For Agencies</span>
           </>
         ),
         lead: "You fill your clients' pipelines but yours runs on referrals and luck. We fix that. Done-for-you cold email and LinkedIn outreach that books qualified new-business calls for marketing, creative, and digital agencies.",
       }}
       stats={[
-        { value: '100%', label: 'Focus on serving your clients' },
+        { value: 'Managed', label: 'Day-to-day campaign operations' },
         { value: '2,000', label: 'Verified prospect contacts/mo' },
-        { value: '90%+', label: 'Inbox placement rate' },
+        { value: 'Monitored', label: 'Delivery signals and inbox placement' },
         { value: 'White', label: 'Label friendly on request' },
       ]}
       features={[
@@ -70,7 +71,7 @@ export default function ColdEmailForAgenciesPage() {
         },
         {
           title: 'Run alongside referrals',
-          body: 'Outbound becomes your predictable pipeline floor, so a slow referral month never turns into a revenue crisis. Forecast new business instead of hoping for it.',
+          body: "Outbound gives your agency another way to reach suitable accounts alongside referrals. We report conversations and opportunities so you can evaluate its contribution to new business.",
         },
       ]}
       whatsIncluded={[
@@ -99,7 +100,7 @@ export default function ColdEmailForAgenciesPage() {
         },
         {
           q: "Won't cold email make our agency look spammy?",
-          a: "Only if it's done badly. We send low-volume, highly-targeted, well-written outreach from lookalike domains — not mass blasts from your main domain. Done right, recipients experience it as a relevant, personal note. Your primary domain and reputation stay protected.",
+          a: "Only if it's done badly. We send low-volume, highly-targeted, well-written outreach from lookalike domains — not mass blasts from your main domain. Done right, recipients experience it as a relevant, personal note. Separate sending domains reduce direct exposure, but cannot eliminate reputation risk.",
         },
         {
           q: 'We already get referrals. Why add outbound?',
@@ -111,7 +112,7 @@ export default function ColdEmailForAgenciesPage() {
         },
         {
           q: 'How is this different from hiring an in-house SDR?',
-          a: "An in-house SDR costs $4–6K/month in salary plus tools, takes weeks to ramp, and you manage them. We're a full team — copy, data, deliverability, sending, reply handling — for less, with no ramp time and no management overhead. And you can pause month-to-month.",
+          a: "An in-house SDR costs $4–6K/month in salary plus tools, takes weeks to ramp, and you manage them. We're a full team — copy, data, deliverability, sending, reply handling — for less, with setup, sending, and reporting managed for you. And you can pause month-to-month.",
         },
       ]}
     />

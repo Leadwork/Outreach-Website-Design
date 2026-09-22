@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Check, X, ArrowRight } from 'lucide-react';
@@ -18,7 +19,7 @@ const faqJsonLd = {
       name: 'How long until we start seeing meetings booked?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'For most clients, first qualified meetings hit the calendar between week 3 and week 5. Weeks 1-2 are spent on infrastructure, warmup, list-building and copy. Once we launch, expect a steady ramp as we test and optimise.',
+        text: 'We first prepare infrastructure, targeting, and approved copy. We agree the launch date after readiness checks and ramp gradually. Reply and meeting timing vary with your audience and offer; no meeting timeline is guaranteed.',
       },
     },
     {
@@ -31,10 +32,10 @@ const faqJsonLd = {
     },
     {
       '@type': 'Question',
-      name: 'What is the difference between Cold Email Setup and Full Outreach System?',
+      name: 'What is the difference between Done For You and Outreach Management?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Cold Email Setup is the infrastructure layer — domains, mailboxes, DNS, warmup. Full Outreach System is the entire engine including strategy, lists, copy, sending and reply management. Setup is a project, Full System is an ongoing service.',
+        text: 'Done For You supplies the listed infrastructure, tools, data, and campaign operations for $1,700/month. Outreach Management is $1,200/month and uses your existing tools or data, with additions quoted first. List-only work is $0.20/contact and excludes managed outreach.',
       },
     },
     {
@@ -42,7 +43,7 @@ const faqJsonLd = {
       name: 'Will my primary domain get burned?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'No. We always send from secondary domains — typically variations on your brand name with proper redirects. Your primary domain stays protected for transactional and existing-client communication.',
+        text: 'Risk cannot be eliminated. We send from secondary domains — typically variations on your brand name with proper redirects. This reduces direct exposure of your primary domain, but does not eliminate sending or reputation risk.',
       },
     },
     {
@@ -50,7 +51,7 @@ const faqJsonLd = {
       name: 'Can you guarantee a specific number of meetings?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: "No — and anyone promising a fixed number upfront is either inflating it or hiding caveats. Meeting volume depends on your offer, deal size, market timing, and ICP fit — factors outside our control. What we do guarantee: a fully-built system, daily operations, weekly testing, transparent reporting, ongoing optimisation, and quality control on every reply we forward.",
+        text: "No. Meeting volume depends on your offer, deal size, market timing, and ICP fit — factors outside our control. Our commitment is to your agreed package deliverables and transparent reporting. Managed outreach includes campaign operations and reply handling; list-only orders include data verification and replacement conditions, not campaign management.",
       },
     },
     {
@@ -58,7 +59,7 @@ const faqJsonLd = {
       name: 'How are you priced?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'We offer two pricing models: a monthly retainer for ongoing services, or a pay-per-meeting option for select clients. Setup-only projects are quoted as a one-time fee. Book a call and we will scope something that fits.',
+        text: 'Done For You is $1,700/month, LinkedIn Outreach $900/month, and Outreach Management $1,200/month. List Building & Enrichment is $0.20/contact. Other requirements are scoped separately before work starts.',
       },
     },
     {
@@ -81,8 +82,8 @@ const breadcrumbLd = {
   ],
 };
 
-export const metadata: Metadata = {
-  title: 'Cold Email Outreach & B2B Lead Generation Services',
+export const metadata: Metadata = withSocialMetadata({
+  title: "Cold Email, LinkedIn & Lead Generation",
   description:
     'Three core services for B2B teams: cold email outreach, cold LinkedIn outreach, and B2B lead generation. Done for you, end to end.',
   alternates: { canonical: `${siteConfig.url}/services` },
@@ -92,32 +93,32 @@ export const metadata: Metadata = {
       'Done-for-you cold email outreach, appointment setting, LinkedIn lead generation and full outbound systems.',
     url: `${siteConfig.url}/services`,
   },
-};
+});
 
 const faqs = [
   {
     q: 'How long until we start seeing meetings booked?',
-    a: 'For most clients, first qualified meetings hit the calendar between week 3 and week 5. Weeks 1-2 are spent on infrastructure, warmup, list-building and copy. Once we launch, expect a steady ramp as we test and optimise.',
+    a: 'We first prepare infrastructure, targeting, and approved copy. We agree the launch date after readiness checks and ramp gradually. Reply and meeting timing vary with your audience and offer; no meeting timeline is guaranteed.',
   },
   {
     q: 'Do you work with companies outside the US, UK and Europe?',
     a: 'Our core focus is US, UK and EU markets, but we run successful campaigns into Canada, Australia, the Nordics and parts of APAC. Reach out and we will tell you honestly whether your target market is a good fit.',
   },
   {
-    q: 'What is the difference between Cold Email Setup and Full Outreach System?',
-    a: 'Cold Email Setup is the infrastructure layer — domains, mailboxes, DNS, warmup. Full Outreach System is the entire engine including strategy, lists, copy, sending and reply management. Setup is a project, Full System is an ongoing service.',
+    q: 'What is the difference between Done For You and Outreach Management?',
+    a: 'Done For You supplies the listed infrastructure, tools, data, and campaign operations for $1,700/month. Outreach Management is $1,200/month and uses your existing tools or data, with additions quoted first. List-only work is $0.20/contact and excludes managed outreach.',
   },
   {
     q: 'Will my primary domain get burned?',
-    a: 'No. We always send from secondary domains — typically variations on your brand name with proper redirects. Your primary domain stays protected for transactional and existing-client communication.',
+    a: 'Risk cannot be eliminated. We send from secondary domains — typically variations on your brand name with proper redirects. This reduces direct exposure of your primary domain, but does not eliminate sending or reputation risk.',
   },
   {
     q: 'Can you guarantee a specific number of meetings?',
-    a: "No — and anyone promising a fixed number upfront is either inflating it or hiding caveats. Meeting volume depends on your offer, deal size, market timing, and ICP fit — factors outside our control. What we do guarantee: a fully-built system, daily operations, weekly testing, transparent reporting, ongoing optimisation, and quality control on every reply we forward.",
+    a: "No. Meeting volume depends on your offer, deal size, market timing, and ICP fit — factors outside our control. Our commitment is to your agreed package deliverables and transparent reporting. Managed outreach includes campaign operations and reply handling; list-only orders include data verification and replacement conditions, not campaign management.",
   },
   {
     q: 'How are you priced?',
-    a: 'We offer two pricing models: a monthly retainer for ongoing services, or a pay-per-meeting option for select clients. Setup-only projects are quoted as a one-time fee. Book a call and we will scope something that fits.',
+    a: 'Done For You is $1,700/month, LinkedIn Outreach $900/month, and Outreach Management $1,200/month. List Building & Enrichment is $0.20/contact. Other requirements are scoped separately before work starts.',
   },
   {
     q: 'Do we own the domains and infrastructure you set up?',
@@ -227,8 +228,8 @@ export default function ServicesPage() {
               DIY Outreach <span className="text-gradient">vs. Pro Lead Maker</span>
             </h2>
             <p className="mt-4 text-lg text-neutral-600">
-              The honest difference between running outbound in-house and handing it to a team
-              that does this every day for dozens of B2B companies.
+              Compare the responsibilities your team would own with the work included in
+              your managed outreach package.
             </p>
           </div>
 
@@ -249,13 +250,13 @@ export default function ServicesPage() {
               </thead>
               <tbody className="divide-y divide-neutral-100 text-sm">
                 {[
-                  ['Infrastructure setup', '4-6 weeks of trial and error', 'Done in 5-7 days, deliverability tested'],
-                  ['Copywriting', 'Generic templates, low replies', 'Signal-based, written by senior copywriters'],
-                  ['List building', 'Manual scraping, high bounce rates', 'Multi-source, enriched, verified'],
-                  ['Reply handling', 'Inbox chaos, missed leads', 'Trained reply handlers, fast turnarounds'],
-                  ['Deliverability', '40-60% inbox placement', '90%+ inbox placement, monitored daily'],
-                  ['Reporting', 'Spreadsheet guesswork', 'Weekly dashboards with clear KPIs'],
-                  ['Time to first meeting', '8-12 weeks', '3-5 weeks'],
+                  ['Infrastructure setup', 'Your team plans and configures accounts', 'Setup and readiness checks in agreed scope'],
+                  ['Copywriting', 'Your team writes and reviews copy', 'Signal-based, written by senior copywriters'],
+                  ['List building', 'Your team sources and verifies data', 'Multi-source, enriched, verified'],
+                  ['Reply handling', 'Your team owns response coverage', 'Trained reply handlers, fast turnarounds'],
+                  ['Deliverability', 'Your team monitors delivery signals', 'Inbox placement monitoring and gradual volume adjustments'],
+                  ['Reporting', 'Your team defines and maintains reporting', 'Weekly dashboards with clear KPIs'],
+                  ['Launch timing', 'Depends on readiness and approvals', 'Agreed after readiness checks'],
                   ['Cost', 'Tools + payroll + opportunity cost', 'Predictable monthly investment'],
                 ].map((row) => (
                   <tr key={row[0]}>
@@ -264,7 +265,7 @@ export default function ServicesPage() {
                     </th>
                     <td className="px-5 py-4 text-neutral-600">
                       <span className="inline-flex items-center gap-1">
-                        <X aria-hidden size={14} className="text-red-500" />
+
                         {row[1]}
                       </span>
                     </td>

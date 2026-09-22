@@ -24,7 +24,7 @@ const steps = [
     icon: TrendingUp,
     title: 'Book & Scale',
     body:
-      'Our reply handlers qualify and book meetings on your calendar. We then scale volume without breaking deliverability.',
+      'Our reply handlers qualify and book meetings on your calendar. We review delivery and reply quality before increasing volume.',
   },
 ];
 
@@ -35,11 +35,11 @@ export default function HowItWorks() {
         <div className="mx-auto max-w-3xl text-center">
           <span className="eyebrow">How it works</span>
           <h2 className="h-section mt-4">
-            From <span className="text-gradient">Zero To Pipeline</span> In 30 Days
+            From Strategy To <span className="text-gradient">Live Outreach</span>
           </h2>
           <p className="mt-4 text-lg text-neutral-600">
-            A predictable, four-step rollout that takes you from kickoff to qualified meetings
-            on the calendar — without your team lifting a finger.
+            A four-step rollout with targeting and copy approved by you. We plan setup and a gradual
+            launch around account readiness, then review replies and results together.
           </p>
         </div>
 

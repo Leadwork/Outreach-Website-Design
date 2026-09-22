@@ -1,12 +1,13 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import { Linkedin } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import ServiceLandingPage from '@/components/ServiceLandingPage';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialMetadata({
   title: 'Cold LinkedIn Outreach Services — From Your Profile',
   description:
-    'Done-for-you LinkedIn outreach from your profile. Profile optimisation, Sales Nav, multi-touch sequences, voice notes, reply handling. ToS-compliant.',
+    'Done-for-you LinkedIn outreach from your profile. Profile optimisation, Sales Nav, multi-touch sequences, voice notes, reply handling. Account risks and workflow reviewed before launch.',
   keywords: [
     'cold LinkedIn outreach',
     'LinkedIn lead generation',
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
       },
     ],
   },
-};
+});
 
 export default function ColdLinkedInOutreachPage() {
   return (
@@ -50,10 +51,10 @@ export default function ColdLinkedInOutreachPage() {
         lead: 'A predictable LinkedIn pipeline run from your own profile. We optimise your profile, build the target lists, write the sequences, send the messages, and forward every positive reply to your inbox.',
       }}
       stats={[
-        { value: '~1,800', label: 'LinkedIn touches/month' },
-        { value: '20–35%', label: 'Connection acceptance rate' },
-        { value: '5–12%', label: 'Reply rate on connected prospects' },
-        { value: '100%', label: 'LinkedIn ToS-compliant' },
+        { value: '$900', label: 'LinkedIn Outreach / month' },
+        { value: 'Weekly', label: 'Reporting on replies and activity' },
+        { value: 'Agreed', label: 'Profile count and activity scope' },
+        { value: 'Reviewed', label: 'Account risks before launch' },
       ]}
       features={[
         {
@@ -65,8 +66,8 @@ export default function ColdLinkedInOutreachPage() {
           body: 'Saved searches built around your exact ICP — title, company size, region, hiring signals, tech stack, funding events. Refreshed every week as the market shifts.',
         },
         {
-          title: 'ToS-compliant automation',
-          body: 'We run via Closely.io / HeyReach with conservative daily limits (under LinkedIn safety thresholds) — zero account ban risk, residential IPs, smooth ramp.',
+          title: 'Workflow and account-risk review',
+          body: "We review tools, permissions, and account risks before launch. LinkedIn prohibits unauthorized third-party automation, including activity that mimics human behavior. No tool or daily limit eliminates restriction risk.",
         },
         {
           title: 'Multi-touch sequences',
@@ -74,7 +75,7 @@ export default function ColdLinkedInOutreachPage() {
         },
         {
           title: 'Voice notes on high-value targets',
-          body: 'For top-tier prospects, we record short voice notes from your profile — engagement is 3–5× higher than text alone. We share a script and tone guide so it feels like you.',
+          body: "For selected prospects, we help script a short, relevant voice note for you to record. We compare responses with text messages rather than assuming a fixed performance lift.",
         },
         {
           title: 'Email integration',
@@ -85,8 +86,8 @@ export default function ColdLinkedInOutreachPage() {
         'LinkedIn profile audit & optimisation',
         'Headline + banner + About + featured rewrite',
         'Sales Navigator setup + saved searches',
-        'Closely.io / HeyReach automation',
-        '1,500–2,000 targeted LinkedIn contacts/month',
+        'Outreach workflow agreed before launch',
+        'Activity plan with unique prospects and follow-ups reported separately',
         'Multi-touch sequence (connection + 4 messages)',
         'Voice note option for high-value targets',
         'A/B tested messaging',
@@ -98,18 +99,18 @@ export default function ColdLinkedInOutreachPage() {
       competitorComparison={[
         { scope: 'LinkedIn DFY outreach', us: '$1,500 – $5,000/mo', ours: '$900/mo' },
         { scope: 'Profile rewrite', us: '$500 – $1,500 add-on', ours: 'Included' },
-        { scope: 'Sales Navigator seat', us: 'Client pays separately', ours: 'Configured for you' },
+        { scope: 'Sales Navigator seat', us: 'Client pays separately', ours: 'License quoted separately if needed' },
         { scope: 'Voice note option', us: 'Premium add-on', ours: 'Included' },
         { scope: 'Contract length', us: '3–6 months minimum', ours: 'Month-to-month' },
       ]}
       faqs={[
         {
           q: 'Is LinkedIn automation safe? Will my profile get banned?',
-          a: "Yes — when done right. We use Closely.io and HeyReach (both run via residential IPs, mimic human behaviour, and stay under LinkedIn's daily limits). We never use scrape tools, gray-zone APIs, or bot extensions. In 5+ years of running LinkedIn outreach for clients, we have not had a single permanent ban.",
+          a: "No LinkedIn automation tool can promise freedom from restrictions. LinkedIn prohibits unauthorized third-party tools that automate its website. We explain the proposed workflow and account risks before any activity begins; conservative limits do not make an unauthorized tool compliant.",
         },
         {
           q: "What's the difference between Sales Navigator and Premium?",
-          a: 'Premium is for individual job seekers and recruiters — it has limited search filters. Sales Navigator has advanced filters (job title, seniority, company size, technology, hiring signals, account lists) that are essential for B2B prospecting. We strongly recommend Sales Navigator for any serious LinkedIn outreach.',
+          a: "LinkedIn offers several Premium products. Sales Navigator is designed for sales prospecting, with lead and account search features. We review whether you need it; its license is quoted separately if required.",
         },
         {
           q: 'Do you send messages from my profile or a fake one?',
@@ -117,23 +118,23 @@ export default function ColdLinkedInOutreachPage() {
         },
         {
           q: 'How long until I see results?',
-          a: "Week 1: profile optimised, Sales Nav configured. Week 2: warmup sends (low daily volume), sequence approval. Week 3+: full sending volume. Replies typically start within the first 2 weeks of full sending — but we don't promise a specific number, that depends on your offer and ICP.",
+          a: "We begin with profile review, targeting, and your approval of messages. Activity starts after the workflow and account readiness are reviewed. Replies and meetings depend on the audience and offer, so neither a result count nor a timeline is guaranteed.",
         },
         {
           q: 'Can I do LinkedIn and Email outreach together?',
-          a: "Absolutely — and we recommend it. Pair this with our Cold Email Outreach service for orchestrated multichannel sequences. A prospect who sees your message on LinkedIn and your email the next day responds 2–3× more often than from a single channel. Combined cost is still less than most agencies' single-channel pricing.",
+          a: "Yes. Done For You combines email and LinkedIn within one agreed scope. We coordinate messages and stop follow-ups when someone replies or opts out. Results vary, and adding a channel does not guarantee a reply-rate increase.",
         },
         {
           q: 'What about voice notes — do I record them?',
-          a: 'You record them once per template (usually 10–15 second snippets). We script the message, you record on your phone, send us the audio file. We then send those voice notes via LinkedIn to your highest-value targets. Reply rates on voice notes are typically 3–5× text messages.',
+          a: "You record the voice notes. We help with a script and select relevant prospects, then agree how the notes will be delivered. Personalize the recording where appropriate; a response lift is not guaranteed.",
         },
         {
           q: 'Do you guarantee a number of meetings?',
-          a: 'No. Meeting volume depends on your offer, deal size, market timing, and ICP fit — factors we cannot honestly control. What we guarantee: profile optimisation, daily operations within LinkedIn ToS, transparent reporting, and quality control on every reply we forward.',
+          a: 'No. Meeting volume depends on your offer, deal size, market timing, and ICP fit — factors we cannot honestly control. What we guarantee: profile optimisation, operations within the agreed scope, transparent reporting, and quality control on every reply we forward.',
         },
         {
           q: 'What if a prospect responds negatively?',
-          a: "We handle it for you. Negative replies are politely closed out (no argument, no spam follow-up). Off-ICP replies are passed back to LinkedIn. Only positive replies and real meeting requests hit your inbox — so you don't waste time on noise.",
+          a: "We handle it for you. Negative replies are politely closed out (no argument, no spam follow-up). Off-ICP replies are logged and excluded from qualified handoffs. Only positive replies and real meeting requests hit your inbox — so you don't waste time on noise.",
         },
       ]}
     />

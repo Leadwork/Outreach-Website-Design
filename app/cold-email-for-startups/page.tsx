@@ -1,10 +1,11 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import { Rocket } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import ServiceLandingPage from '@/components/ServiceLandingPage';
 
-export const metadata: Metadata = {
-  title: 'Cold Email Agency for B2B Founders & Startups — Pipeline Before You Hire',
+export const metadata: Metadata = withSocialMetadata({
+  title: "Cold Email for B2B Founders & Startups",
   description:
     'Done-for-you cold email + LinkedIn outreach for B2B founders. From $1,700/mo, with 30 days of notice to cancel.',
   keywords: [
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/cold-email-for-startups`,
     images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: 'Cold Email for Startups' }],
   },
-};
+});
 
 export default function ColdEmailForStartupsPage() {
   return (
@@ -42,9 +43,9 @@ export default function ColdEmailForStartupsPage() {
         lead: "You're the founder, the closer, and the product team. You don't have time to build outbound from scratch — and it's too early to hire a sales team. We become your outbound engine so you can take calls, not build campaigns.",
       }}
       stats={[
-        { value: '$1K', label: 'Per month — less than half an SDR' },
-        { value: '0', label: 'Hours of your time after setup' },
-        { value: '3 wks', label: 'From kickoff to live sending' },
+        { value: '$1,700', label: 'Done For You / month' },
+        { value: 'Weekly', label: 'Reporting and feedback' },
+        { value: 'Phased', label: 'Launch after readiness checks' },
         { value: '30-day', label: 'Cancellation — no lock-in' },
       ]}
       features={[
@@ -54,7 +55,7 @@ export default function ColdEmailForStartupsPage() {
         },
         {
           title: 'Cheaper than a single hire',
-          body: 'An in-house SDR is $4–6K/month plus tools, plus ramp time, plus management. We are a full team — copy, data, sending, replies — for $1,700/month, live in 3 weeks, no management.',
+          body: 'An in-house SDR is $4–6K/month plus tools, plus ramp time, plus management. We are a full team — copy, data, sending, replies — for $1,700/month, with a phased launch and regular client feedback.',
         },
         {
           title: 'Outreach from your profile',
@@ -88,7 +89,7 @@ export default function ColdEmailForStartupsPage() {
       competitorComparison={[
         { scope: 'Founder-friendly DFY outbound', us: '$3,000 – $8,000/mo', ours: '$1,700/mo' },
         { scope: 'In-house SDR (salary + tools + ramp)', us: '$5,000 – $7,000/mo', ours: '$1,700/mo' },
-        { scope: 'Time to live', us: '8–12 weeks (hiring)', ours: '3 weeks' },
+        { scope: 'Time to live', us: '8–12 weeks (hiring)', ours: 'Agreed after readiness review' },
         { scope: 'Setup fee', us: '$1,500 – $5,000', ours: 'Included' },
         { scope: 'Commitment', us: 'Salaried hire / 3–6mo contract', ours: 'Month-to-month' },
       ]}
@@ -103,7 +104,7 @@ export default function ColdEmailForStartupsPage() {
         },
         {
           q: 'Why not just hire an SDR?',
-          a: "An SDR costs $4–6K/month, takes 8–12 weeks to hire and ramp, needs tools, and needs managing — a lot for an early-stage founder. We're a full team for $1,700/month, live in 3 weeks, with no management overhead. When you're ready to hire, we hand over a proven playbook.",
+          a: "An SDR costs $4–6K/month, takes 8–12 weeks to hire and ramp, needs tools, and needs managing — a lot for an early-stage founder. We're a full team for $1,700/month, with day-to-day operations managed for you. When you're ready to hire, we hand over a proven playbook.",
         },
         {
           q: 'Can outreach come from my personal profile?',

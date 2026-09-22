@@ -17,7 +17,7 @@ export default function FinalCTA() {
             <p className="mt-4 text-lg leading-relaxed text-neutral-300">
               Book a free 30-minute strategy call. We'll audit your current outbound, identify
               the biggest revenue leak, and show you exactly how we'd build a pipeline you can
-              forecast — no pitch, no obligation.
+              forecast — no obligation.
             </p>
             <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
               <a

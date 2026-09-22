@@ -1,12 +1,13 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { siteConfig } from '@/lib/site';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialMetadata({
   title: 'Privacy Policy',
   description: 'How Pro Lead Maker handles website enquiries, bookings, analytics, and live chat.',
   alternates: { canonical: `${siteConfig.url}/privacy` },
-};
+});
 
 export default function PrivacyPage() {
   return (
@@ -28,7 +29,7 @@ export default function PrivacyPage() {
           <li><strong>Formspree</strong> processes the information you submit through the contact form.</li>
           <li><strong>Calendly</strong> provides call scheduling, including the embedded calendar on the contact page, and processes booking information.</li>
           <li><strong>BrandJet</strong> provides website analytics and may process page views, interactions, and technical visit information.</li>
-          <li><strong>Tawk.to</strong> provides live chat and may process visit information and messages you submit.</li>
+          <li><strong>Tawk.to</strong> loads when you choose live chat and may then process visit information and messages you submit.</li>
           <li><strong>WhatsApp and linked social platforms</strong> process information when you choose to use them.</li>
         </ul>
         <p>These providers process information under their own terms and privacy policies. Their infrastructure may be located outside your country, including outside Bangladesh. Information may also be disclosed when required to comply with applicable obligations or protect the service.</p>

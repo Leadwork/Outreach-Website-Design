@@ -1,10 +1,11 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import { Mail, Phone, MessageCircle, Calendar, Linkedin, Facebook, Instagram, Twitter } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import ContactForm from '@/components/ContactForm';
 import CalendlyEmbed from '@/components/CalendlyEmbed';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialMetadata({
   title: 'Contact — Talk To Pro Lead Maker',
   description:
     'Get in touch with Pro Lead Maker. Send a message, book a free strategy call on Calendly, or chat instantly via WhatsApp.',
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
     description: 'Book a free strategy call or send us a message.',
     url: `${siteConfig.url}/contact`,
   },
-};
+});
 
 const TikTokIcon = () => (
   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden focusable="false">
@@ -157,7 +158,7 @@ export default function ContactPage() {
               Pick A Time On <span className="text-gradient">Our Calendar</span>
             </h2>
             <p className="mt-3 text-lg text-neutral-600">
-              30-minute strategy call — no pitch, no obligation. We'll audit your outbound and show you
+              30-minute strategy call — no obligation. We'll audit your outbound and show you
               exactly how we'd build a pipeline you can forecast.
             </p>
           </div>

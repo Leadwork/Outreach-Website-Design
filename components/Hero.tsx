@@ -29,7 +29,7 @@ export default function Hero() {
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-neutral-600 sm:text-xl">
             Pro Lead Maker designs, launches and runs full cold email systems for B2B
             agencies, SaaS and service businesses — booking qualified sales meetings
-            on autopilot in the US, UK and Europe.
+            with targeting and copy approved by you, for the US, UK and Europe.
           </p>
           <div className="mt-9 flex flex-col items-center justify-center gap-3 sm:flex-row">
             <CTAButton href={siteConfig.calendly} external>

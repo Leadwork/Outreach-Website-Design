@@ -25,3 +25,15 @@ Your content here…
 ```
 
 See the top-level `README.md` for full details on fields, deployment, and editing other parts of the site.
+
+
+## Editorial checks before publication
+
+- Label hypothetical numbers and templates as illustrative; never describe them as real campaign results.
+- Publish results only with evidence, permission, dates, sample size, metric definitions, and limitations.
+- Link provider requirements to official documentation. Distinguish internal preferences from provider rules.
+- Check prices, terms, features, and billing periods against current vendor sources; otherwise omit the figure.
+- Do not claim guaranteed inbox placement, platform compliance, or freedom from restrictions.
+- Align package names, prices, allowance units, scope, and timelines with the pricing page.
+- Use one shared end-of-article CTA; do not add another booking block in MDX.
+- Preserve established slugs when updating content; set updatedAt to the actual review date.

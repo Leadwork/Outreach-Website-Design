@@ -1,10 +1,11 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import { Server } from 'lucide-react';
 import { siteConfig } from '@/lib/site';
 import ServiceLandingPage from '@/components/ServiceLandingPage';
 
-export const metadata: Metadata = {
-  title: 'Cold Email Agency for SaaS Companies — Pipeline On Demand',
+export const metadata: Metadata = withSocialMetadata({
+  title: "Cold Email & LinkedIn for B2B SaaS",
   description:
     'Done-for-you cold email + LinkedIn outreach for B2B SaaS. We book ICP-matched demos while your team ships product. From $1,700/mo, no setup fee.',
   keywords: [
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/cold-email-for-saas`,
     images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: 'Cold Email for SaaS' }],
   },
-};
+});
 
 export default function ColdEmailForSaaSPage() {
   return (
@@ -44,7 +45,7 @@ export default function ColdEmailForSaaSPage() {
       stats={[
         { value: '$5K+', label: 'Ideal deal size for outbound ROI' },
         { value: '2,000', label: 'Verified SaaS-buyer contacts/mo' },
-        { value: '90%+', label: 'Inbox placement rate' },
+        { value: 'Monitored', label: 'Delivery signals and inbox placement' },
         { value: '0', label: 'Engineering hours required' },
       ]}
       features={[
@@ -107,11 +108,11 @@ export default function ColdEmailForSaaSPage() {
         },
         {
           q: 'Will outbound hurt our domain reputation?',
-          a: 'No — we never send from your primary domain. We use lookalike sending domains so your main domain (used for product emails, support, and existing customers) stays completely protected.',
+          a: 'There is still risk. We do not use your primary domain for cold sending. We use lookalike sending domains so your main domain (used for product emails, support, and existing customers) has reduced direct sending exposure, although reputation risk remains.',
         },
         {
           q: 'How fast can we launch?',
-          a: 'Infrastructure and warmup take the first 2 weeks. Live sending typically starts in week 3. We do not promise a specific demo count — that depends on your ICP, offer, and ACV — but the system is built and operating from day one.',
+          a: "We prepare infrastructure, targeting, and copy first, then agree a launch after readiness checks. Sending ramps gradually. Approval delays or account issues may extend preparation; a demo count or meeting timeline is not guaranteed.",
         },
       ]}
     />

@@ -4,7 +4,7 @@ import Script from 'next/script';
 import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import WhatsAppButton from '@/components/WhatsAppButton';
+import ContactLauncher from '@/components/ContactLauncher';
 import { siteConfig } from '@/lib/site';
 
 const inter = Inter({
@@ -127,11 +127,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     '@type': 'WebSite',
     name: siteConfig.name,
     url: siteConfig.url,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${siteConfig.url}/blog?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
   };
 
   return (
@@ -146,7 +141,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <Navbar />
         <main id="main">{children}</main>
         <Footer />
-        <WhatsAppButton />
+        <ContactLauncher />
         <script
           id="ld-org"
           type="application/ld+json"
@@ -165,20 +160,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           data-website-id="d711050c-d4f1-4514-bf85-fb7f2eadac4c"
           data-domain="proleadmaker.com"
         />
-        {/* Tawk.to live chat — loads after page interactive to protect LCP */}
-        <Script id="tawk-to" strategy="lazyOnload">
-          {`
-            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-            (function(){
-              var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-              s1.async = true;
-              s1.src = 'https://embed.tawk.to/6a1edbd370d12c1c2fdf3eca/1jq48lda6';
-              s1.charset = 'UTF-8';
-              s1.setAttribute('crossorigin', '*');
-              s0.parentNode.insertBefore(s1, s0);
-            })();
-          `}
-        </Script>
+
       </body>
     </html>
   );

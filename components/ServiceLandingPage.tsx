@@ -34,7 +34,7 @@ export default function ServiceLandingPage({
   competitorComparison,
   testimonialQuote,
 }: ServiceLandingProps) {
-  const pageUrl = `${siteConfig.url}/services/${slug}`;
+  const pageUrl = `${siteConfig.url}${slug.startsWith('cold-email-for-') ? '' : '/services'}/${slug}`;
 
   const serviceJsonLd = {
     '@context': 'https://schema.org',
@@ -204,12 +204,12 @@ export default function ServiceLandingPage({
       <section className="section">
         <div className="container-px">
           <div className="mx-auto max-w-3xl text-center">
-            <span className="eyebrow">Why we&apos;re different</span>
+            <span className="eyebrow">Package details</span>
             <h2 className="h-section mt-4">
-              Same Outcome, <span className="text-gradient">Honest Pricing</span>
+              Clear Scope, <span className="text-gradient">Honest Pricing</span>
             </h2>
             <p className="mt-4 text-lg text-neutral-600">
-              How typical US and UK agencies price equivalent work in 2026.
+              Confirm deliverables, allowances, and any additions before work starts.
             </p>
           </div>
 
@@ -219,9 +219,6 @@ export default function ServiceLandingPage({
                 <tr>
                   <th scope="col" className="px-5 py-4 text-sm font-semibold text-neutral-900">
                     Scope
-                  </th>
-                  <th scope="col" className="px-5 py-4 text-sm font-semibold text-neutral-900">
-                    Typical US / UK Agency
                   </th>
                   <th scope="col" className="px-5 py-4 text-sm font-semibold text-brand-purple">
                     Pro Lead Maker
@@ -234,7 +231,6 @@ export default function ServiceLandingPage({
                     <th scope="row" className="px-5 py-4 font-semibold text-neutral-900">
                       {row.scope}
                     </th>
-                    <td className="px-5 py-4 text-neutral-600">{row.us}</td>
                     <td className="px-5 py-4 font-medium text-neutral-900">
                       <span className="inline-flex items-center gap-1.5">
                         <Check aria-hidden size={14} className="text-brand-purple" />
@@ -281,13 +277,12 @@ export default function ServiceLandingPage({
               <Shield aria-hidden size={26} />
             </span>
             <h2 className="mt-5 text-3xl font-bold text-neutral-900 sm:text-4xl">
-              What We Actually Guarantee
+              Our Quality Commitment
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-neutral-700">
-              We do <strong>not</strong> promise a specific number of meetings — anyone who does is
-              setting a number they cannot honestly control. What we{' '}
-              <strong>do</strong> guarantee: a fully-built system, daily operations, weekly
-              testing, transparent reporting, and quality control on every reply we forward.
+              {slug === 'b2b-lead-generation'
+                ? 'List-only orders include the agreed targeting, fields, email verification, delivery, and free replacement of bounced contacts. We confirm quantity, coverage, delivery dates, and replacement conditions before your order. Sending infrastructure, campaign operations, and reply handling are not included.'
+                : 'We commit to the deliverables listed for your package, transparent reporting, and quality checks on the replies we forward. Meeting volume and inbox placement depend on your audience, offer, sending history, and provider decisions; neither is guaranteed.'}
             </p>
             <div className="mt-6">
               <CTAButton>Book a Free Strategy Call</CTAButton>

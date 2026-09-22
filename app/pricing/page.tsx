@@ -1,3 +1,4 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import {
@@ -18,8 +19,8 @@ import FinalCTA from '@/components/FinalCTA';
 import Reveal from '@/components/Reveal';
 
 // ── Page Metadata ──────────────────────────────────────────────────────────────
-export const metadata: Metadata = {
-  title: 'Pricing — Cold Email & LinkedIn Outreach Packages',
+export const metadata: Metadata = withSocialMetadata({
+  title: "Outreach Pricing & Packages",
   description:
     'Transparent cold outreach pricing for B2B teams. Done-for-you multichannel from $1,700/mo, plus LinkedIn-only, management, and list-building plans.',
   keywords: [
@@ -40,7 +41,7 @@ export const metadata: Metadata = {
     url: `${siteConfig.url}/pricing`,
     images: [{ url: siteConfig.ogImage, width: 1200, height: 630, alt: 'Pro Lead Maker Pricing' }],
   },
-};
+});
 
 // ── Packages ───────────────────────────────────────────────────────────────────
 const packages = [
@@ -48,20 +49,20 @@ const packages = [
     key: 'done-for-you',
     name: 'Done For You',
     icon: Sparkles,
-    audience: 'For founders & teams who want zero hassle',
+    audience: 'For founders & teams who want managed outreach',
     price: pricing.doneForYou,
     priceLabel: formatPrice(pricing.doneForYou),
     period: '/month',
     badge: 'MOST POPULAR',
-    summary: 'We buy and set everything up. You just take the sales meetings.',
-    target: '~2,000 cold sends + LinkedIn touches / month',
+    summary: 'We provide and manage the listed setup. You approve targeting and copy, review feedback, and take sales calls.',
+    target: '~2,000 combined sends and touches / month, including follow-ups',
     features: [
       '5 separate sending domains to reduce risk to your main domain',
       '15 inboxes, fully set up',
       'Complete email infrastructure: SPF, DKIM, DMARC, custom tracking domain',
-      'Inbox warmup (2–3 weeks before real sending)',
+      'Mailbox readiness checks and a gradual sending ramp',
       'Cold email sending tool (Lemlist, Instantly, Smartlead or Plusvibe)',
-      'Closely.io for LinkedIn connections & messaging from your profile',
+      'LinkedIn workflow and tools agreed before launch',
       '2,000 fresh, verified contacts every month',
       'Email verification on all contacts',
       '4+ email sequence variations — written with your input & A/B tested',
@@ -82,12 +83,12 @@ const packages = [
     period: '/month',
     badge: null,
     summary: 'A–Z LinkedIn outreach from your profile. We provide tools, write copy, send, manage replies.',
-    target: '~1,500–2,000 LinkedIn touches / month',
+    target: 'Activity allowance agreed after account review',
     features: [
       'LinkedIn Sales Navigator strategy + saved searches',
-      'Closely.io / HeyReach automation, compliant with LinkedIn ToS',
+      'Outreach tools and account risks reviewed before launch',
       'Profile audit & optimisation (headline, banner, About, featured)',
-      '1,500–2,000 targeted LinkedIn contacts/month',
+      'Unique prospects and follow-up activity reported separately',
       'Multi-touch sequence: connection → message → 3 follow-ups',
       'Voice note option for higher-value targets',
       'A/B tested messaging — written with your tone',
@@ -138,9 +139,9 @@ const packages = [
       'Verified B2B contacts at $0.20 each — choose your quantity',
       'Multi-source waterfall: Apollo, ZoomInfo, Cognism, Clay, Hunter',
       'Email verification, with bounced contacts replaced free',
-      '15+ enrichment fields: title, LinkedIn URL, phone, company size, tech stack, funding, industry',
-      'Lookalike & competitor-customer expansion',
-      'CSV / Google Sheets / direct CRM push (HubSpot, Pipedrive, Salesforce)',
+      'Agreed enrichment fields; phone, tech stack, and funding subject to availability',
+      'Lookalike targeting where suitable data is available',
+      'CSV / Google Sheets delivery; CRM mapping agreed before order',
       'Delivery schedule agreed before your order',
       'Replace bounces free of charge',
     ],
@@ -175,7 +176,7 @@ const idealClients = [
   },
   {
     title: 'In-house Sales Teams',
-    body: 'Teams with existing SDRs and tools that just need fresh, clean lists every week.',
+    body: 'Teams with existing SDRs and tools that just need fresh, clean lists on an agreed schedule.',
     pkg: 'List Building & Enrichment',
   },
 ];
@@ -200,7 +201,7 @@ const faqs = [
   },
   {
     q: 'How long until campaigns are live?',
-    a: 'Weeks 1–2 cover infrastructure setup, inbox warmup, list-building, and copy. Live sending typically begins in week 3, with steady optimisation from there. We cannot promise a meeting timeline — that depends on your offer, ICP, market, and deal size.',
+    a: "We agree an initial launch plan after reviewing account readiness, targeting, and copy approvals. New domains and mailboxes need a gradual ramp and delivery checks. Setup or sending may be extended if issues appear; meeting timing is not guaranteed.",
   },
   {
     q: 'What quality control do you offer on replies?',
@@ -287,15 +288,18 @@ export default function PricingPage() {
       {/* Hero */}
       <section className="relative isolate overflow-hidden bg-white pt-28 lg:pt-32">
         <div className="gradient-mesh" aria-hidden />
-        <div className="container-px relative z-10 pb-16 text-center">
+        <div className="container-px relative z-10 pb-8 sm:pb-12 text-center">
           <span className="eyebrow">Pricing</span>
           <h1 className="h-display mt-4">
-            Outreach Pricing That <span className="text-gradient">Pays For Itself</span>
+            Clear Pricing For <span className="text-gradient">Your Outreach</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-neutral-600">
             Four transparent packages built for B2B founders, SaaS, and agencies. No long-term
             contracts: monthly plans have a 30-day cancellation notice. List building is priced per contact.
           </p>
+          <nav aria-label="Jump to a package" className="mx-auto mt-6 grid max-w-3xl grid-cols-2 gap-2 text-left sm:grid-cols-4">
+            {packages.map((p) => <a key={p.key} href={`#${p.key}`} className="rounded-xl border border-white/80 bg-white/80 p-3 text-sm text-neutral-900 hover:bg-white"><span className="block font-semibold">{p.name}</span><span className="mt-1 block">{p.priceLabel}{p.period}</span></a>)}
+          </nav>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-sm text-neutral-500">
             {[
               'No setup fees',
@@ -325,7 +329,7 @@ export default function PricingPage() {
                   <article
                     id={p.key}
                     className={[
-                      'relative flex h-full flex-col rounded-3xl border p-6 shadow-sm transition-shadow hover:shadow-lg',
+                      'scroll-mt-24 relative flex h-full flex-col rounded-3xl border p-6 shadow-sm transition-shadow hover:shadow-lg',
                       isPopular
                         ? 'border-brand-purple bg-brand-gradient-soft ring-2 ring-brand-purple/40'
                         : 'border-neutral-200 bg-white',
@@ -385,6 +389,8 @@ export default function PricingPage() {
                     <div className="mt-6 pt-2">
                       <CTAButton
                         variant={isPopular ? 'primary' : 'secondary'}
+                        href={p.key === 'list-building' ? '/contact#enquiry' : siteConfig.calendly}
+                        external={p.key !== 'list-building'}
                         withArrow={false}
                       >
                         {p.cta}
@@ -432,7 +438,7 @@ export default function PricingPage() {
                   {[
                     'Multi-region outbound',
                     'Multi-language sequences',
-                    '10K+ daily sends',
+                    'Custom sending volume after readiness review',
                     'Dedicated SDR team',
                     'White-label reporting',
                     'Custom CRM integrations',
@@ -518,66 +524,13 @@ export default function PricingPage() {
 
       {/* Comparison: Pro Lead Maker vs Other Agencies */}
       <section className="section">
-        <div className="container-px">
-          <div className="mx-auto max-w-3xl text-center">
-            <span className="eyebrow">Why we are priced this way</span>
-            <h2 className="h-section mt-4">
-              Compare Scope, <span className="text-gradient">Then Compare Price</span>
-            </h2>
-            <p className="mt-4 text-lg text-neutral-600">
-              Indicative pricing ranges for context. Providers differ in scope, volume, and terms; confirm current quotes before comparing.
-            </p>
+        <div className="container-px mx-auto max-w-4xl">
+          <h2 className="h-section">Understand Your Allowance</h2>
+          <div className="mt-6 space-y-4 text-neutral-700">
+            <p>A contact is a unique prospect record. A send or touch is an outreach action; each follow-up counts again. Done For You includes approximately 2,000 combined email sends and LinkedIn touches per month, including follow-ups, alongside 2,000 delivered contact records. Not every record will necessarily be contacted that month.</p>
+            <p>LinkedIn profile count, activity allowance, and channel split are agreed after account review. Provider limits and account restrictions may reduce activity. Unauthorized third-party LinkedIn automation can breach its terms; tools do not remove that risk.</p>
+            <p>Sales Navigator licenses, premium intent data, field coverage, and CRM integration requirements are confirmed before work starts. Any additions are quoted first. For list orders, we agree quantity, delivery dates, and the bounce-reporting window and replacement process in writing.</p>
           </div>
-
-          <div className="mx-auto mt-12 max-w-4xl overflow-x-auto rounded-2xl border border-neutral-200 bg-white shadow-sm">
-            <table className="w-full text-left">
-              <thead className="bg-neutral-50">
-                <tr>
-                  <th scope="col" className="px-5 py-4 text-sm font-semibold text-neutral-900">
-                    Scope
-                  </th>
-                  <th scope="col" className="px-5 py-4 text-sm font-semibold text-neutral-900">
-                    US / UK Agency
-                  </th>
-                  <th scope="col" className="px-5 py-4 text-sm font-semibold text-brand-purple">
-                    Pro Lead Maker
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-neutral-100 text-sm">
-                {[
-                  ['Full multichannel (email + LinkedIn) DFY', '$3,000 – $8,000/mo', '$1,700/mo'],
-                  ['LinkedIn-only outreach', '$1,500 – $5,000/mo', '$900/mo'],
-                  ['Outreach management (you bring data/tools)', '$2,500 – $4,500/mo', '$1,200/mo'],
-                  ['List building & enrichment (2,000 contacts)', '$500 – $1,500', '$400 ($0.20/contact)'],
-                  ['Setup fee', '$1,500 – $5,000 one-time', 'Included'],
-                ].map((row) => (
-                  <tr key={row[0]}>
-                    <th scope="row" className="px-5 py-4 font-semibold text-neutral-900">
-                      {row[0]}
-                    </th>
-                    <td className="px-5 py-4 text-neutral-600">
-                      <span className="inline-flex items-center gap-1.5">
-                        <X aria-hidden size={14} className="text-red-500" />
-                        {row[1]}
-                      </span>
-                    </td>
-                    <td className="px-5 py-4 font-medium text-neutral-900">
-                      <span className="inline-flex items-center gap-1.5">
-                        <Check aria-hidden size={14} className="text-brand-purple" />
-                        {row[2]}
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-
-          <p className="mx-auto mt-6 max-w-2xl text-center text-sm text-neutral-500">
-            Benchmarks averaged from public 2026 pricing of Belkins, Cleverly, Cience, Revboss,
-            LevelUp Leads, Sopro, HeyReach, and Clay.
-          </p>
         </div>
       </section>
 
@@ -595,9 +548,8 @@ export default function PricingPage() {
               Our Quality Commitment
             </h2>
             <p className="mt-4 text-lg leading-relaxed text-neutral-700">
-              We do <strong>not</strong> promise a specific number of meetings — anyone who does is
-              setting a number they can&apos;t honestly control. What we{' '}
-              <strong>do</strong> guarantee: a fully-built outbound system, daily operations,
+              We do <strong>not</strong> promise a specific number of meetings. What we{' '}
+              <strong>do</strong> guarantee: the deliverables agreed for your package, daily campaign operations,
               weekly testing, transparent reporting, and quality control on replies for managed outreach packages. List-only orders include verification and free replacement of bounced contacts.
             </p>
             <p className="mt-4 text-sm text-neutral-600">

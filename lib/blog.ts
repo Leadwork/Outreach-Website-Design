@@ -23,6 +23,8 @@ export type BlogPost = BlogFrontmatter & {
   wordCount: number;
 };
 
+export type BlogSummary = Omit<BlogPost, 'content' | 'wordCount'>;
+
 export function getAllSlugs(): string[] {
   if (!fs.existsSync(BLOG_DIR)) return [];
   return fs

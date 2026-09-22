@@ -1,11 +1,12 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialMetadata({
   title: { absolute: "SheetKit Help and Support | ProLeadMaker Tools" },
   description: "Get help with duplicate rows, merging values, text case and SheetKit installation.",
   alternates: { canonical: 'https://www.proleadmaker.com/sheetkit/support' },
   openGraph: { title: "SheetKit Help and Support | ProLeadMaker Tools", description: "Get help with duplicate rows, merging values, text case and SheetKit installation.", url: 'https://www.proleadmaker.com/sheetkit/support', type: 'website' },
   twitter: { card: 'summary', title: "SheetKit Help and Support | ProLeadMaker Tools", description: "Get help with duplicate rows, merging values, text case and SheetKit installation." }
-};
+});
 
 export default function SupportPage() {
   return <article className="prose-blog mx-auto max-w-3xl py-14">

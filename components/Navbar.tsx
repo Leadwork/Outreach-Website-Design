@@ -2,12 +2,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { navLinks, siteConfig } from '@/lib/site';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -22,6 +23,14 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = '';
     };
+  }, [open]);
+
+  useEffect(() => {
+    const closeOnEscape = (e: KeyboardEvent) => { if (e.key === 'Escape' && open) { setOpen(false); menuButton.current?.focus(); } };
+    const closeOnResize = () => { if (window.innerWidth >= 1024) setOpen(false); };
+    document.addEventListener('keydown', closeOnEscape);
+    window.addEventListener('resize', closeOnResize);
+    return () => { document.removeEventListener('keydown', closeOnEscape); window.removeEventListener('resize', closeOnResize); };
   }, [open]);
 
   return (
@@ -72,6 +81,7 @@ export default function Navbar() {
           type="button"
           aria-label={open ? 'Close menu' : 'Open menu'}
           aria-expanded={open}
+          ref={menuButton}
           onClick={() => setOpen((v) => !v)}
           className="rounded-md p-2 text-neutral-700 lg:hidden"
         >

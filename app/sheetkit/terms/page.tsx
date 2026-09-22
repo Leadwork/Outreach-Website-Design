@@ -1,11 +1,12 @@
+import { withSocialMetadata } from '@/lib/metadata';
 import type { Metadata } from 'next';
-export const metadata: Metadata = {
+export const metadata: Metadata = withSocialMetadata({
   title: { absolute: "SheetKit Terms of Service | ProLeadMaker Tools" },
   description: "Terms for using SheetKit spreadsheet tools provided by ProLeadMaker Tools.",
   alternates: { canonical: 'https://www.proleadmaker.com/sheetkit/terms' },
   openGraph: { title: "SheetKit Terms of Service | ProLeadMaker Tools", description: "Terms for using SheetKit spreadsheet tools provided by ProLeadMaker Tools.", url: 'https://www.proleadmaker.com/sheetkit/terms', type: 'website' },
   twitter: { card: 'summary', title: "SheetKit Terms of Service | ProLeadMaker Tools", description: "Terms for using SheetKit spreadsheet tools provided by ProLeadMaker Tools." }
-};
+});
 
 export default function TermsPage() {
   return <article className="prose-blog mx-auto max-w-3xl py-14">

@@ -8,7 +8,6 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import remarkGfm from 'remark-gfm';
 import { getAllPosts, getAllSlugs, getPostBySlug } from '@/lib/blog';
 import { siteConfig, services } from '@/lib/site';
-import FinalCTA from '@/components/FinalCTA';
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -63,8 +62,9 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) notFound();
 
   const all = getAllPosts();
-  const idx = all.findIndex((p) => p.slug === post.slug);
-  const related = all.filter((_, i) => i !== idx).slice(0, 3);
+  const related = all.filter((p) => p.slug !== post.slug)
+    .sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category))
+    .slice(0, 3);
 
   const postUrl = `${siteConfig.url}/blog/${post.slug}`;
 
@@ -151,16 +151,10 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
           </header>
 
-          <div
-            aria-hidden
-            className="my-10 aspect-[21/9] w-full rounded-2xl"
-            style={{
-              backgroundImage:
-                'linear-gradient(135deg, rgba(233,30,140,0.18) 0%, rgba(192,38,211,0.18) 50%, rgba(124,58,237,0.18) 100%)',
-            }}
-          />
+          <hr className="my-10 border-neutral-200" />
 
           <div className="mx-auto max-w-3xl">
+            {post.updatedAt && <p className="mb-6 text-sm text-neutral-500">Updated {new Date(post.updatedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })}</p>}
             <div className="prose-blog">
               <MDXRemote source={post.content} options={mdxOptions} />
             </div>
@@ -257,7 +251,6 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </section>
 
-      <FinalCTA />
 
       <script
         id={`ld-blog-${post.slug}`}

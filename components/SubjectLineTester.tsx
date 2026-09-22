@@ -28,12 +28,12 @@ function analyze(input: string) {
   const length = subject.length;
   const wordCount = subject.split(/\s+/).filter(Boolean).length;
   const lower = subject.toLowerCase();
-  const spamHits = SPAM_WORDS.filter((w) => lower.includes(w));
+  const spamHits = SPAM_WORDS.filter((w) => new RegExp(`(?:^|[^a-z0-9])${w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?=$|[^a-z0-9])`, 'i').test(lower));
   const hasPersonalisation =
-    /\{\{|\[firstName|\[FirstName|first[_ ]?name|company/i.test(subject);
+    /\{\{[^}]+\}\}|\[(?:first[_ ]?name|company)\]/i.test(subject);
   const hasQuestion = subject.includes('?');
   const hasNumbers = /\d/.test(subject);
-  const allCaps = subject.length > 4 && subject === subject.toUpperCase();
+  const allCaps = /[a-z]/i.test(subject) && subject.length > 4 && subject === subject.toUpperCase();
 
   let score = 100;
   const notes: { type: 'good' | 'warn' | 'bad'; text: string }[] = [];
@@ -58,30 +58,30 @@ function analyze(input: string) {
     score -= spamHits.length * 8;
     notes.push({
       type: 'bad',
-      text: `Spam-trigger words detected: ${spamHits.join(', ')}.`,
+      text: `Promotional wording to review: ${spamHits.join(', ')}.`,
     });
   } else {
-    notes.push({ type: 'good', text: 'No obvious spam-trigger words found.' });
+    notes.push({ type: 'good', text: 'No listed promotional phrases found.' });
   }
 
   if (hasPersonalisation) {
     score += 5;
-    notes.push({ type: 'good', text: 'Contains personalisation placeholders or merge tags — good.' });
+    notes.push({ type: 'good', text: 'Contains a possible merge tag — check its resolved value before sending.' });
   } else {
     score -= 5;
-    notes.push({ type: 'warn', text: 'No personalisation detected — add a name, company or signal.' });
+    notes.push({ type: 'warn', text: 'No merge tag detected. A relevant subject does not need one.' });
   }
 
   if (hasQuestion) {
     score += 3;
-    notes.push({ type: 'good', text: 'Question format — usually pulls higher open rates.' });
+    notes.push({ type: 'good', text: 'Question format — check that it fits the message.' });
   }
   if (hasNumbers) {
     notes.push({ type: 'good', text: 'Contains numbers — adds specificity and credibility.' });
   }
   if (allCaps) {
     score -= 15;
-    notes.push({ type: 'bad', text: 'All caps reads as shouting and triggers spam filters.' });
+    notes.push({ type: 'bad', text: 'All caps can read as shouting; consider sentence case.' });
   }
   if (wordCount > 9) {
     score -= 8;
