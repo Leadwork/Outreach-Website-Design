@@ -1,3 +1,4 @@
+
 # Pro Lead Maker — Website
 
 A production-ready, high-performance B2B agency website for **Pro Lead Maker** — built with Next.js 16 (App Router), TypeScript, Tailwind CSS, Framer Motion, and an MDX-powered blog.
@@ -207,9 +208,10 @@ This site is optimised to score 100/100 across PageSpeed Insights:
 
 ## ✦ Contact
 
-- Email — `alamin@proleadmaker.com`
+- Public contact email — `proleadmakeragency@gmail.com`
 - Founder — MD. Al Amin
 - Phone / WhatsApp — `+8801315739311`
 - LinkedIn — <https://www.linkedin.com/company/proleadmaker/>
 
 Built with care. Ship pipeline. 🚀
+

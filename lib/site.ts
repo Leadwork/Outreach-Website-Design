@@ -7,7 +7,7 @@ export const siteConfig = {
   url: 'https://www.proleadmaker.com',
   ogImage: '/og-image.png',
   founder: 'MD. Al Amin',
-  email: 'alamin@proleadmaker.com',
+  email: 'proleadmakeragency@gmail.com',
   phone: '+8801315739311',
   whatsapp: 'https://wa.me/8801315739311',
   calendly: 'https://calendly.com/alamin-proleadmaker/outreach-strategy-call',
@@ -102,3 +102,4 @@ export const services = [
 ] as const;
 
 export type Service = (typeof services)[number];
+
